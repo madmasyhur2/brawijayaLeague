@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pemain', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('foto_pemain');
-            $table->string('nama_pemain');
-            $table->integer('no_pung');
-            $table->string('posisi_pemain');
+            $table->string('judul');
+            $table->text('excerpt');
+            $table->text('isi');
+            $table->timestamps();
         });
     }
 
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pemain');
+        Schema::dropIfExists('posts');
     }
 };
