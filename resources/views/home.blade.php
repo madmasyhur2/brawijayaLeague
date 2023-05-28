@@ -2,7 +2,8 @@
 <html>
 <head>
     <title>Landing Page</title>
-    <style>
+    @vite('resources/css/app.css')
+    <!-- <style>
         body {
         font-family: Arial, sans-serif;
         margin: 0;
@@ -42,10 +43,14 @@
         p {
         color: #666;
         }
-    </style>
+    </style> -->
+    <link rel="stylesheet" href="resources/css/app.css">
 </head>
 <body>
-    <header>
+    <h1 class="text-3xl italic underline">
+        Hello world!
+    </h1>
+    <!-- <header>
         <nav>
         <div>
             <a href="/">Home</a>
@@ -77,6 +82,6 @@
         <h2>Contact Information</h2>
         <p>Email: contact@example.com</p>
         <p>Phone: 123-456-7890</p>
-    </main>
+    </main> -->
 </body>
 </html>
