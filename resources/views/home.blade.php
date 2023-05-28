@@ -1,2 +1,8 @@
 @extends('layouts.main')
-@extends('navbar.navbar')
+@include('navbar.navbar')
+
+
+
+
+@include('footer.footer')
+
