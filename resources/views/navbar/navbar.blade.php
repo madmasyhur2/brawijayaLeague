@@ -11,7 +11,7 @@
             </div>
             <div class="dropdown-content">
                 <a href="">SCHEDULES</a>
-                <a href="#">STANDINGS</a>
+                <a href="/standings">STANDINGS</a>
             </div>
         </div>
         <div class="navbar-dropdown">
