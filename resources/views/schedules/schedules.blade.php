@@ -13,11 +13,11 @@
         <div class="boardvalue-tim s32">
             <div class="tim s20">
                 <p>LIVERPOLL</p>
-                <img src="../assets/landingpage/logotim.svg" alt="">
+                <img class="m-2" src="../assets/landingpage/logotim.svg" alt="">
             </div>
             <p>VS</p>
             <div class="tim2 s20">
-                <img src="../assets/landingpage/logotim.svg" alt="">
+                <img class="m-2" src="../assets/landingpage/logotim.svg" alt="">
                 <p>MANCHASTER UNITED</p>
             </div>
         </div>
