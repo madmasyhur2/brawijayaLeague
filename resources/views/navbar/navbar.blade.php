@@ -10,7 +10,7 @@
                 <img src="../assets/Vector-V.svg">
             </div>
             <div class="dropdown-content">
-                <a href="">SCHEDULES</a>
+                <a href="/schedules">SCHEDULES</a>
                 <a href="/standings">STANDINGS</a>
             </div>
         </div>
@@ -20,15 +20,15 @@
                 <img src="../assets/Vector-V.svg">
             </div>
             <div class="dropdown-content">
-                <a href="#">TEAMS</a>
-                <a href="#">PLAYERS</a>
+                <a href="/teams">TEAMS</a>
+                <a href="/players">PLAYERS</a>
             </div>
         </div>
-        <a href="">STATISTIC</a>
-        <a href="">VIDEOS</a>
-        <a href="">NEWS</a>
-        <a href="">ABOUT US</a>
+        <a href="/statistic">STATISTIC</a>
+        <a href="/videos">VIDEOS</a>
+        <a href="/news">NEWS</a>
+        <a href="/about">ABOUT US</a>
         {{-- <a href="/signUp/index.html" class="navbar-sign-up"><p>Sign Up</p></a> --}}
-        <a href="/login/index.html" class="navbar-login"><p>Log In</p></a>
+        <a href="/login" class="navbar-login"><p>Log In</p></a>
     </div>
 </header>
