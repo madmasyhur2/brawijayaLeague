@@ -16,6 +16,9 @@
         <h2 class=" text-xl font-['Roboto'] font-medium ml-4">{{ $team->name }}</h2>
     </div>
     @endforeach --}}
+    @foreach ($tim as $t)
+        $t->nama_tim;
+    @endforeach
 
 </div>
 

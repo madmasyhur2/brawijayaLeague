@@ -42,3 +42,9 @@ Route::get('/news', function() {
 Route::get('/about', function() {
     return view('about/about');
 });
+Route::get('/highlights', function() {
+    return view('highlights/highlights');
+});
+Route::get('/gallery', function() {
+    return view('gallery/gallery');
+});

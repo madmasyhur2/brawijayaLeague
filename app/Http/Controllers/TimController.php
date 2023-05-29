@@ -13,7 +13,8 @@ class TimController extends Controller
      */
     public function index()
     {
-        $tim = Tim::all();
+        $tim = Tim::all()->order('(menang * 3 + seri * 1) DESC');
+        dd($tim);
         return view('tim.index', compact('tim'));
     }
 
@@ -31,7 +32,7 @@ class TimController extends Controller
     public function store(StoretimRequest $request)
     {
         // Validasi input data
-        $validatedData = $request->validate([
+        $validate = $request->validate([
             'logo_tim' => 'required|image|max:2048',
             'nama_tim' => 'required|max:255',
             'pos' => 'required|integer',
@@ -136,7 +137,7 @@ class TimController extends Controller
     {
         $tim = Tim::findOrFail($tim);
 
-        //mengapusa file logo tim (opsional)
+        //mengapus file logo tim (opsional)
         //Storage::delete($tim->logo_tim);
 
         //mengapus data tim dari database
