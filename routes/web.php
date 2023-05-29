@@ -16,17 +16,15 @@ use App\Http\Controllers\UserController;
 Route::get('/', function() {
     return view('home');
 });
-
+Route::get('/login', function() {
+    return view('login/login');
+});
 Route::get('/standings', function() {
     return view('standings/standings');
 });
 
 Route::get('/post', function() {
     return view('posts');
-});
-
-Route::get('/login', function() {
-    return view('login');
 });
 
 Route::get('/signup', function() {

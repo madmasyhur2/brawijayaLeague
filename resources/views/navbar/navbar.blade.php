@@ -29,6 +29,6 @@
         <a href="">NEWS</a>
         <a href="">ABOUT US</a>
         {{-- <a href="/signUp/index.html" class="navbar-sign-up"><p>Sign Up</p></a> --}}
-        <a href="/login/index.html" class="navbar-login"><p>Log In</p></a>
+        <a href="/login" class="navbar-login"><p>Log In</p></a>
     </div>
 </header>
