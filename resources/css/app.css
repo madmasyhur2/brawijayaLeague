@@ -860,7 +860,7 @@ footer{
     .carousel img{
       width: 100%;
     }
-=======
+}
 /* Login */
 .login{
     display: flex;
@@ -932,5 +932,4 @@ footer{
 .login-right-content .dont-have a{
     color: #006DCB;
     text-decoration: none;
->>>>>>> 1d5498e502514957d88dad280dffc90ef42890bd
 }
