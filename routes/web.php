@@ -19,14 +19,26 @@ Route::get('/', function() {
 Route::get('/login', function() {
     return view('login/login');
 });
+Route::get('/schedules', function() {
+    return view('schedules/schedules');
+});
 Route::get('/standings', function() {
     return view('standings/standings');
 });
-
-Route::get('/post', function() {
-    return view('posts');
+Route::get('/teams', function() {
+    return view('teams/teams');
 });
-
-Route::get('/signup', function() {
-    return view('signup');
+Route::get('/players', function() {
+    return view('players/players');
+});
+Route::get('/statistic', function() {
+    return view('statistic/statistic');
+});Route::get('/videos', function() {
+    return view('videos/videos');
+});
+Route::get('/news', function() {
+    return view('news/news');
+});
+Route::get('/about', function() {
+    return view('about/about');
 });
