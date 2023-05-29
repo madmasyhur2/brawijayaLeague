@@ -124,3 +124,76 @@ footer{
     color: #FFFFFF;
     margin-top: 15px;
 }
+
+/* Login */
+.login{
+    display: flex;
+}
+.login-left{
+    background-image: url(../../public/assets/images/bg-login&signUp.png);
+    background-size: cover;
+    width: 60%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-right{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-right-content form h1{
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 48px;
+    color: #0A3E70;
+    margin: 20px 70px;
+    text-align: center;
+}
+.login-right-content form p{
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 14px;
+    color: #0A0A0A;
+    margin: 10px 0;
+}
+#email, #password{
+    background-color: none;
+    border: 1px solid #E5E5E5;
+    border-radius: 60px;
+    padding: 10px 15px;
+    outline: none;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.remember-me{
+    display: flex;
+    gap: 8px;
+}
+.login-right-content form button{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #0A3E70;
+    border-radius: 60px;
+    width: 100%;
+    cursor: pointer;
+    padding: 10px;
+}
+.login-right-content .dont-have{
+    margin: 10px 0;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    color: #344054;
+}
+.login-right-content .dont-have a{
+    color: #006DCB;
+    text-decoration: none;
+}

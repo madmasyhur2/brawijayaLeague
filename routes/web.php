@@ -16,19 +16,29 @@ use App\Http\Controllers\UserController;
 Route::get('/', function() {
     return view('home');
 });
-
+Route::get('/login', function() {
+    return view('login/login');
+});
+Route::get('/schedules', function() {
+    return view('schedules/schedules');
+});
 Route::get('/standings', function() {
     return view('standings/standings');
 });
-
-Route::get('/post', function() {
-    return view('posts');
+Route::get('/teams', function() {
+    return view('teams/teams');
 });
-
-Route::get('/login', function() {
-    return view('login');
+Route::get('/players', function() {
+    return view('players/players');
 });
-
-Route::get('/signup', function() {
-    return view('signup');
+Route::get('/statistic', function() {
+    return view('statistic/statistic');
+});Route::get('/videos', function() {
+    return view('videos/videos');
+});
+Route::get('/news', function() {
+    return view('news/news');
+});
+Route::get('/about', function() {
+    return view('about/about');
 });
