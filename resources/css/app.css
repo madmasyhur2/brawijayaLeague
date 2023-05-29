@@ -128,8 +128,6 @@ footer{
     margin-top: 15px;
 }
 
-<<<<<<< HEAD
-
 /* main landing page */
 :root {
     --primary: #0A3E70;
@@ -215,19 +213,19 @@ footer{
 }
 
 #slide1{
-    background-image: url(assets/baner1.png);
+    background-image: url(../../public/assets/landingpage/baner1.png);
 }
 
 #slide2{
-    background-image: url(assets/baner2.png);
+    background-image: url(../../public/assets/landingpage/baner2.png);
 }
 
 #slide3{
-    background-image: url(assets/baner1.png);
+    background-image: url(../../public/assets/landingpage/baner1.png);
 }
 
 #slide4{
-    background-image: url(assets/baner2.png);
+    background-image: url(../../public/assets/landingpage/baner2.png);
 }
 
 .banner-boxslider-nav{
@@ -475,6 +473,7 @@ footer{
 .table{
     /* background: #000; */
     height: 840px;
+    width: 100%;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -793,6 +792,7 @@ footer{
     max-width: 500%;
     height: 100%;
     position: relative;
+    /* background: #000; */
 }
 
 .wrapper i{
@@ -829,6 +829,7 @@ footer{
     overflow: hidden;
     white-space: nowrap;
     scroll-behavior: smooth;
+    display: flex;
 }
 .carousel.dragging{
     cursor: grab;
