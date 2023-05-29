@@ -934,3 +934,67 @@ footer{
     color: #006DCB;
     text-decoration: none;
 }
+
+/* Schedules */
+.board{
+    width: 100%;
+    height: 1100px;
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.boardvalue{
+    background: #fff;
+    width: 100%;
+    height: 9%;
+    border: 2px solid var(--stroke);
+    border-radius: 6px;
+    font-family: Roboto;
+    display: flex;
+    align-items: center;
+    padding: 0 3%;
+    font-weight: 400;
+}
+
+.boardvalue-date{
+    color: var(--second--text-color);
+    width: 20%;
+}
+
+.boardvalue-tim{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    font-weight: 700;
+    color: var(--secondary-2);
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.tim{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    color: #000;
+    gap: 5%;
+}
+
+.tim2{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    color: #000;
+    gap: 5%;
+}
+
+.tim img{
+    width: 16%;
+    height: 30%;
+}
+
+.tim2 img{
+    width: 12%;
+    height: 30%;
+}
