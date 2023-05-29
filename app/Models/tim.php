@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class tim extends Model
 {
-    use HasFactory;
+    // use HasFactory;
 
     protected $fillable = [
         'logo_tim',
@@ -20,4 +20,6 @@ class tim extends Model
         'gol',
         'kebobolan',
     ];
+
+    protected $table = 'tims';
 }
