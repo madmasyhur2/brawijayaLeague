@@ -3,7 +3,7 @@
 {{-- @include('main-tittle-bg.tittle') --}}
 
 <div class="main-tittle bg-[url(/public/assets/tittle-bg.svg)] h-[20vh] bg-no-repeat bg-cover">
-    <h1 class="pt-[30px] pl-[10%] text-[#FAFAFA] font-black text-[60px] font-['Montserrat']">STANDINGS</h1>
+    <h1 class="pt-[30px] pl-[10%] text-[#FAFAFA] font-bold text-[60px] font-['Montserrat']">STANDINGS</h1>
 </div>
 
 <div class="content m-[90px_10%] mb-14">

@@ -18,7 +18,7 @@ Route::get('/', function() {
 });
 
 Route::get('/standings', function() {
-    return view('standings');
+    return view('standings/standings');
 });
 
 Route::get('/post', function() {

@@ -3,7 +3,7 @@
 <header class="navbar h-[10vh] bg-[#0A3E70] flex justify-between">
     <img src="../assets/logo-header.svg" class="m-[10px_20px]">
     <div class="navbar flex gap-[40px] m-[0_20px]">
-        <a href="" class="flex justify-center items-center">HOME</a>
+        <a href="/" class="flex justify-center items-center">HOME</a>
         <div class="navbar-dropdown">
             <div class="navbar-dropdown-text">
                 <p>GAMES</p>
