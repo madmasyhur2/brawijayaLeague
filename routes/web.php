@@ -45,3 +45,6 @@ Route::get('/about', function() {
 Route::get('/highlights', function() {
     return view('highlights/highlights');
 });
+Route::get('/gallery', function() {
+    return view('gallery/gallery');
+});
