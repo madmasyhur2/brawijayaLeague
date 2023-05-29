@@ -1,5 +1,6 @@
 @extends('layouts.main')
 @include('navbar.navbar')
+@include('main-tittle-bg.tittle')
 
 <div class="content m-[90px_10%] mb-14">
     <table class="w-full rounded-[6px]">
