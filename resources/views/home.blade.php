@@ -183,7 +183,7 @@
             </div>
         </div>
         <div class="akanan">
-            <div class="akanama s48">
+            <div class="akanama s48 fw700">
                 <p>NEWS</p>
                 <div class="vial s20">
                     <p>VIEW ALL</p>

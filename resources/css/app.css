@@ -572,7 +572,7 @@ footer{
     height: 4%;
     color: var(--primary);
     align-items: center;
-    margin-left: 3%;
+    /* margin-left: 3%; */
 }
 
 .vial{
