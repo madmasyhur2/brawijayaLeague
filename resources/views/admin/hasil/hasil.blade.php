@@ -7,12 +7,14 @@
         <table class=" mt-4">
             <tr class="text-Secondary-1 font-bold">
                 <th class="p-3 bg-[#006DCB] rounded-[6px_0_0_0]">Nama Tim A</th>
+                <th class="p-3 bg-[#006DCB]">Skor Tim A</th>
                 <th class="p-3 bg-[#006DCB]">Nama Tim B</th>
+                <th class="p-3 bg-[#006DCB]">Skor Tim B</th>
                 <th class="p-3 bg-[#006DCB]">Matchday</th>
-                <th class="p-3 bg-[#006DCB]">Tanggal</th>
                 <th class="p-3 bg-[#006DCB] rounded-[0_6px_0_0]">Operation</th>
             </tr>
             <tr class="border border-[#E5E5E5]">
+                <td class="p-1 text-center font-bold text-l"></td>
                 <td class="p-1 text-center font-bold text-l"></td>
                 <td class="p-1 text-center font-bold text-l"></td>
                 <td class="p-1 text-center font-bold text-l"></td>
