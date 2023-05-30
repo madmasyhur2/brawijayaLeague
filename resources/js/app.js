@@ -1,11 +1,5 @@
 import './bootstrap';
 
-let upcomingback = document.getElementById("upcomingback");
-let upcomingnext = document.getElementById("upcomingnext");
-let upcoming1 = document.getElementById("upcoming-match1");
-let upcoming2 = document.getElementById("upcoming-match2");
-let upcoming3 = document.getElementById("upcoming-match3");
-let upcoming4 = document.getElementById("upcoming-match4");
 let indexupcoming = 0;
 
 function scrollWin(x, y) {

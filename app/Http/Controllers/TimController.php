@@ -13,19 +13,20 @@ class TimController extends Controller
      */
     public function index()
     {
-        $tim = Tim::all()->orderBy('poin', 'ASC');
+        $tim = Tim::all()->orderBy('((menang*3)+(seri*1))', 'ASC');
         // dd($tim);
 
-        return view('teams.teams', ['tim' => $tim]);
+        // return view('teams.teams', ['tim' => $tim]);
+        return $tim;
     }
     
     public function showData() {
-        $tim = Tim::paginate(19);
+        $tim = Tim::orderBy('poin', 'desc')->paginate(19);
         return view('home', ['tim' => $tim]);
     }
 
     public function showTim() {
-        $tim = Tim::paginate(19);
+        $tim = Tim::orderBy('poin', 'desc')->orderBy('gd', 'desc')->get();
         return view('standings.standings', ['tim' => $tim]);
     }
 
@@ -36,6 +37,10 @@ class TimController extends Controller
     public function teamlist() {
         $tim = Tim::all();
         return view('admin.hasil.form', ['tim' => $tim]);
+    }
+    public function showNameTim() {
+        $tim = Tim::orderBy('nama_tim', 'asc')->get();
+        return view('teams.teams', ['tim' => $tim]);
     }
     /**
      * Show the form for creating a new resource.

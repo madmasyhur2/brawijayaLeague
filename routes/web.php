@@ -20,15 +20,13 @@ Route::get('/standings', [TimController::class, 'showTim']);
 Route::get('/admin/schedule/form', [TimController::class, 'dropDown']);
 Route::get('/admin/fixtures/form', [TimController::class, 'teamlist']);
 
+Route::get('/teams', [TimController::class, 'showNameTim']);
 
 Route::get('/login', function() {
     return view('login.login');
 });
 Route::get('/schedules', function() {
     return view('schedules.schedules');
-});
-Route::get('/teams', function() {
-    return view('teams.teams');
 });
 Route::get('/players', function() {
     return view('players.players');
