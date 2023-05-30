@@ -24,9 +24,6 @@ Route::get('/login', function() {
 Route::get('/schedules', function() {
     return view('schedules.schedules');
 });
-Route::get('/standings', function() {
-    return view('standings/standings');
-});
 Route::get('/teams', function() {
     return view('teams.teams');
 });
