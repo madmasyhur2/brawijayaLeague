@@ -15,6 +15,8 @@ module.exports = {
       'Second-text-color':'#737373',
       'Stroke':'#E5E5E5',
       'Neutral-white':'#FAFAFA',
+      'black' : '#000000',
+      'red' : '#FF0000	',
     }
   },
   plugins: [],
