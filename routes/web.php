@@ -17,15 +17,13 @@ use App\Http\Controllers\TimController;
 Route::get('/', [TimController::class, 'showData']);
 Route::get('/home', [TimController::class, 'showData']);
 Route::get('/standings', [TimController::class, 'showTim']);
+Route::get('/teams', [TimController::class, 'showNameTim']);
 
 Route::get('/login', function() {
     return view('login.login');
 });
 Route::get('/schedules', function() {
     return view('schedules.schedules');
-});
-Route::get('/teams', function() {
-    return view('teams.teams');
 });
 Route::get('/players', function() {
     return view('players.players');

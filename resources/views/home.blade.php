@@ -144,22 +144,23 @@
                         <div class="table-header-content">GD</div>
                     </div>
                 </div>
+                @php($i = 1)
                 @foreach ($tim as $t)
                     <div class="table-content">
                         <div class="table-content-left">
-                            <p  class="table-content-left-index">{{ $t->id }}</p>
+                            <p  class="table-content-left-index">{{ $i++ }}</p>
                             <div class="table-content-club">
-                                <img src="../assets/landingpage/logotim.svg" alt="" class="table-content-logo">
+                                <img src="{{'../assets/landingpage/'.$t->logo_tim}}" alt="" class="table-content-logo">
                                 <p>{{ $t->nama_tim }}</p>
                             </div>
                         </div>
                         <div class="table-header-right">
-                            <div class="table-header-content">86</div>
-                            <div class="table-header-content">36</div>
-                            <div class="table-header-content">27</div>
-                            <div class="table-header-content">5</div>
-                            <div class="table-header-content">4</div>
-                            <div class="table-header-content">47</div>
+                            <div class="table-header-content">{{ $t->getPoin() }}</div>
+                            <div class="table-header-content">{{ $t->game}}</div>
+                            <div class="table-header-content">{{ $t->menang}}</div>
+                            <div class="table-header-content">{{ $t->seri}}</div>
+                            <div class="table-header-content">{{ $t->kalah}}</div>
+                            <div class="table-header-content">{{ $t->gd}}</div>
                         </div>
                     </div>
                 @endforeach
@@ -181,7 +182,7 @@
                 <div class="table-content"></div>
                 <div class="table-content"></div>
                 <div class="table-content"></div> --}}
-                <div class="table-all-content">VIEW ALL TABLES</div>
+                <a class="table-all-content" href="/standings">VIEW ALL TABLES</a>
             </div>
         </div>
         <div class="akanan">
@@ -226,7 +227,7 @@
             <div class="highlightnav">
                 <p class="mont s40">HIGHLIGHTS</p>
                 <div class="highlightnav-right">
-                    <p>VIEW ALL</p>
+                    <a href="/highlights">VIEW ALL</a>
                     <img src="../assets/landingpage/panahmajubuletbiru.svg" alt="">
                 </div>
             </div>

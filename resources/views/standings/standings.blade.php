@@ -21,56 +21,24 @@
             <th class="p-3 bg-[#006DCB] rounded-[0_6px_0_0]">GD</th>
         </tr>
 
+        @php($i = 1)
         @foreach ($tim as $t)
-        <tr class="border border-[#E5E5E5]">
-            <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->id }}</td>
-            <td class="w-1/3 p-1 font-bold text-l flex gap-3 items-center">
-                <img class="m-0.5 h-9" src="../assets/landingpage/logotim.svg">
-                <p class="">{{ $t->nama_tim }}</p>
-            </td>
-            <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->getPoin() }}</td>
-            <td class="w-[6%] p-1 text-center font-bold text-l">3</td>
-            <td class="w-[6%] p-1 text-center font-bold text-l">3</td>
-            <td class="w-[6%] p-1 text-center font-bold text-l">3</td>
-            <td class="w-[6%] p-1 text-center font-bold text-l">3</td>
-            <td class="w-[6%] p-1 text-center font-bold text-l">3</td>
-            <td class="w-[6%] p-1 text-center font-bold text-l">3</td>
-            <td class="w-[6%] p-1 text-center font-bold text-l">3</td>
-        </tr>
-        {{-- <tr class="border border-[#E5E5E5]">
-            <td class="w-[6%] p-1 text-center font-bold text-l">{{ $standing->pos }}</td>
-            <td class="w-1/3 p-1 font-bold text-l flex gap-3 items-center">
-                <img class="m-0.5 h-9" src="{{ asset('storage/' . $standing->image) }}">
-                <p class="">{{ $standing->name }}</p>
-            </td>
-            <td class="w-[6%] p-1 text-center font-bold text-l">{{ $standing->pts }}</td>
-            <td class="w-[6%] p-1 text-center font-bold text-l">{{ $standing->g }}</td>
-            <td class="w-[6%] p-1 text-center font-bold text-l">{{ $standing->w }}</td>
-            <td class="w-[6%] p-1 text-center font-bold text-l">{{ $standing->d }}</td>
-            <td class="w-[6%] p-1 text-center font-bold text-l">{{ $standing->l }}</td>
-            <td class="w-[6%] p-1 text-center font-bold text-l">{{ $standing->gf }}</td>
-            <td class="w-[6%] p-1 text-center font-bold text-l">{{ $standing->ga }}</td>
-            <td class="w-[6%] p-1 text-center font-bold text-l">{{ $standing->gd }}</td>
-        </tr> --}}
+            <tr class="border border-[#E5E5E5]">
+                <td class="w-[6%] p-1 text-center font-bold text-l">{{ $i++ }}</td>
+                <td class="w-1/3 p-1 font-bold text-l flex gap-3 items-center">
+                    <img class="m-0.5 h-9" src="{{'../assets/landingpage/'.$t->logo_tim}}">
+                    <p class="">{{ $t->nama_tim }}</p>
+                </td>
+                <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->getPoin() }}</td>
+                <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->game}}</td>
+                <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->menang}}</td>
+                <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->seri}}</td>
+                <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->kalah}}</td>
+                <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->gol}}</td>
+                <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->kebobolan}}</td>
+                <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->gd}}</td>
+            </tr>
         @endforeach
-
-        <tr class="border border-[#E5E5E5]">
-            <td class="w-[6%] p-1 text-center font-bold text-l"></td>
-            <td class="w-1/3 p-1 font-bold text-l flex gap-3 items-center">
-                <img class="m-0.5 h-9">
-                <p class=""></p>
-            </td>
-            <td class="w-[6%] p-1 text-center font-bold text-l"></td>
-            <td class="w-[6%] p-1 text-center font-bold text-l"></td>
-            <td class="w-[6%] p-1 text-center font-bold text-l"></td>
-            <td class="w-[6%] p-1 text-center font-bold text-l"></td>
-            <td class="w-[6%] p-1 text-center font-bold text-l"></td>
-            <td class="w-[6%] p-1 text-center font-bold text-l"></td>
-            <td class="w-[6%] p-1 text-center font-bold text-l"></td>
-            <td class="w-[6%] p-1 text-center font-bold text-l"></td>
-        </tr>
-
-
     </table>
 </div>
 
