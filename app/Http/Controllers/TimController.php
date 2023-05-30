@@ -15,6 +15,7 @@ class TimController extends Controller
     {
         $tim = Tim::all()->order('(menang * 3 + seri * 1 + kalah * 0)', 'ASC')->order('gol - kebobolan', 'ASC');
         // dd($tim);
+
         return view('teams.teams', ['tim' => $tim]);
     }
     
@@ -22,12 +23,6 @@ class TimController extends Controller
         $tim = Tim::paginate(19);
         return view('home', ['tim' => $tim]);
     }
-
-    public function showTim() {
-        $tim = Tim::paginate(19);
-        return view('teams.teams', ['tim' => $tim]);
-    }
-
     /**
      * Show the form for creating a new resource.
      */
