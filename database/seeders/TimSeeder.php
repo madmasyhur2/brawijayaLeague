@@ -120,5 +120,116 @@ class TimSeeder extends Seeder
             'gol' => 80,
             'kebobolan' => 35,
         ]);
+
+        Tim::create([
+            'logo_tim' => 'path/logo_galatasaray.jpg',
+            'nama_tim' => 'Galatasaray',
+            'pos' => 1,
+            'poin' => 85,
+            'menang' => 26,
+            'seri' => 7,
+            'kalah' => 3,
+            'gol' => 80,
+            'kebobolan' => 35,
+        ]);
+        Tim::create([
+            'logo_tim' => 'path/logo_galatasaray.jpg',
+            'nama_tim' => 'Galatasaray',
+            'pos' => 1,
+            'poin' => 85,
+            'menang' => 26,
+            'seri' => 7,
+            'kalah' => 3,
+            'gol' => 80,
+            'kebobolan' => 35,
+        ]);
+        Tim::create([
+            'logo_tim' => 'path/logo_galatasaray.jpg',
+            'nama_tim' => 'Galatasaray',
+            'pos' => 1,
+            'poin' => 85,
+            'menang' => 26,
+            'seri' => 7,
+            'kalah' => 3,
+            'gol' => 80,
+            'kebobolan' => 35,
+        ]);
+        Tim::create([
+            'logo_tim' => 'path/logo_galatasaray.jpg',
+            'nama_tim' => 'Galatasaray',
+            'pos' => 1,
+            'poin' => 85,
+            'menang' => 26,
+            'seri' => 7,
+            'kalah' => 3,
+            'gol' => 80,
+            'kebobolan' => 35,
+        ]);
+        Tim::create([
+            'logo_tim' => 'path/logo_galatasaray.jpg',
+            'nama_tim' => 'Galatasaray',
+            'pos' => 1,
+            'poin' => 85,
+            'menang' => 26,
+            'seri' => 7,
+            'kalah' => 3,
+            'gol' => 80,
+            'kebobolan' => 35,
+        ]);
+        Tim::create([
+            'logo_tim' => 'path/logo_galatasaray.jpg',
+            'nama_tim' => 'Galatasaray',
+            'pos' => 1,
+            'poin' => 85,
+            'menang' => 26,
+            'seri' => 7,
+            'kalah' => 3,
+            'gol' => 80,
+            'kebobolan' => 35,
+        ]);
+        Tim::create([
+            'logo_tim' => 'path/logo_galatasaray.jpg',
+            'nama_tim' => 'Galatasaray',
+            'pos' => 1,
+            'poin' => 85,
+            'menang' => 26,
+            'seri' => 7,
+            'kalah' => 3,
+            'gol' => 80,
+            'kebobolan' => 35,
+        ]);
+        Tim::create([
+            'logo_tim' => 'path/logo_galatasaray.jpg',
+            'nama_tim' => 'Galatasaray',
+            'pos' => 1,
+            'poin' => 85,
+            'menang' => 26,
+            'seri' => 7,
+            'kalah' => 3,
+            'gol' => 80,
+            'kebobolan' => 35,
+        ]);
+        Tim::create([
+            'logo_tim' => 'path/logo_galatasaray.jpg',
+            'nama_tim' => 'Galatasaray',
+            'pos' => 1,
+            'poin' => 85,
+            'menang' => 26,
+            'seri' => 7,
+            'kalah' => 3,
+            'gol' => 80,
+            'kebobolan' => 35,
+        ]);
+        Tim::create([
+            'logo_tim' => 'path/logo_galatasaray.jpg',
+            'nama_tim' => 'Galatasaray',
+            'pos' => 1,
+            'poin' => 85,
+            'menang' => 26,
+            'seri' => 7,
+            'kalah' => 3,
+            'gol' => 80,
+            'kebobolan' => 35,
+        ]);
     }
 }
