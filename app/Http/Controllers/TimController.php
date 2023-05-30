@@ -17,6 +17,11 @@ class TimController extends Controller
         dd($tim);
         return view('tim.index', compact('tim'));
     }
+    
+    public function showData() {
+        $tim = Tim::paginate(19);
+        return view('home', ['tim' => $tim]);
+    }
 
     /**
      * Show the form for creating a new resource.

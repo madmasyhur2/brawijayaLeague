@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TimController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +13,8 @@ use App\Http\Controllers\UserController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/home', [TimController::class, 'showData']);
 
 Route::get('/', function() {
     return view('home');

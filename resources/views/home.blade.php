@@ -144,23 +144,26 @@
                         <div class="table-header-content">GD</div>
                     </div>
                 </div>
-                <div class="table-content">
-                    <div class="table-content-left">
-                        <p>1</p>
-                        <div class="table-content-club">
-                            <img src="../assets/landingpage/logotim.svg" alt="" class="table-content-logo">
-                            <p>LIVERPOOL</p>
+                @foreach ($tim as $t)
+                    <div class="table-content">
+                        <div class="table-content-left">
+                            <p  class="table-content-left-index">{{ $t->id }}</p>
+                            <div class="table-content-club">
+                                <img src="../assets/landingpage/logotim.svg" alt="" class="table-content-logo">
+                                <p>{{ $t->nama_tim }}</p>
+                            </div>
+                        </div>
+                        <div class="table-header-right">
+                            <div class="table-header-content">86</div>
+                            <div class="table-header-content">36</div>
+                            <div class="table-header-content">27</div>
+                            <div class="table-header-content">5</div>
+                            <div class="table-header-content">4</div>
+                            <div class="table-header-content">47</div>
                         </div>
                     </div>
-                    <div class="table-header-right">
-                        <div class="table-header-content">86</div>
-                        <div class="table-header-content">36</div>
-                        <div class="table-header-content">27</div>
-                        <div class="table-header-content">5</div>
-                        <div class="table-header-content">4</div>
-                        <div class="table-header-content">47</div>
-                    </div>
-                </div>
+                @endforeach
+                {{-- <div class="table-content"></div>
                 <div class="table-content"></div>
                 <div class="table-content"></div>
                 <div class="table-content"></div>
@@ -168,6 +171,8 @@
                 <div class="table-content"></div>
                 <div class="table-content"></div>
                 <div class="table-content"></div>
+                <div class="table-content"></div> --}}
+                {{-- <div class="table-content"></div>
                 <div class="table-content"></div>
                 <div class="table-content"></div>
                 <div class="table-content"></div>
@@ -175,10 +180,7 @@
                 <div class="table-content"></div>
                 <div class="table-content"></div>
                 <div class="table-content"></div>
-                <div class="table-content"></div>
-                <div class="table-content"></div>
-                <div class="table-content"></div>
-                <div class="table-content"></div>
+                <div class="table-content"></div> --}}
                 <div class="table-all-content">VIEW ALL TABLES</div>
             </div>
         </div>
