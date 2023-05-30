@@ -9,14 +9,15 @@ class klasemen extends Model
 {
     use HasFactory;
 
+    protected $table = 'klasemens';
     protected $fillable = [
-        'pos',
+        'logo_tim',
         'nama_tim',
         'game',
-        'poin',
         'menang',
         'seri',
         'kalah',
-        'gd',
+        'gol',
+        'kebobolan',
     ];
 }

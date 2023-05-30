@@ -14,12 +14,15 @@ return new class extends Migration
         Schema::create('klasemens', function (Blueprint $table) {
             $table->id();
             $table->integer('pos');
-            $table->string('nama_tim');
-            $table->integer('game');
+            $table->string('logo_tim');
+            $table->string('nama_tim')->unique();
             $table->integer('poin');
+            $table->integer('game');
             $table->integer('menang');
             $table->integer('seri');
             $table->integer('kalah');
+            $table->integer('gol');
+            $table->integer('kebobolan');
             $table->integer('gd');
         });
     }

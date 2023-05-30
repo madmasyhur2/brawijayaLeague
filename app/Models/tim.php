@@ -12,8 +12,6 @@ class tim extends Model
     protected $fillable = [
         'logo_tim',
         'nama_tim',
-        'pos',
-        'poin',
         'menang',
         'seri',
         'kalah',

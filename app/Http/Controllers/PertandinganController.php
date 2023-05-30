@@ -13,7 +13,8 @@ class PertandinganController extends Controller
      */
     public function index()
     {
-        //
+        $pertandingan = Pertandingan::all()->order('matchday', 'DESC')->order('jam', 'DESC');
+        return view('pertandingan.index', compact('pertandingan'));
     }
 
     /**
@@ -21,7 +22,7 @@ class PertandinganController extends Controller
      */
     public function create()
     {
-        //
+        return view('pertandingan.create');
     }
 
     /**
