@@ -13,14 +13,19 @@ class TimController extends Controller
      */
     public function index()
     {
-        $tim = Tim::all()->order('(menang * 3 + seri * 1 + kalah * 0)', 'DESC');
+        $tim = Tim::all()->order('(menang * 3 + seri * 1 + kalah * 0)', 'ASC')->order('gol - kebobolan', 'ASC');
         // dd($tim);
-        return view('tim.index', compact('tim'));
+        return view('teams.teams', ['tim' => $tim]);
     }
     
     public function showData() {
         $tim = Tim::paginate(19);
         return view('home', ['tim' => $tim]);
+    }
+
+    public function showTim() {
+        $tim = Tim::paginate(19);
+        return view('teams.teams', ['tim' => $tim]);
     }
 
     /**

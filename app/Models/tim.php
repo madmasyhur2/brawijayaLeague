@@ -10,13 +10,17 @@ class tim extends Model
     // use HasFactory;
 
     protected $fillable = [
+        'pos',
         'logo_tim',
         'nama_tim',
+        'poin',
+        'game',
         'menang',
         'seri',
         'kalah',
         'gol',
         'kebobolan',
+        'gd',
     ];
 
     protected $table = 'tims';
