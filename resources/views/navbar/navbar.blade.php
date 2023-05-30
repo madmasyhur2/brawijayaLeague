@@ -14,18 +14,18 @@
                 <a href="/standings">STANDINGS</a>
             </div>
         </div>
-        <div class="navbar-dropdown">
+        {{-- <div class="navbar-dropdown">
             <div class="navbar-dropdown-text">
                 <p>PROFILE</p>
                 <img src="../assets/Vector-V.svg">
             </div>
-        </div>
+        </div> --}}
         <a href="/teams">TEAMS</a>
         <a href="/highlights">HIGHLIGHTS</a>
         {{-- <a href="/videos">VIDEOS</a> --}}
         <a href="/news">NEWS</a>
         <a href="/about">ABOUT US</a>
         {{-- <a href="/signUp/index.html" class="navbar-sign-up"><p>Sign Up</p></a> --}}
-        <a href="/login" class="navbar-login"><p>Log In</p></a>
+        {{-- <a href="/login" class="navbar-login"><p>Log In</p></a> --}}
     </div>
 </header>

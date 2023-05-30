@@ -4,10 +4,8 @@
     @include('admin.sidebar.sidebar')
     <div class="m-8 mr-0">
         <form class="w-full grid grid-cols-2 gap-2">
-            <p>Pos</p>
-            <input type="text" id="pos" name="pos" placeholder="Pos" required class="border rounded p-1 w-full">
             <p>Logo Tim</p>
-            <input type="file" id="logo" name="logo" accept="image/*" required class="border rounded p-1 w-full">
+            <input type="file" id="logo" name="logo" accept="image/*" max="2097152" required class="border rounded p-1 w-full">
             <p>Nama Tim</p>
             <input type="text" id="nama" name="nama" placeholder="Nama Tim" required class="border rounded p-1 w-full">
             <p>Poin</p>

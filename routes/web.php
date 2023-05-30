@@ -17,6 +17,9 @@ use App\Http\Controllers\TimController;
 Route::get('/', [TimController::class, 'showData']);
 Route::get('/home', [TimController::class, 'showData']);
 Route::get('/standings', [TimController::class, 'showTim']);
+Route::get('/admin/schedule/form', [TimController::class, 'dropDown']);
+Route::get('/admin/fixtures/form', [TimController::class, 'teamlist']);
+
 
 Route::get('/login', function() {
     return view('login.login');
@@ -53,9 +56,6 @@ Route::get('/admin', function() {
 Route::get('/admin/fixtures', function() {
     return view('admin.hasil.hasil');
 });
-Route::get('/admin/fixtures/form', function() {
-    return view('admin.hasil.form');
-});
 Route::get('/admin/fixtures/edit', function() {
     return view('hasil.form.edit');
 });
@@ -70,9 +70,6 @@ Route::get('/admin/standings/edit', function() {
 });
 Route::get('/admin/schedule', function() {
     return view('admin.pertandingan.pertandingan');
-});
-Route::get('/admin/schedule/form', function() {
-    return view('admin.pertandingan.form');
 });
 Route::get('/admin/schedule/edit', function() {
     return view('pertandingan.form.edit');

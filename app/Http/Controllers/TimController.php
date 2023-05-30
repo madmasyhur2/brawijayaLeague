@@ -28,6 +28,15 @@ class TimController extends Controller
         $tim = Tim::paginate(19);
         return view('standings.standings', ['tim' => $tim]);
     }
+
+    public function dropDown() {
+        $tim = Tim::all();
+        return view('admin.pertandingan.form', ['tim' => $tim]);
+    }
+    public function teamlist() {
+        $tim = Tim::all();
+        return view('admin.hasil.form', ['tim' => $tim]);
+    }
     /**
      * Show the form for creating a new resource.
      */

@@ -3,7 +3,7 @@
 <div class="flex">
     @include('admin.sidebar.sidebar')
     <div class="m-8 mr-0">
-        <a href="/admin/fixtures/form" class="border p-1 px-3 rounded-lg font-semibold bg-Secondary-1">+ Add</a>
+        <a href="/admin/schedule/form" class="border p-1 px-3 rounded-lg font-semibold bg-Secondary-1">+ Add</a>
         <table class=" mt-4">
             <tr class="text-Secondary-1 font-bold">
                 <th class="p-3 bg-[#006DCB] rounded-[6px_0_0_0]">Nama Tim A</th>
