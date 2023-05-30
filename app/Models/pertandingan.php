@@ -9,7 +9,12 @@ class pertandingan extends Model
 {
     use HasFactory;
 
-    protected $guarded = [
-        'id'
+    protected $table = 'pertandingans';
+    protected $fillable = [
+        'nama_tim_a',
+        'nama_tim_b',
+        'matchday',
+        'tanggal',
+        'jam',
     ];
 }

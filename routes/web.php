@@ -51,3 +51,6 @@ Route::get('/highlights', function() {
 Route::get('/gallery', function() {
     return view('gallery/gallery');
 });
+Route::get('/admin', function() {
+    return view('admin/admin');
+});

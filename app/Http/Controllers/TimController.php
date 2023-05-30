@@ -13,8 +13,8 @@ class TimController extends Controller
      */
     public function index()
     {
-        $tim = Tim::all()->order('(menang * 3 + seri * 1) DESC');
-        dd($tim);
+        $tim = Tim::all()->order('(menang * 3 + seri * 1 + kalah * 0)', 'DESC');
+        // dd($tim);
         return view('tim.index', compact('tim'));
     }
     
