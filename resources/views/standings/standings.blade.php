@@ -21,8 +21,23 @@
             <th class="p-3 bg-[#006DCB] rounded-[0_6px_0_0]">GD</th>
         </tr>
 
-        {{-- @foreach ($standings as $standing)
+        @foreach ($tim as $t)
         <tr class="border border-[#E5E5E5]">
+            <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->id }}</td>
+            <td class="w-1/3 p-1 font-bold text-l flex gap-3 items-center">
+                <img class="m-0.5 h-9" src="../assets/landingpage/logotim.svg">
+                <p class="">{{ $t->nama_tim }}</p>
+            </td>
+            <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->getPoin() }}</td>
+            <td class="w-[6%] p-1 text-center font-bold text-l">3</td>
+            <td class="w-[6%] p-1 text-center font-bold text-l">3</td>
+            <td class="w-[6%] p-1 text-center font-bold text-l">3</td>
+            <td class="w-[6%] p-1 text-center font-bold text-l">3</td>
+            <td class="w-[6%] p-1 text-center font-bold text-l">3</td>
+            <td class="w-[6%] p-1 text-center font-bold text-l">3</td>
+            <td class="w-[6%] p-1 text-center font-bold text-l">3</td>
+        </tr>
+        {{-- <tr class="border border-[#E5E5E5]">
             <td class="w-[6%] p-1 text-center font-bold text-l">{{ $standing->pos }}</td>
             <td class="w-1/3 p-1 font-bold text-l flex gap-3 items-center">
                 <img class="m-0.5 h-9" src="{{ asset('storage/' . $standing->image) }}">
@@ -36,8 +51,8 @@
             <td class="w-[6%] p-1 text-center font-bold text-l">{{ $standing->gf }}</td>
             <td class="w-[6%] p-1 text-center font-bold text-l">{{ $standing->ga }}</td>
             <td class="w-[6%] p-1 text-center font-bold text-l">{{ $standing->gd }}</td>
-        </tr>
-        @endforeach --}}
+        </tr> --}}
+        @endforeach
 
         <tr class="border border-[#E5E5E5]">
             <td class="w-[6%] p-1 text-center font-bold text-l"></td>

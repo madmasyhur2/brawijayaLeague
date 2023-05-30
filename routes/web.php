@@ -14,20 +14,19 @@ use App\Http\Controllers\TimController;
 |
 */
 
+Route::get('/', [TimController::class, 'showData']);
 Route::get('/home', [TimController::class, 'showData']);
+Route::get('/standings', [TimController::class, 'showTim']);
 
-Route::get('/', function() {
-    return view('home');
-});
 Route::get('/login', function() {
     return view('login/login');
 });
 Route::get('/schedules', function() {
     return view('schedules/schedules');
 });
-Route::get('/standings', function() {
-    return view('standings/standings');
-});
+// Route::get('/standings', function() {
+//     return view('standings/standings');
+// });
 Route::get('/teams', function() {
     return view('teams/teams');
 });
