@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tims', function (Blueprint $table) {
             $table->id()->primary;
-            $table->integer('pos');
+            $table->integer('pos')->defaultValue(1);
             $table->string('logo_tim');
             $table->string('nama_tim')->unique;
             $table->integer('poin');

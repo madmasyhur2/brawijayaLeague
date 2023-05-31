@@ -11,17 +11,17 @@ class TimController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $tim = Tim::all()->orderBy('((menang*3)+(seri*1))', 'ASC');
-        // dd($tim);
+    // public function index()
+    // {
+    //     $tim = Tim::all()->orderBy('((menang*3)+(seri*1))', 'ASC');
+    //     // dd($tim);
 
-        // return view('teams.teams', ['tim' => $tim]);
-        return $tim;
-    }
+    //     // return view('teams.teams', ['tim' => $tim]);
+    //     return $tim;
+    // }
     
     public function showData() {
-        $tim = Tim::orderBy('poin', 'desc')->paginate(19);
+        $tim = Tim::orderBy('poin', 'desc')->orderBy('gd', 'desc')->paginate(19);
         return view('home', ['tim' => $tim]);
     }
 
@@ -57,7 +57,7 @@ class TimController extends Controller
     {
         // Validasi input data
         $validate = $request->validate([
-            'logo_tim' => 'required|image|max:2048',
+            'logo_tim' => 'required|image|max:2048|mimes:jpeg,jpg,png,svg',
             'nama_tim' => 'required|max:255',
             'pos' => 'required|integer',
             'poin' => 'required|integer',

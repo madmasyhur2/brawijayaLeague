@@ -17,4 +17,9 @@ class pertandingan extends Model
         'tanggal',
         'jam',
     ];
+
+    // public function tim()
+    // {
+    //     return $this->hasMany(Tim::class);
+    // }
 }

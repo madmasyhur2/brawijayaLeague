@@ -30,13 +30,13 @@
                     <p class="">{{ $t->nama_tim }}</p>
                 </td>
                 <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->getPoin() }}</td>
-                <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->game}}</td>
+                <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->getGame()}}</td>
                 <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->menang}}</td>
                 <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->seri}}</td>
                 <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->kalah}}</td>
                 <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->gol}}</td>
                 <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->kebobolan}}</td>
-                <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->gd}}</td>
+                <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->getGD() }}</td>
             </tr>
         @endforeach
     </table>

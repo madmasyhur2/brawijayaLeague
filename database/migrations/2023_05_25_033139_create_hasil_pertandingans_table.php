@@ -13,11 +13,14 @@ return new class extends Migration
     {
         Schema::create('hasil_pertandingans', function (Blueprint $table) {
             $table->id();
+            $table->string('logo_tim_a');
             $table->string('nama_tim_a');
             $table->integer('skor_a')->nullable();
+            $table->string('logo_tim_b');
             $table->string('nama_tim_b');
             $table->integer('skor_b')->nullable();
             $table->integer('matchday');
+            $table->timestamps();
         });
     }
 
