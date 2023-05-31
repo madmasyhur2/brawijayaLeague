@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TimController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HasilPertandinganController;
 use App\Http\Controllers\PostController;
 /*
@@ -16,13 +17,10 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', [TimController::class, 'showData']);
-Route::get('/home', [TimController::class, 'showData']);
-Route::get('/', [HasilPertandinganController::class, 'showData']);
-Route::get('/home', [HasilPertandinganController::class, 'showData']);
-Route::get('/', [PostController::class, 'showData']);
-Route::get('/home', [PostController::class, 'showData']);
-Route::get('/standings', [TimController::class, 'showTim']);
+// bikin controller sesuai halaman
+
+Route::get('/', [DashboardController::class, 'index']);
+Route::get('/standings', [TimController::class, 'index']);
 Route::get('/admin/schedule/form', [TimController::class, 'dropDown']);
 Route::get('/admin/fixtures/form', [TimController::class, 'teamlist']);
 

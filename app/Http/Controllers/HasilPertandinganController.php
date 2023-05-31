@@ -16,7 +16,7 @@ class HasilPertandinganController extends Controller
     //     $hasil_pertandingan = Hasil_Pertandingan::groupBy('matchday')->paginate(10);
     //     return view('home', ['hasil_pertandingan' => $hasil_pertandingan]);
     // }
-    public function showData()
+    public function showFixturesHome()
     {
         $hasil_pertandingan = Hasil_Pertandingan::groupBy('matchday')->paginate(10);
         return view('home', ['hasil_pertandingan' => $hasil_pertandingan]);

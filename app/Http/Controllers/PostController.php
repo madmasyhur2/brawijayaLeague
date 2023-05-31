@@ -13,7 +13,7 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function showData()
+    public function index()
     {
         $post = Post::all();
         return view('home', ['post' => $post]);

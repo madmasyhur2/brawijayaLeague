@@ -11,23 +11,10 @@ class TimController extends Controller
     /**
      * Display a listing of the resource.
      */
-    // public function index()
-    // {
-    //     $tim = Tim::all()->orderBy('((menang*3)+(seri*1))', 'ASC');
-    //     // dd($tim);
-
-    //     // return view('teams.teams', ['tim' => $tim]);
-    //     return $tim;
-    // }
     
-    public function showData() {
+    public function index() {
         $tim = Tim::orderBy('poin', 'desc')->orderBy('gd', 'desc')->paginate(19);
         return view('home', ['tim' => $tim]);
-    }
-
-    public function showTim() {
-        $tim = Tim::orderBy('poin', 'desc')->orderBy('gd', 'desc')->get();
-        return view('standings.standings', ['tim' => $tim]);
     }
 
     public function dropDown() {

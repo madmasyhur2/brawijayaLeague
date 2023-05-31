@@ -145,7 +145,7 @@
                     </div>
                 </div>
                 @php($i = 1)
-                @foreach ($tim as $t)
+                @foreach ($tims as $t)
                     <div class="table-content">
                         <div class="table-content-left">
                             <p  class="table-content-left-index">{{ $i++ }}</p>
