@@ -14,7 +14,7 @@ class TimController extends Controller
     
     public function index() {
         $tim = Tim::orderByRaw("(menang * 3 + seri) DESC")->orderByRaw("(gol - kebobolan) DESC")->paginate(19);
-        return view('home', ['tim' => $tim]);
+        return view('standings.standings', ['tim' => $tim]);
     }
 
     public function dropDown() {

@@ -51,9 +51,9 @@
                                     <div class="upcomingmatch-box-content s12">
                                         <img src="../assets/landingpage/logalengkap.svg" alt="" class="upcomingmatch-box-logo">
                                         <div class="upcomingmatch-box-match s32">
-                                            <img src="../assets/landingpage/logotim.svg" alt="" class="upcomingmatch-box-match-logo">
+                                            <img src="../assets/teamLogo/logotim.svg" alt="" class="upcomingmatch-box-match-logo">
                                             <p>VS</p>
-                                            <img src="../assets/landingpage/logotim.svg" alt="" class="upcomingmatch-box-match-logo">
+                                            <img src="../assets/teamLogo/logotim.svg" alt="" class="upcomingmatch-box-match-logo">
                                         </div>
                                         <p class="upcomingmatch-box-desc">MATCHDAY 1 | 22 Mei 14:00</p>
                                         <p class="upcomingmatch-box-end">MATCH CENTER</p>
@@ -108,11 +108,11 @@
                     <div class="fixtures-content-grid">
                         <div class="timmatch jc-end">
                             <p>TOTTENHAM</p>
-                            <img src="../assets/landingpage/logotim.svg" alt="" class="timmatch-logo">
+                            <img src="../assets/teamLogo/logotim.svg" alt="" class="timmatch-logo">
                         </div>
                         <div class="fixtures-score">1-2</div>
                         <div class="timmatch">
-                            <img src="../assets/landingpage/logotim.svg" alt="" class="timmatch-logo">
+                            <img src="../assets/teamLogo/logotim.svg" alt="" class="timmatch-logo">
                             <p>LIVERPOOL</p>
                         </div>
                     </div>
@@ -150,7 +150,7 @@
                         <div class="table-content-left">
                             <p  class="table-content-left-index">{{ $i++ }}</p>
                             <div class="table-content-club">
-                                <img src="{{'../assets/landingpage/'.$t->logo_tim}}" alt="" class="table-content-logo">
+                                <img src="{{'../assets/teamLogo/'.$t->logo_tim}}" alt="" class="table-content-logo">
                                 <p>{{ $t->nama_tim }}</p>
                             </div>
                         </div>
