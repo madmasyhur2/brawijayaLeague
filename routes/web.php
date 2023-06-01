@@ -21,6 +21,7 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', [DashboardController::class, 'index']);
 Route::get('/standings', [TimController::class, 'index']);
+Route::get('/admin/schedule', [TimController::class, 'showScheduleAdmin']);
 Route::get('/admin/schedule/form', [TimController::class, 'dropDown']);
 Route::get('/admin/fixtures', [TimController::class, 'showFixturesAdmin']);
 Route::get('/admin/fixtures/form', [TimController::class, 'teamlist']);
@@ -65,9 +66,6 @@ Route::get('/admin/standings/form', function() {
 });
 Route::get('/admin/standings/edit', function() {
     return view('standings.form.edit');
-});
-Route::get('/admin/schedule', function() {
-    return view('admin.pertandingan.pertandingan');
 });
 Route::get('/admin/schedule/edit', function() {
     return view('pertandingan.form.edit');
