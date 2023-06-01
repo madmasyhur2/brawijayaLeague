@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class tim extends Model
 {
@@ -11,17 +12,13 @@ class tim extends Model
     protected $table = 'tims';
 
     protected $fillable = [
-        'pos',
         'logo_tim',
         'nama_tim',
-        'poin',
-        'game',
         'menang',
         'seri',
         'kalah',
         'gol',
         'kebobolan',
-        'gd',
     ];
 
     public function getGame()
@@ -39,4 +36,13 @@ class tim extends Model
         return($this->menang * 3 + $this->seri * 1 + $this->kalah * 0);
     }
 
+    public function pertandingan()
+    {
+        return $this->hasMany(pertandingan::class, 'tim_id', 'id');
+    }
+
+    public function hasil_pertandingan()
+    {
+        return $this->belongsTo(hasil_pertandingan::class, 'tim_id', 'id');
+    }
 }

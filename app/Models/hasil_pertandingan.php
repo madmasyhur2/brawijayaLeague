@@ -20,4 +20,9 @@ class hasil_pertandingan extends Model
         'skor_b',
         'matchday'
     ];
+
+    public function tim()
+    {
+        return $this->belongsTo(Tim::class,'pertandingan_id', 'id');
+    }
 }

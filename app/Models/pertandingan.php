@@ -18,8 +18,8 @@ class pertandingan extends Model
         'jam',
     ];
 
-    // public function tim()
-    // {
-    //     return $this->hasMany(Tim::class);
-    // }
+    public function tim()
+    {
+        return $this->hasMany(Tim::class, 'pertandingan_id', 'id');
+    }
 }

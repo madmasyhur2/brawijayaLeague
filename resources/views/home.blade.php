@@ -156,11 +156,11 @@
                         </div>
                         <div class="table-header-right">
                             <div class="table-header-content">{{ $t->getPoin() }}</div>
-                            <div class="table-header-content">{{ $t->game}}</div>
+                            <div class="table-header-content">{{ $t->getGame()}}</div>
                             <div class="table-header-content">{{ $t->menang}}</div>
                             <div class="table-header-content">{{ $t->seri}}</div>
                             <div class="table-header-content">{{ $t->kalah}}</div>
-                            <div class="table-header-content">{{ $t->gd}}</div>
+                            <div class="table-header-content">{{ $t->getGD()}}</div>
                         </div>
                     </div>
                 @endforeach

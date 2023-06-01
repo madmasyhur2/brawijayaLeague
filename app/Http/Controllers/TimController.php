@@ -13,7 +13,7 @@ class TimController extends Controller
      */
     
     public function index() {
-        $tim = Tim::orderBy('poin', 'desc')->orderBy('gd', 'desc')->paginate(19);
+        $tim = Tim::orderByRaw("(menang * 3 + seri) DESC")->orderByRaw("(gol - kebobolan) DESC")->paginate(19);
         return view('home', ['tim' => $tim]);
     }
 

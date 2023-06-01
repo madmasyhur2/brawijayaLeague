@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('matchday');
             $table->string('tanggal');
             $table->string('jam');
+            $table->timestamps();
         });
     }
 
