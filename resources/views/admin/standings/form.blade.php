@@ -2,7 +2,7 @@
 
 <div class="flex">
     @include('admin.sidebar.sidebar')
-    <div class="m-8 mr-0">
+    <div class="m-8 ml-44">
         <form class="w-full grid grid-cols-2 gap-2">
             <p>Logo Tim</p>
             <input type="file" id="logo" name="logo" accept="image/*" max="2097152" required class="border rounded p-1 w-full">

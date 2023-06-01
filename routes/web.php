@@ -22,7 +22,9 @@ use App\Http\Controllers\PostController;
 Route::get('/', [DashboardController::class, 'index']);
 Route::get('/standings', [TimController::class, 'index']);
 Route::get('/admin/schedule/form', [TimController::class, 'dropDown']);
+Route::get('/admin/fixtures', [TimController::class, 'showFixturesAdmin']);
 Route::get('/admin/fixtures/form', [TimController::class, 'teamlist']);
+Route::get('/admin/standings', [TimController::class, 'showNameTimAdmin']);
 
 Route::get('/teams', [TimController::class, 'showNameTim']);
 
@@ -55,14 +57,8 @@ Route::get('/gallery', function() {
 Route::get('/admin', function() {
     return view('admin.admin');
 });
-Route::get('/admin/fixtures', function() {
-    return view('admin.hasil.hasil');
-});
 Route::get('/admin/fixtures/edit', function() {
     return view('hasil.form.edit');
-});
-Route::get('/admin/standings', function() {
-    return view('admin.standings.standings');
 });
 Route::get('/admin/standings/form', function() {
     return view('admin.standings.form');

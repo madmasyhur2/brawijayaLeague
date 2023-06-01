@@ -1,4 +1,4 @@
-<div class="bg-primary h-[100vh] w-fit flex flex-col py-8 pr-19 px-5 gap-9 text-Neutral-white font-semibold">
+<div class="fixed bg-primary h-[100vh] w-fit flex flex-col py-8 pr-19 px-5 gap-9 text-Neutral-white font-semibold">
     <a href="/">Home</a>
     <a href="/admin">Admin</a>
     <a href="/admin/fixtures">Fixtures</a>

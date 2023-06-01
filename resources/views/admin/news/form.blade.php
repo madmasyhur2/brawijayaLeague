@@ -2,7 +2,7 @@
 
 <div class="flex">
     @include('admin.sidebar.sidebar')
-    <div class="m-8 mr-0">
+    <div class="m-8 ml-44">
         <form class="w-full grid grid-cols-2 gap-2">
             <p>Judul</p>
             <input type="text" id="judul" name="judul" placeholder="Judul" required class="border rounded p-1 w-full">
