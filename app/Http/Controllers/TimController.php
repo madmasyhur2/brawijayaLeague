@@ -29,6 +29,10 @@ class TimController extends Controller
         $tim = Tim::orderBy('nama_tim', 'asc')->get();
         return view('teams.teams', ['tim' => $tim]);
     }
+    public function showNameTimAdmin() {
+        $tim = Tim::orderBy('nama_tim', 'asc')->get();
+        return view('admin.standings.standings', ['tim' => $tim]);
+    }
     /**
      * Show the form for creating a new resource.
      */
