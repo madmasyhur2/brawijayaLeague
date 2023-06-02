@@ -35,8 +35,8 @@
                 <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->kebobolan}}</td>
                 <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->getGD() }}</td>
                 <td class="w-[6%] p-1 text-center font-bold text-l flex gap-1">
-                    <a href="admin/schedule/form/delete/{tims:id}" class="border p-1 rounded-lg font-normal bg-Secondary-1">Update</a>
-                    <a class="border p-1 rounded-lg font-normal bg-red">Delete</a>
+                    <a class="border p-1 rounded-lg font-normal bg-Secondary-1">Update</a>
+                    <a href="{{url('admin/schedule/delete/'.$t->id)}}" class="border p-1 rounded-lg font-normal bg-red">Delete</a>
                 </td>
             </tr>
             @endforeach

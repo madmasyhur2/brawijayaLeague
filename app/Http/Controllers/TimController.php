@@ -183,14 +183,9 @@ class TimController extends Controller
         }
         return redirect('/admin/standings');
     }
-    public function StandingsDelete(tim $tim)
-    {
-        // if ($tim->image) {
-        //     Storage::delete($tim->image);
-        // }
-
-        if ($tim->delete()) {
-            return redirect('/admin/menu')->with('success', 'Menu item is successfully deleted');
-        }
+    public function StandingsDelete($id){
+        $tims = tim::find($id);
+        $tims->delete();
+        return redirect('/admin/standings');
     }
 }
