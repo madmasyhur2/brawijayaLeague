@@ -15,8 +15,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post = Post::all();
-        return view('home', ['post' => $post]);
+        return view('news.news', [
+            "posts" => Post::all(),
+        ]);
+
     }
 
     /**
@@ -43,7 +45,8 @@ class PostController extends Controller
         $gambar_beritaPath = $request->file('gambar_berita')->store('public/newsImage');
 
         // Mengambil tanggal publikasi saat ini
-        $tgl_publikasi = Carbon::now();
+        $dt = Carbon::now();
+        $tgl_publikasi = $dt->toFormattedDateString();
 
         // Buat objek Post baru
         $post = new Post;

@@ -26,7 +26,7 @@ Route::get('/admin/schedule/form', [TimController::class, 'dropDown']);
 Route::get('/admin/fixtures', [TimController::class, 'showFixturesAdmin']);
 Route::get('/admin/fixtures/form', [TimController::class, 'teamlist']);
 Route::get('/admin/standings', [TimController::class, 'showNameTimAdmin']);
-
+Route::get('/news', [PostController::class, 'index']);
 Route::get('/teams', [TimController::class, 'showNameTim']);
 
 Route::get('/login', function() {
@@ -43,9 +43,9 @@ Route::get('/statistic', function() {
 });Route::get('/videos', function() {
     return view('videos.videos');
 });
-Route::get('/news', function() {
-    return view('news.news');
-});
+// Route::get('/news', function() {
+//     return view('news.news');
+// });
 Route::get('/about', function() {
     return view('about.about');
 });
