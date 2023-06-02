@@ -87,6 +87,48 @@ a{
     color: #FAFAFA;
 }
 
+.hallOfFame{
+    margin: 0 5%;
+}
+.hallOfFame h1{
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 48px;
+    text-align: center;
+    color: #0A3E70;
+}
+.fame-person{
+    column-count: 3;
+}
+.fame-person-box{
+    width: 310px;
+    height: 546px;
+    margin: 0 20px;
+}
+.fame-person-box img{
+    width: 310px;
+    margin: 0 auto;
+}
+.fame-person-box h2{
+    font-family: 'Roboto';
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 500;
+    font-size: 24px;
+    color: #FFFFFF;
+    background: #00529C;
+}
+.fame-person-box p{
+    font-family: 'Roboto';
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 300;
+    font-size: 24px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #006DCB;
+}
+
 footer{
     width: 100%;
 }

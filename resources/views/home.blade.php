@@ -279,6 +279,26 @@
         </div>
     </div>
 </div>
+<div class="hallOfFame">
+    <h1>HALL OF FAME</h1>
+    <div class="fame-person">
+        <div class="fame-person-box" id="fame-person1">
+            <img src="https://img.lovepik.com/element/40186/6572.png_860.png">
+            <h2>COACH OF THE MONTH</h2>
+            <p>PEP BOTAK GUARDIOLA</p>
+        </div>
+        <div class="fame-person-box"  id="fame-person2">
+            <img src="https://img.lovepik.com/element/40186/6572.png_860.png">
+            <h2>COACH OF THE MONTH</h2>
+            <p>PEP BOTAK GUARDIOLA</p>
+        </div>
+        <div class="fame-person-box"  id="fame-person3">
+            <img src="https://img.lovepik.com/element/40186/6572.png_860.png">
+            <h2>COACH OF THE MONTH</h2>
+            <p>PEP BOTAK GUARDIOLA</p>
+        </div>
+    </div>
+</div>
 
 @include('footer.footer')
 

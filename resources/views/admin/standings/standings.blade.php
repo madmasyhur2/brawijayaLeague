@@ -6,7 +6,7 @@
         <a href="/admin/standings/form" class="border p-1 px-3 rounded-lg font-semibold bg-Secondary-1">+ Add</a>
         <table class=" mt-4">
             <tr class="text-Secondary-1 font-bold">
-                <th class="p-3 bg-[#006DCB] rounded-[6px_0_0_0]">POS</th>
+                <th class="p-3 bg-[#006DCB] rounded-[6px_0_0_0]">No</th>
                 <th class="p-3 bg-[#006DCB]">CLUB</th>
                 <th class="p-3 bg-[#006DCB]">PTS</th>
                 <th class="p-3 bg-[#006DCB]">G</th>

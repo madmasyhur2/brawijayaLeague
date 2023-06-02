@@ -46,3 +46,4 @@ class tim extends Model
         return $this->belongsTo(hasil_pertandingan::class, 'tim_id', 'id');
     }
 }
+

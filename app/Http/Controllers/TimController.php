@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\tim;
 use App\Http\Requests\StoretimRequest;
 use App\Http\Requests\UpdatetimRequest;
+use Illuminate\Http\Request;
 
 class TimController extends Controller
 {
@@ -50,7 +51,7 @@ class TimController extends Controller
         $validate = $request->validate([
             'logo_tim' => 'required|image|max:2048|mimes:jpeg,jpg,png,svg',
             'nama_tim' => 'required|max:255',
-            'pos' => 'required|integer',
+            // 'pos' => 'required|integer',
             'poin' => 'required|integer',
             'menang' => 'required|integer',
             'seri' => 'required|integer',
@@ -65,7 +66,7 @@ class TimController extends Controller
         $tim = new Tim();
         $tim->logo_tim = $logoPath;
         $tim->nama_tim = $request->input('nama_tim');
-        $tim->pos = $request->input('pos');
+        // $tim->pos = $request->input('pos');
         $tim->poin = $request->input('poin');
         $tim->menang = $request->input('menang');
         $tim->seri = $request->input('seri');
@@ -107,7 +108,7 @@ class TimController extends Controller
         $validate = $request->validate([
             'logo_tim' => 'image|max:2048',
             'nama_tim' => 'required|max:255',
-            'pos' => 'required|integer',
+            // 'pos' => 'required|integer',
             'poin' => 'required|integer',
             'menang' => 'required|integer',
             'seri' => 'required|integer',
@@ -130,7 +131,7 @@ class TimController extends Controller
 
         // Memperbarui data tim
         $tim->nama_tim = $request->input('nama_tim');
-        $tim->pos = $request->input('pos');
+        // $tim->pos = $request->input('pos');
         $tim->poin = $request->input('poin');
         $tim->menang = $request->input('menang');
         $tim->seri = $request->input('seri');
@@ -160,5 +161,26 @@ class TimController extends Controller
 
         // Memberikan pesan berhasil
         return redirect('/tim')->with('success', 'Data tim berhasil dihapus.');
+    }
+    function StandingsInsert(Request $request){
+        $logo_tim = $request->input('nama');
+        $nama_tim = $request->input('nama');
+        $menang = $request->input('menang');
+        $seri = $request->input('seri');
+        $kalah = $request->input('Kalah');
+        $gol = $request->input('gol');
+        $kebobolan = $request->input('Kebobolan');
+
+        $isInsertSuccress = tim::insert(['logo_tim'=>$logo_tim,
+                                        'nama_tim'=>$nama_tim,
+                                        'menang'=>$menang,
+                                        'seri'=>$seri,
+                                        'kalah'=>$kalah,
+                                        'gol'=>$gol,
+                                        'kebobolan'=>$kebobolan]);
+        if ($request->hasFile('image')) {
+            $validated['image'] = $request->file('image')->store('logo_tim');
+        }
+        return redirect('/admin/standings');
     }
 }
