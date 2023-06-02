@@ -13,25 +13,25 @@ class TimController extends Controller
      */
     
     public function index() {
-        $tim = Tim::orderByRaw("(menang * 3 + seri) DESC")->orderByRaw("(gol - kebobolan) DESC")->paginate(19);
-        return view('standings.standings', ['tim' => $tim]);
+        $tims = Tim::orderByRaw("(menang * 3 + seri) DESC")->orderByRaw("(gol - kebobolan) DESC")->paginate(19);
+        return view('standings.standings', ['tim' => $tims]);
     }
 
     public function dropDown() {
-        $tim = Tim::all();
-        return view('admin.pertandingan.form', ['tim' => $tim]);
+        $tims = Tim::all();
+        return view('admin.pertandingan.form', ['tim' => $tims]);
     }
     public function teamlist() {
-        $tim = Tim::all();
-        return view('admin.hasil.form', ['tim' => $tim]);
+        $tims = Tim::all();
+        return view('admin.hasil.form', ['tim' => $tims]);
     }
     public function showNameTim() {
-        $tim = Tim::orderBy('nama_tim', 'asc')->get();
-        return view('teams.teams', ['tim' => $tim]);
+        $tims = Tim::orderBy('nama_tim', 'asc')->get();
+        return view('teams.teams', ['tim' => $tims]);
     }
     public function showNameTimAdmin() {
-        $tim = Tim::orderBy('nama_tim', 'asc')->get();
-        return view('admin.standings.standings', ['tim' => $tim]);
+        $tims = Tim::orderBy('nama_tim', 'asc')->get();
+        return view('admin.standings.standings', ['tim' => $tims]);
     }
     /**
      * Show the form for creating a new resource.
