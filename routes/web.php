@@ -27,6 +27,9 @@ Route::get('/admin/schedule', [TimController::class, 'showScheduleAdmin']);
 Route::get('/admin/schedule/form', [TimController::class, 'dropDown']);
 Route::post('/admin/schedule/form/insert', [TimController::class, 'StandingsInsert']);
 Route::get('/admin/schedule/delete/{tims:id}', [TimController::class, 'StandingsDelete']);
+Route::get('/admin/schedule/update/{tims:id}', [TimController::class, 'StandingsEdit']);
+Route::get('/admin/schedule/update/{tims:id}', [TimController::class, 'StandingsDelete']);
+
 Route::get('/admin/fixtures', [TimController::class, 'showFixturesAdmin']);
 Route::get('/admin/fixtures/form', [TimController::class, 'teamlist']);
 Route::get('/admin/standings', [TimController::class, 'showNameTimAdmin']);

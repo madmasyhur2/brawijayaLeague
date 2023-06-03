@@ -188,4 +188,9 @@ class TimController extends Controller
         $tims->delete();
         return redirect('/admin/standings');
     }
+    public function StandingsEdit($id){
+        $tims = tim::find($id);
+        $tims->delete();
+        return redirect('/admin/standings');
+    }
 }
