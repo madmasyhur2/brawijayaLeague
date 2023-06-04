@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\pertandingan;
 use App\Http\Requests\StorepertandinganRequest;
 use App\Http\Requests\UpdatepertandinganRequest;
+use App\Models\tim;
 
 class PertandinganController extends Controller
 {
@@ -13,7 +14,7 @@ class PertandinganController extends Controller
      */
     public function index()
     {
-        $pertandingan = Pertandingan::all()->order('matchday', 'DESC')->order('jam', 'DESC');
+        $pertandingan = Pertandingan::all();
         return view('pertandingan.index', compact('pertandingan'));
     }
 

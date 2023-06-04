@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('pertandingans', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_tim_a');
-            $table->string('nama_tim_b');
+            $table->string('home_tim');
+            $table->string('logo_home_tim');
+            $table->string('away_tim');
+            $table->string('logo_away_tim');
             $table->integer('matchday');
             $table->string('tanggal');
             $table->string('jam');

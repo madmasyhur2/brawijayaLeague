@@ -43,51 +43,26 @@
                 </div>
                 <div class="upcomingmatch">
                     <div class="upcomingmatch-button" onclick="changeupcoming(0)" id="upcomingback"><img src="../assets/landingpage/panahmundur.svg" alt="" class="upcomingmatch-button-icon"></div>
-
                     <div class="upcoming-boxslider">
                         <div class="upcoming-boxslider-content">
                             <div class="upcoming-boxslider-content-page" id="upcoming-match1">
+                                @foreach ($pertandingans as $ps)
                                 <div class="upcomingmatch-box">
                                     <div class="upcomingmatch-box-content s12">
                                         <img src="../assets/landingpage/logalengkap.svg" alt="" class="upcomingmatch-box-logo">
-                                        <div class="upcomingmatch-box-match s32">
-                                            <img src="../assets/teamLogo/logotim.svg" alt="" class="upcomingmatch-box-match-logo">
-                                            <p>VS</p>
-                                            <img src="../assets/teamLogo/logotim.svg" alt="" class="upcomingmatch-box-match-logo">
-                                        </div>
-                                        <p class="upcomingmatch-box-desc">MATCHDAY 1 | 22 Mei 14:00</p>
+                                            <div class="upcomingmatch-box-match s32">
+                                                <img src="{{'../assets/teamLogo/logotim.svg'.$ps->logo_home_tim}}" alt="" class="upcomingmatch-box-match-logo">
+                                                <p>VS</p>
+                                                <img src="{{'../assets/teamLogo/logotim.svg'.$ps->logo_away_tim}}" alt="" class="upcomingmatch-box-match-logo">
+                                            </div>
+                                            <p class="upcomingmatch-box-desc">MATCHDAY {{$ps->matchday}} | {{$ps->tanggal}} {{$ps->jam}}</p>
                                         <p class="upcomingmatch-box-end">MATCH CENTER</p>
                                     </div>
                                 </div>
-                                <div class="upcomingmatch-box"></div>
-                                <div class="upcomingmatch-box"></div>
-                                <div class="upcomingmatch-box"></div>
-                                <div class="upcomingmatch-box"></div>
-                            </div>
-                            <div class="upcoming-boxslider-content-page" id="upcoming-match2">
-                                <div class="upcomingmatch-box"></div>
-                                <div class="upcomingmatch-box"></div>
-                                <div class="upcomingmatch-box"></div>
-                                <div class="upcomingmatch-box"></div>
-                                <div class="upcomingmatch-box"></div>
-                            </div>
-                            <div class="upcoming-boxslider-content-page" id="upcoming-match3">
-                                <div class="upcomingmatch-box"></div>
-                                <div class="upcomingmatch-box"></div>
-                                <div class="upcomingmatch-box"></div>
-                                <div class="upcomingmatch-box"></div>
-                                <div class="upcomingmatch-box"></div>
-                            </div>
-                            <div class="upcoming-boxslider-content-page" id="upcoming-match4">
-                                <div class="upcomingmatch-box"></div>
-                                <div class="upcomingmatch-box"></div>
-                                <div class="upcomingmatch-box"></div>
-                                <div class="upcomingmatch-box"></div>
-                                <div class="upcomingmatch-box"></div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
-                    
                     <div class="upcomingmatch-button" onclick="changeupcoming(9)" id="upcomingnext"><img src="../assets/landingpage/panahmaju.svg" alt="" class="mcicon"></div>
                 </div>
             </div>

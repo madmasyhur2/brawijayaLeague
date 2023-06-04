@@ -10,16 +10,20 @@ class pertandingan extends Model
     use HasFactory;
 
     protected $table = 'pertandingans';
+    protected $primaryKey = 'id';
     protected $fillable = [
-        'nama_tim_a',
-        'nama_tim_b',
+        'home_tim',
+        'logo_home_tim',
+        'away_tim',
+        'logo_away_tim',
         'matchday',
         'tanggal',
         'jam',
     ];
 
+
     public function tim()
     {
-        return $this->hasMany(Tim::class, 'pertandingan_id', 'id');
+        return $this->hasMany(Tim::class);
     }
 }
