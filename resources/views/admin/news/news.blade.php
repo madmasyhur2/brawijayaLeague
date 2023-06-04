@@ -19,8 +19,8 @@
                 <td class="p-1 text-center text-l">{{ $p->tgl_publikasi }}</td>
                 <td class="p-1 text-justify text-l">{{ $p->isi }}</td>
                 <td class="p-1 text-center text-l flex gap-1">
-                    <a class="border p-1 rounded-lg font-normal bg-Secondary-1">Update</a>
-                    <a class="border p-1 rounded-lg font-normal bg-red">Delete</a>
+                    <a href="{{url('/admin/news/update/'.$p->id)}}" class="border p-1 rounded-lg font-normal bg-Secondary-1">Update</a>
+                    <a href="{{url('/admin/news/delete/'.$p->id)}}" class="border p-1 rounded-lg font-normal bg-red">Delete</a>
                 </td>
             </tr>
             @endforeach

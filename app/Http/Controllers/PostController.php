@@ -7,6 +7,7 @@ use App\Http\Requests\StorepostRequest;
 use App\Http\Requests\UpdatepostRequest;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -150,5 +151,31 @@ class PostController extends Controller
     }
     function Newsform(){
         return view('admin.news.form');
+    }
+    function NewsInsert(Request $request){
+        $judul = $request->input('judul');
+        $gambar_berita = $request->input('gambar');
+        $tgl_publikasi = $request->input('judul');
+        $isi = $request->input('isi');
+
+        $isInsertSuccress = post::insert(['judul'=>$judul,
+                                        'gambar_berita'=>$gambar_berita,
+                                        'tgl_publikasi'=>$tgl_publikasi,
+                                        'isi'=>$isi]);
+        if ($request->hasFile('gambar_berita')) {
+            $validated['image'] = $request->file('image')->store('../assets/news/');
+        }
+        
+        return redirect('/admin/news')->with('success', 'Berita berhasil ditambahkan');
+    }
+    public function NewsDelete($id){
+        $posts = post::find($id);
+        $posts->delete();
+        return redirect('/admin/news')->with('success', 'Berita berhasil dihapus.');;
+    }
+    public function NewsEdit(post $posts){
+        return view('admin.news.update', [
+            'pos' => $posts,
+        ]);
     }
 }

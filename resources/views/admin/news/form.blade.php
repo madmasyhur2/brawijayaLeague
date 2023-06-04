@@ -3,7 +3,7 @@
 <div class="flex">
     @include('admin.sidebar.sidebar')
     <div class="m-8 ml-44">
-        <form action="/admin/news/form/insert" class="w-full grid grid-cols-2 gap-2">
+        <form action="/admin/news/form/insert" class="w-full grid grid-cols-2 gap-2" method="post" enctype="multipart/form-data">
             @csrf
             <p>Judul</p>
             <input type="text" id="judul" name="judul" placeholder="Judul" required class="border rounded p-1 w-full">
