@@ -6,6 +6,7 @@ use App\Http\Controllers\TimController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HasilPertandinganController;
+use App\Http\Controllers\PertandinganController;
 use App\Http\Controllers\PostController;
 
 /*
@@ -25,6 +26,7 @@ Route::get('/', [DashboardController::class, 'index']);
 Route::get('/standings', [TimController::class, 'index']);
 Route::get('/admin/schedule', [TimController::class, 'showScheduleAdmin']);
 Route::get('/admin/schedule/form', [TimController::class, 'dropDown']);
+Route::get('/schedules', [PertandinganController::class, 'index']);
 
 Route::get('/admin/fixtures', [TimController::class, 'showFixturesAdmin']);
 Route::get('/admin/fixtures/form', [TimController::class, 'teamlist']);
@@ -40,9 +42,6 @@ Route::get('/teams', [TimController::class, 'showNameTim']);
 
 Route::get('/login', function() {
     return view('login.login');
-});
-Route::get('/schedules', function() {
-    return view('schedules.schedules');
 });
 Route::get('/players', function() {
     return view('players.players');

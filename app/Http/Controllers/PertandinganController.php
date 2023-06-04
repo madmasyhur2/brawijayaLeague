@@ -14,8 +14,9 @@ class PertandinganController extends Controller
      */
     public function index()
     {
-        $pertandingan = Pertandingan::all();
-        return view('pertandingan.index', compact('pertandingan'));
+        return view('schedules.schedules', [
+            'pertandingans' => Pertandingan::orderBy('matchday', 'ASC')->orderBy('jam','ASC')->get()
+        ]);
     }
 
     /**

@@ -3,25 +3,26 @@
 <div class="main-tittle bg-[url(/public/assets/tittle-bg.svg)] h-[20vh] bg-no-repeat bg-cover">
     <h1 class="pt-[30px] pl-[10%] text-[#FAFAFA] font-bold text-5xl font-['Montserrat']">SCHEDULES</h1>
 </div>
-
 <div class="board">
+    @foreach ($pertandingans as $ps)
     <div class="boardvalue">
         <div class="boardvalue-date s14">
-            <p>MATCHDAY 3</p>
-            <p>27 MEI 2023 - 14:00</p>
+            <p>MATCHDAY {{ $ps->matchday }}</p>
+            <p>{{ $ps->tanggal }} - {{ $ps->jam }}</p>
         </div>
         <div class="boardvalue-tim s32">
             <div class="tim s20">
-                <p>LIVERPOLL</p>
+                <p>{{ $ps->home_tim }}</p>
                 <img class="m-2" src="../assets/landingpage/logotim.svg" alt="">
             </div>
             <p>VS</p>
             <div class="tim2 s20">
                 <img class="m-2" src="../assets/landingpage/logotim.svg" alt="">
-                <p>MANCHASTER UNITED</p>
+                <p>{{ $ps->away_tim }}</p>
             </div>
         </div>
     </div>
+    @endforeach
 
     {{-- @foreach ($pertandingans as $pertandingan)
     <div class="boardvalue">
