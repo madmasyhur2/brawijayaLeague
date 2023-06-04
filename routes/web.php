@@ -25,14 +25,16 @@ Route::get('/', [DashboardController::class, 'index']);
 Route::get('/standings', [TimController::class, 'index']);
 Route::get('/admin/schedule', [TimController::class, 'showScheduleAdmin']);
 Route::get('/admin/schedule/form', [TimController::class, 'dropDown']);
-Route::post('/admin/schedule/form/insert', [TimController::class, 'StandingsInsert']);
-Route::get('/admin/schedule/delete/{tims:id}', [TimController::class, 'StandingsDelete']);
-Route::get('/admin/schedule/update/{tims:id}', [TimController::class, 'StandingsEdit']);
-Route::get('/admin/schedule/update/{tims:id}', [TimController::class, 'StandingsDelete']);
 
 Route::get('/admin/fixtures', [TimController::class, 'showFixturesAdmin']);
 Route::get('/admin/fixtures/form', [TimController::class, 'teamlist']);
 Route::get('/admin/standings', [TimController::class, 'showNameTimAdmin']);
+Route::get('/admin/standings/form', function() {return view('admin.standings.form');});
+Route::post('/admin/standings/form/insert', [TimController::class, 'StandingsInsert']);
+Route::get('/admin/standings/delete/{tims:id}', [TimController::class, 'StandingsDelete']);
+Route::get('/admin/standings/update/{tims:id}', [TimController::class, 'StandingsEdit']);
+Route::post('/admin/standings/update/{tims:id}', [TimController::class, 'StandingsUpdate']);
+
 Route::get('/news', [PostController::class, 'index']);
 Route::get('/teams', [TimController::class, 'showNameTim']);
 
@@ -67,12 +69,6 @@ Route::get('/admin', function() {
 });
 Route::get('/admin/fixtures/edit', function() {
     return view('hasil.form.edit');
-});
-Route::get('/admin/standings/form', function() {
-    return view('admin.standings.form');
-});
-Route::get('/admin/standings/edit', function() {
-    return view('standings.form.edit');
 });
 Route::get('/admin/schedule/edit', function() {
     return view('pertandingan.form.edit');

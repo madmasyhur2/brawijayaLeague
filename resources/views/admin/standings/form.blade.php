@@ -3,7 +3,7 @@
 <div class="flex">
     @include('admin.sidebar.sidebar')
     <div class="m-8 ml-44">
-        <form action="/admin/schedule/form/insert" class="w-full grid grid-cols-2 gap-2" method="post" enctype="multipart/form-data">
+        <form action="/admin/standings/form/insert" class="w-full grid grid-cols-2 gap-2" method="post" enctype="multipart/form-data">
             @csrf
             <p>Logo Tim</p>
             <input type="file" id="logo" name="logo" accept="image/*" max="2097152" required class="border rounded p-1 w-full">

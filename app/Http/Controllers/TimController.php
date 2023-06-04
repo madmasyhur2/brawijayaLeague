@@ -163,7 +163,7 @@ class TimController extends Controller
         return redirect('/tim')->with('success', 'Data tim berhasil dihapus.');
     }
     function StandingsInsert(Request $request){
-        $logo_tim = $request->input('nama');
+        $logo_tim = $request->input('logo');
         $nama_tim = $request->input('nama');
         $menang = $request->input('menang');
         $seri = $request->input('seri');
@@ -179,7 +179,7 @@ class TimController extends Controller
                                         'gol'=>$gol,
                                         'kebobolan'=>$kebobolan]);
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('logo_tim');
+            $validated['image'] = $request->file('image')->store('../assets/teamLogo/');
         }
         return redirect('/admin/standings');
     }
@@ -188,9 +188,25 @@ class TimController extends Controller
         $tims->delete();
         return redirect('/admin/standings');
     }
-    public function StandingsEdit($id){
+    public function StandingsEdit(tim $tims){
+        return view('admin.standings.update', [
+            'tims' => $tims,
+        ]);
+    }
+    public function StandingsUpdate(Request $request,$id){
         $tims = tim::find($id);
-        $tims->delete();
+        // $tims->logo_tim = $request->input('logo');
+        $tims->nama_tim = $request->input('nama');
+        $tims->menang = $request->input('menang');
+        $tims->seri = $request->input('seri');
+        $tims->kalah = $request->input('Kalah');
+        $tims->gol = $request->input('gol');
+        $tims->kebobolan = $request->input('Kebobolan');
+        $tims -> update();
+
+        // if ($request->hasFile('image')) {
+        //     $validated['image'] = $request->file('image')->store('../assets/teamLogo/');
+        // }
         return redirect('/admin/standings');
     }
 }
