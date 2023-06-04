@@ -20,6 +20,7 @@ class tim extends Model
         'gol',
         'kebobolan',
     ];
+    
 
     public function getGame()
     {

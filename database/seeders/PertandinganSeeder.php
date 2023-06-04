@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Pertandingan;
@@ -20,7 +21,7 @@ class PertandinganSeeder extends Seeder
                 'away_tim' => 'Man City',
                 'logo_away_tim' => 'logo_manchester_city.jpg',
                 'matchday' => 1,
-                'tanggal' => '22 Juni',
+                'tanggal' => Carbon::parse('2022-01-01'),
                 'jam' => '02.00'
             ],
             [
@@ -29,7 +30,7 @@ class PertandinganSeeder extends Seeder
                 'away_tim' => 'Galatasaray',
                 'logo_away_tim' => 'logo_galatasaray.jpg',
                 'matchday' => 1,
-                'tanggal' => '22 Juni',
+                'tanggal' => Carbon::parse('2022-01-01'),
                 'jam' => '06.00'
             ],
             [
@@ -38,7 +39,7 @@ class PertandinganSeeder extends Seeder
                 'away_tim' => 'Arsenal',
                 'logo_away_tim' => 'logo_arsenal.jpg',
                 'matchday' => 2,
-                'tanggal' => '23 Juni',
+                'tanggal' => Carbon::parse('2022-01-01'),
                 'jam' => '02.00'
             ],
             [
@@ -47,7 +48,7 @@ class PertandinganSeeder extends Seeder
                 'away_tim' => 'Inter Milan',
                 'logo_away_tim' => 'logo_intermilan.jpg',
                 'matchday' => 2,
-                'tanggal' => '23 Juni',
+                'tanggal' => Carbon::parse('2022-01-01'),
                 'jam' => '06.00'
             ],
             [
@@ -56,7 +57,7 @@ class PertandinganSeeder extends Seeder
                 'away_tim' => 'Man City',
                 'logo_away_tim' => 'logo_manchester_city.jpg',
                 'matchday' => 3,
-                'tanggal' => '29 Juni',
+                'tanggal' => Carbon::parse('2022-01-01'),
                 'jam' => '02.00'
             ],
             [
@@ -65,7 +66,7 @@ class PertandinganSeeder extends Seeder
                 'away_tim' => 'Arsenal',
                 'logo_away_tim' => 'logo_arsenal.jpg',
                 'matchday' => 3,
-                'tanggal' => '29 Juni',
+                'tanggal' => Carbon::parse('2022-01-01'),
                 'jam' => '06.00'
             ],
             [
@@ -74,7 +75,7 @@ class PertandinganSeeder extends Seeder
                 'away_tim' => 'Galatasaray',
                 'logo_away_tim' => 'logo_galatasaray.jpg',
                 'matchday' => 4,
-                'tanggal' => '30 Juni',
+                'tanggal' => Carbon::parse('2022-01-01'),
                 'jam' => '02.00'
             ],
             [
@@ -83,7 +84,7 @@ class PertandinganSeeder extends Seeder
                 'away_tim' => 'AC Milan',
                 'logo_away_tim' => 'logo_acmilan.jpg',
                 'matchday' => 4,
-                'tanggal' => '30 Juni',
+                'tanggal' => Carbon::parse('2022-01-01'),
                 'jam' => '06.00'
             ],
         ];

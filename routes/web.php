@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HasilPertandinganController;
 use App\Http\Controllers\PertandinganController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PertandinganController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,18 +25,29 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', [DashboardController::class, 'index']);
 Route::get('/standings', [TimController::class, 'index']);
-Route::get('/admin/schedule', [TimController::class, 'showScheduleAdmin']);
-Route::get('/admin/schedule/form', [TimController::class, 'dropDown']);
-Route::get('/schedules', [PertandinganController::class, 'index']);
+
 
 Route::get('/admin/fixtures', [TimController::class, 'showFixturesAdmin']);
 Route::get('/admin/fixtures/form', [TimController::class, 'teamlist']);
 Route::get('/admin/standings', [TimController::class, 'showNameTimAdmin']);
-Route::get('/admin/standings/form', function() {return view('admin.standings.form');});
+Route::get('/admin/standings/form', [TimController::class, 'StandingForm']);
 Route::post('/admin/standings/form/insert', [TimController::class, 'StandingsInsert']);
 Route::get('/admin/standings/delete/{tims:id}', [TimController::class, 'StandingsDelete']);
 Route::get('/admin/standings/update/{tims:id}', [TimController::class, 'StandingsEdit']);
 Route::post('/admin/standings/update/{tims:id}', [TimController::class, 'StandingsUpdate']);
+Route::get('/admin/news', [PostController::class, 'showNewsAdmin']);
+Route::get('/admin/news/form', [PostController::class, 'NewsForm']);
+Route::post('/admin/news/form/insert', [PostController::class, 'NewsInsert']);
+Route::get('/admin/news/delete/{posts:id}', [PostController::class, 'NewsDelete']);
+Route::get('/admin/news/update/{posts:id}', [PostController::class, 'NewsEdit']);
+Route::post('/admin/news/update/{posts:id}', [PostController::class, 'NewsUpdate']);
+Route::get('/admin/schedule', [PertandinganController::class, 'showScheduleAdmin']);
+Route::get('/admin/schedule/form', [TimController::class, 'dropDown',   PertandinganController::class, 'ScheduleForm']);
+Route::post('/admin/schedule/form/insert', [PertandinganController::class, 'ScheduleInsert']);
+Route::get('/admin/schedule/delete/{posts:id}', [PertandinganController::class, 'ScheduleDelete']);
+Route::get('/admin/schedule/update/{posts:id}', [PertandinganController::class, 'ScheduleEdit']);
+Route::post('/admin/schedule/update/{posts:id}', [PertandinganController::class, 'ScheduleUpdate']);
+
 
 Route::get('/news', [PostController::class, 'index']);
 Route::get('/teams', [TimController::class, 'showNameTim']);
@@ -71,13 +83,4 @@ Route::get('/admin/fixtures/edit', function() {
 });
 Route::get('/admin/schedule/edit', function() {
     return view('pertandingan.form.edit');
-});
-Route::get('/admin/news', function() {
-    return view('admin.news.news');
-});
-Route::get('/admin/news/form', function() {
-    return view('admin.news.form');
-});
-Route::get('/admin/news/edit', function() {
-    return view('news.form.edit');
 });

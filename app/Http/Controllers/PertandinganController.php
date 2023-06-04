@@ -6,6 +6,8 @@ use App\Models\pertandingan;
 use App\Http\Requests\StorepertandinganRequest;
 use App\Http\Requests\UpdatepertandinganRequest;
 use App\Models\tim;
+use Illuminate\Http\Request;
+
 
 class PertandinganController extends Controller
 {
@@ -65,5 +67,30 @@ class PertandinganController extends Controller
     public function destroy(pertandingan $pertandingan)
     {
         //
+    }
+    function showScheduleAdmin(){
+        $pertandingans = pertandingan::all();
+        return view('admin.pertandingan.pertandingan', ['pertandingan' => $pertandingans]);
+    }
+    function ScheduleForm(){
+        return view('admin.pertandingan.form');
+    }
+    function ScheduleInsert(Request $request){
+        $home_tim = $request->input('timA');
+        $away_tim = $request->input('timB');
+        $matchday = $request->input('matchday');
+        $tanggal = $request->input('date');
+
+        $isInsertSuccress = pertandingan::insert(['home_tim'=>$home_tim,
+                                        'away_tim'=>$away_tim,
+                                        'matchday'=>$matchday,
+                                        'tanggal'=>$tanggal]);
+        
+        return redirect('/admin/schedule')->with('success', 'Jadwal berhasil ditambahkan');
+    }
+    public function ScheduleDelete($id){
+        $pertandingans = pertandingan::find($id);
+        $pertandingans->delete();
+        return redirect('/admin/schedule')->with('success', 'Jadwal berhasil dihapus.');;
     }
 }

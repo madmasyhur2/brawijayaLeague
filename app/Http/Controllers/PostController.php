@@ -7,6 +7,7 @@ use App\Http\Requests\StorepostRequest;
 use App\Http\Requests\UpdatepostRequest;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -143,5 +144,52 @@ class PostController extends Controller
 
         // Berikan respons jika berhasil
         return redirect()->route('post.index')->with('success', 'Berita berhasil dihapus.');
+    }
+    public function showNewsAdmin() {
+        $posts = post::all();
+        return view('admin.news.news', ['pos' => $posts]);
+    }
+    function Newsform(){
+        return view('admin.news.form');
+    }
+    function NewsInsert(Request $request){
+        $judul = $request->input('judul');
+        $gambar_berita = $request->input('gambar');
+        $tgl_publikasi = $request->input('judul');
+        $isi = $request->input('isi');
+
+        $isInsertSuccress = post::insert(['judul'=>$judul,
+                                        'gambar_berita'=>$gambar_berita,
+                                        'tgl_publikasi'=>$tgl_publikasi,
+                                        'isi'=>$isi]);
+        if ($request->hasFile('gambar_berita')) {
+            $validated['image'] = $request->file('image')->store('../assets/news/');
+        }
+        
+        return redirect('/admin/news')->with('success', 'Berita berhasil ditambahkan');
+    }
+    public function NewsDelete($id){
+        $posts = post::find($id);
+        $posts->delete();
+        return redirect('/admin/news')->with('success', 'Berita berhasil dihapus.');;
+    }
+    public function NewsEdit(post $posts){
+        return view('admin.news.update', [
+            'pos' => $posts,
+        ]);
+    }
+    public function NewsUpdate(Request $request,$id){
+        $posts = post::find($id);
+        $posts->judul = $request->input('judul');
+        // $posts->gambar_berita = $request->input('gambar');
+        // $posts->tgl_publikasi = $request->input('judul');
+        $posts->isi = $request->input('isi');
+        $posts->update();
+
+        if ($request->hasFile('gambar')) {
+            $logoPath = $request->file('logo_tim')->store('../assets/news/');
+            $posts->logo_tim = $logoPath;
+        }
+        return redirect('/admin/news')->with('success', 'Berita berhasil diperbarui.');;
     }
 }
