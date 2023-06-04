@@ -42,6 +42,11 @@ Route::get('/admin/news/update/{posts:id}', [PostController::class, 'NewsEdit'])
 Route::post('/admin/news/update/{posts:id}', [PostController::class, 'NewsUpdate']);
 Route::get('/admin/schedule', [PertandinganController::class, 'showScheduleAdmin']);
 Route::get('/admin/schedule/form', [TimController::class, 'dropDown',   PertandinganController::class, 'ScheduleForm']);
+Route::post('/admin/schedule/form/insert', [PertandinganController::class, 'ScheduleInsert']);
+Route::get('/admin/schedule/delete/{posts:id}', [PertandinganController::class, 'ScheduleDelete']);
+Route::get('/admin/schedule/update/{posts:id}', [PertandinganController::class, 'ScheduleEdit']);
+Route::post('/admin/schedule/update/{posts:id}', [PertandinganController::class, 'ScheduleUpdate']);
+
 
 Route::get('/news', [PostController::class, 'index']);
 Route::get('/teams', [TimController::class, 'showNameTim']);

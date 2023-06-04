@@ -19,8 +19,8 @@
                 <td class="p-1 text-center font-bold text-l">{{ $h->matchday}}</td>
                 <td class="p-1 text-center font-bold text-l">{{ $h->tanggal}}</td>
                 <td class="p-1 text-center font-bold text-l flex gap-1">
-                    <a class="border p-1 rounded-lg font-normal bg-Secondary-1">Update</a>
-                    <a class="border p-1 rounded-lg font-normal bg-red">Delete</a>
+                    <a href="{{url('/admin/schedule/update/'.$h->id)}}" class="border p-1 rounded-lg font-normal bg-Secondary-1">Update</a>
+                    <a href="{{url('/admin/schedule/delete/'.$h->id)}}" class="border p-1 rounded-lg font-normal bg-red">Delete</a>
                 </td>
             </tr>
             @endforeach
