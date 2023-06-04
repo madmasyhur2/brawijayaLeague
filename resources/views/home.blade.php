@@ -46,20 +46,20 @@
                     <div class="upcoming-boxslider">
                         <div class="upcoming-boxslider-content">
                             <div class="upcoming-boxslider-content-page" id="upcoming-match1">
+                                @foreach ($pertandingans as $ps)
                                 <div class="upcomingmatch-box">
                                     <div class="upcomingmatch-box-content s12">
                                         <img src="../assets/landingpage/logalengkap.svg" alt="" class="upcomingmatch-box-logo">
-                                        @foreach ($pertandingans as $ps)
-                                        <div class="upcomingmatch-box-match s32">
-                                            <img src="{{'../assets/teamLogo/logotim.svg'.$ps->logo_home_tim}}" alt="" class="upcomingmatch-box-match-logo">
-                                            <p>VS</p>
-                                            <img src="{{'../assets/teamLogo/logotim.svg'.$ps->logo_away_tim}}" alt="" class="upcomingmatch-box-match-logo">
-                                        </div>
-                                        <p class="upcomingmatch-box-desc">MATCHDAY {{$ps->matchday}} | {{$ps->tanggal}} {{$ps->jam}}</p>
-                                        @endforeach
+                                            <div class="upcomingmatch-box-match s32">
+                                                <img src="{{'../assets/teamLogo/logotim.svg'.$ps->logo_home_tim}}" alt="" class="upcomingmatch-box-match-logo">
+                                                <p>VS</p>
+                                                <img src="{{'../assets/teamLogo/logotim.svg'.$ps->logo_away_tim}}" alt="" class="upcomingmatch-box-match-logo">
+                                            </div>
+                                            <p class="upcomingmatch-box-desc">MATCHDAY {{$ps->matchday}} | {{$ps->tanggal}} {{$ps->jam}}</p>
                                         <p class="upcomingmatch-box-end">MATCH CENTER</p>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

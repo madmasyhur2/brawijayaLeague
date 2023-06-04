@@ -15,7 +15,7 @@ class DashboardController extends Controller
         return view('home', [
             "tims" => Tim::orderByRaw("(menang * 3 + seri) DESC")->orderByRaw("(gol - kebobolan) DESC")->paginate(19),
             "posts" => Post::all(),
-            "pertandingans" => Pertandingan::orderByRaw('matchday', 'DESC')->orderByRaw('jam','DESC'),
+            "pertandingans" => Pertandingan::orderBy('matchday', 'DESC')->orderBy('jam','DESC')->get(),
             "hasil_pertandingans" => Hasil_Pertandingan::all(),
         ]);
     }
