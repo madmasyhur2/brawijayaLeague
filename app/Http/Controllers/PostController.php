@@ -148,4 +148,7 @@ class PostController extends Controller
         $posts = post::all();
         return view('admin.news.news', ['pos' => $posts]);
     }
+    function Newsform(){
+        return view('admin.news.form');
+    }
 }

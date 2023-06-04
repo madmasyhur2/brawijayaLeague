@@ -17,7 +17,7 @@
                 <td class="p-1 text-left text-l">{{ $p->judul }}</td>
                 <td class="p-1 text-center text-l"><img src="{{ '../assets/news/'.$p->gambar_berita }}" class="m-0.5 h-9"></td>
                 <td class="p-1 text-center text-l">{{ $p->tgl_publikasi }}</td>
-                <td class="p-1 text-center text-l">{{ $p->isi }}</td>
+                <td class="p-1 text-justify text-l">{{ $p->isi }}</td>
                 <td class="p-1 text-center text-l flex gap-1">
                     <a class="border p-1 rounded-lg font-normal bg-Secondary-1">Update</a>
                     <a class="border p-1 rounded-lg font-normal bg-red">Delete</a>

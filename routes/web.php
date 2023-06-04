@@ -35,11 +35,11 @@ Route::get('/admin/standings/delete/{tims:id}', [TimController::class, 'Standing
 Route::get('/admin/standings/update/{tims:id}', [TimController::class, 'StandingsEdit']);
 Route::post('/admin/standings/update/{tims:id}', [TimController::class, 'StandingsUpdate']);
 Route::get('/admin/news', [PostController::class, 'showNewsAdmin']);
-Route::get('/admin/news/form', [TimController::class, 'NewsForm']);
-Route::post('/admin/news/form/insert', [TimController::class, 'NewsInsert']);
-Route::get('/admin/news/delete/{tims:id}', [TimController::class, 'NewsDelete']);
-Route::get('/admin/news/update/{tims:id}', [TimController::class, 'NewsEdit']);
-Route::post('/admin/news/update/{tims:id}', [TimController::class, 'NewsUpdate']);
+Route::get('/admin/news/form', [PostController::class, 'NewsForm']);
+Route::post('/admin/news/form/insert', [PostController::class, 'NewsInsert']);
+Route::get('/admin/news/delete/{tims:id}', [PostController::class, 'NewsDelete']);
+Route::get('/admin/news/update/{tims:id}', [PostController::class, 'NewsEdit']);
+Route::post('/admin/news/update/{tims:id}', [PostController::class, 'NewsUpdate']);
 
 Route::get('/news', [PostController::class, 'index']);
 Route::get('/teams', [TimController::class, 'showNameTim']);
