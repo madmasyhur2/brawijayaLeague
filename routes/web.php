@@ -24,8 +24,6 @@ use App\Http\Controllers\PertandinganController;
 
 Route::get('/', [DashboardController::class, 'index']);
 Route::get('/standings', [TimController::class, 'index']);
-
-
 Route::get('/admin/fixtures', [TimController::class, 'showFixturesAdmin']);
 Route::get('/admin/fixtures/form', [TimController::class, 'teamlist']);
 Route::get('/admin/standings', [TimController::class, 'showNameTimAdmin']);
@@ -53,9 +51,6 @@ Route::get('/teams', [TimController::class, 'showNameTim']);
 
 Route::get('/login', function() {
     return view('login.login');
-});
-Route::get('/schedules', function() {
-    return view('schedules.schedules');
 });
 Route::get('/players', function() {
     return view('players.players');

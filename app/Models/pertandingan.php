@@ -24,6 +24,6 @@ class pertandingan extends Model
 
     public function tim()
     {
-        return $this->hasMany(Tim::class);
+        return $this->belongsTo(Tim::class);
     }
 }

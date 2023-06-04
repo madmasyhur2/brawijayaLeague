@@ -13,13 +13,15 @@ return new class extends Migration
     {
         Schema::create('pertandingans', function (Blueprint $table) {
             $table->id();
+            // $table-> unsignedBigInteger('home_id');
+            // $table-> unsignedBigInteger('away_id');
             $table->string('home_tim');
             $table->string('logo_home_tim')->nullable(true);
             $table->string('away_tim');
             $table->string('logo_away_tim')->nullable(true);
             $table->integer('matchday');
-            $table->date('tanggal');
-            $table->string('jam')->nullable(true);
+            $table->string('tanggal');
+            $table->string('jam');
             $table->timestamps();
         });
     }
