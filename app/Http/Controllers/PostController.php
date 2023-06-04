@@ -178,4 +178,18 @@ class PostController extends Controller
             'pos' => $posts,
         ]);
     }
+    public function NewsUpdate(Request $request,$id){
+        $posts = post::find($id);
+        $posts->judul = $request->input('judul');
+        // $posts->gambar_berita = $request->input('gambar');
+        // $posts->tgl_publikasi = $request->input('judul');
+        $posts->isi = $request->input('isi');
+        $posts->update();
+
+        if ($request->hasFile('gambar')) {
+            $logoPath = $request->file('logo_tim')->store('../assets/news/');
+            $posts->logo_tim = $logoPath;
+        }
+        return redirect('/admin/news')->with('success', 'Berita berhasil diperbarui.');;
+    }
 }
