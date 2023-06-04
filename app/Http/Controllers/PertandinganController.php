@@ -69,4 +69,7 @@ class PertandinganController extends Controller
         $pertandingans = pertandingan::all();
         return view('admin.pertandingan.pertandingan', ['pertandingan' => $pertandingans]);
     }
+    function ScheduleForm(){
+        return view('admin.pertandingan.form');
+    }
 }
