@@ -12,16 +12,18 @@
                 <th class="p-3 bg-[#006DCB]">Isi</th>
                 <th class="p-3 bg-[#006DCB] rounded-[0_6px_0_0]">Operation</th>
             </tr>
+            @foreach ($pos as $p)
             <tr class="border border-[#E5E5E5]">
-                <td class="p-1 text-center font-bold text-l"></td>
-                <td class="p-1 text-center font-bold text-l"><img class="m-0.5 h-9"></td>
-                <td class="p-1 text-center font-bold text-l"></td>
-                <td class="p-1 text-center font-bold text-l"></td>
-                <td class="p-1 text-center font-bold text-l flex gap-1">
+                <td class="p-1 text-left text-l">{{ $p->judul }}</td>
+                <td class="p-1 text-center text-l"><img src="{{ '../assets/news/'.$p->gambar_berita }}" class="m-0.5 h-9"></td>
+                <td class="p-1 text-center text-l">{{ $p->tgl_publikasi }}</td>
+                <td class="p-1 text-center text-l">{{ $p->isi }}</td>
+                <td class="p-1 text-center text-l flex gap-1">
                     <a class="border p-1 rounded-lg font-normal bg-Secondary-1">Update</a>
                     <a class="border p-1 rounded-lg font-normal bg-red">Delete</a>
                 </td>
             </tr>
+            @endforeach
         </table>
     </div>
 </div>

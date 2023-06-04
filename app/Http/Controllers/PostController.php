@@ -144,4 +144,8 @@ class PostController extends Controller
         // Berikan respons jika berhasil
         return redirect()->route('post.index')->with('success', 'Berita berhasil dihapus.');
     }
+    public function showNewsAdmin() {
+        $posts = post::all();
+        return view('admin.news.news', ['pos' => $posts]);
+    }
 }

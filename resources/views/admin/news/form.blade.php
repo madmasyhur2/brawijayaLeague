@@ -3,13 +3,16 @@
 <div class="flex">
     @include('admin.sidebar.sidebar')
     <div class="m-8 ml-44">
-        <form class="w-full grid grid-cols-2 gap-2">
+        <form action="/admin/news/form/insert" class="w-full grid grid-cols-2 gap-2">
+            @csrf
             <p>Judul</p>
             <input type="text" id="judul" name="judul" placeholder="Judul" required class="border rounded p-1 w-full">
-            <p>Isi</p>
-            <textarea type="text" id="isi" name="isi" placeholder="Isi" required class="border rounded p-1 w-full"></textarea>
+            <p>Gambar</p>
+            <input type="file" id="gambar" name="gambar" accept="image/*" max="2097152" required class="border rounded p-1 w-full">
             <p>Date</p>
             <input type="date" id="date" name="date" required class="border rounded p-1 w-full">
+            <p>Isi</p>
+            <textarea type="text" id="isi" name="isi" placeholder="Isi" required class="border rounded p-1 w-full"></textarea>
             <input type="submit" value="Submit" class="border p-1 px-3 rounded-lg font-semibold bg-Secondary-1 cursor-pointer z-10>
         </form>
     </div>

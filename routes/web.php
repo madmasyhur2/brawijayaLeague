@@ -29,11 +29,17 @@ Route::get('/admin/schedule/form', [TimController::class, 'dropDown']);
 Route::get('/admin/fixtures', [TimController::class, 'showFixturesAdmin']);
 Route::get('/admin/fixtures/form', [TimController::class, 'teamlist']);
 Route::get('/admin/standings', [TimController::class, 'showNameTimAdmin']);
-Route::get('/admin/standings/form', function() {return view('admin.standings.form');});
+Route::get('/admin/standings/form', [TimController::class, 'StandingForm']);
 Route::post('/admin/standings/form/insert', [TimController::class, 'StandingsInsert']);
 Route::get('/admin/standings/delete/{tims:id}', [TimController::class, 'StandingsDelete']);
 Route::get('/admin/standings/update/{tims:id}', [TimController::class, 'StandingsEdit']);
 Route::post('/admin/standings/update/{tims:id}', [TimController::class, 'StandingsUpdate']);
+Route::get('/admin/news', [PostController::class, 'showNewsAdmin']);
+Route::get('/admin/news/form', [TimController::class, 'NewsForm']);
+Route::post('/admin/news/form/insert', [TimController::class, 'NewsInsert']);
+Route::get('/admin/news/delete/{tims:id}', [TimController::class, 'NewsDelete']);
+Route::get('/admin/news/update/{tims:id}', [TimController::class, 'NewsEdit']);
+Route::post('/admin/news/update/{tims:id}', [TimController::class, 'NewsUpdate']);
 
 Route::get('/news', [PostController::class, 'index']);
 Route::get('/teams', [TimController::class, 'showNameTim']);
@@ -72,13 +78,4 @@ Route::get('/admin/fixtures/edit', function() {
 });
 Route::get('/admin/schedule/edit', function() {
     return view('pertandingan.form.edit');
-});
-Route::get('/admin/news', function() {
-    return view('admin.news.news');
-});
-Route::get('/admin/news/form', function() {
-    return view('admin.news.form');
-});
-Route::get('/admin/news/edit', function() {
-    return view('news.form.edit');
 });

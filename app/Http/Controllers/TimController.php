@@ -30,10 +30,6 @@ class TimController extends Controller
         $tims = Tim::orderBy('nama_tim', 'asc')->get();
         return view('teams.teams', ['tim' => $tims]);
     }
-    public function showNameTimAdmin() {
-        $tims = Tim::orderBy('nama_tim', 'asc')->get();
-        return view('admin.standings.standings', ['tim' => $tims]);
-    }
     /**
      * Show the form for creating a new resource.
      */
@@ -45,122 +41,129 @@ class TimController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoretimRequest $request)
-    {
-        // Validasi input data
-        $validate = $request->validate([
-            'logo_tim' => 'required|image|max:2048|mimes:jpeg,jpg,png,svg',
-            'nama_tim' => 'required|max:255',
-            // 'pos' => 'required|integer',
-            'poin' => 'required|integer',
-            'menang' => 'required|integer',
-            'seri' => 'required|integer',
-            'kalah' => 'required|integer',
-            'gol' => 'required|integer',
-            'kebobolan' => 'required|integer',
-        ]);
-        // Upload File
-        $logoPath = $request->file('logo_tim')->store('public/logos');
+    // public function store(StoretimRequest $request)
+    // {
+    //     // Validasi input data
+    //     $validate = $request->validate([
+    //         'logo_tim' => 'required|image|max:2048|mimes:jpeg,jpg,png,svg',
+    //         'nama_tim' => 'required|max:255',
+    //         // 'pos' => 'required|integer',
+    //         'poin' => 'required|integer',
+    //         'menang' => 'required|integer',
+    //         'seri' => 'required|integer',
+    //         'kalah' => 'required|integer',
+    //         'gol' => 'required|integer',
+    //         'kebobolan' => 'required|integer',
+    //     ]);
+    //     // Upload File
+    //     $logoPath = $request->file('logo_tim')->store('public/logos');
         
-        // Membuat data baru
-        $tim = new Tim();
-        $tim->logo_tim = $logoPath;
-        $tim->nama_tim = $request->input('nama_tim');
-        // $tim->pos = $request->input('pos');
-        $tim->poin = $request->input('poin');
-        $tim->menang = $request->input('menang');
-        $tim->seri = $request->input('seri');
-        $tim->kalah = $request->input('kalah');
-        $tim->gol = $request->input('gol');
-        $tim->kebobolan = $request->input('kebobolan');
+    //     // Membuat data baru
+    //     $tim = new Tim();
+    //     $tim->logo_tim = $logoPath;
+    //     $tim->nama_tim = $request->input('nama_tim');
+    //     // $tim->pos = $request->input('pos');
+    //     $tim->poin = $request->input('poin');
+    //     $tim->menang = $request->input('menang');
+    //     $tim->seri = $request->input('seri');
+    //     $tim->kalah = $request->input('kalah');
+    //     $tim->gol = $request->input('gol');
+    //     $tim->kebobolan = $request->input('kebobolan');
         
-        // Menyimpan data ke dalam database
-        $tim->save();
+    //     // Menyimpan data ke dalam database
+    //     $tim->save();
 
-        // Memberikan pesan berhasil
-        return redirect('/tim')->with('success', 'Data tim berhasil ditambahkan');
-    }
+    //     // Memberikan pesan berhasil
+    //     return redirect('/tim')->with('success', 'Data tim berhasil ditambahkan');
+    // }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(tim $tim)
-    {
-        $tim = Tim::findOrFail($tim);
-        return view('tim.show', compact('tim'));
-    }
+    // /**
+    //  * Display the specified resource.
+    //  */
+    // public function show(tim $tim)
+    // {
+    //     $tim = Tim::findOrFail($tim);
+    //     return view('tim.show', compact('tim'));
+    // }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(tim $tim)
-    {
-        $tim = Tim::findOrFail($tim);
-        return view('tim.edit', compact('tim'));
-    }
+    // /**
+    //  * Show the form for editing the specified resource.
+    //  */
+    // public function edit(tim $tim)
+    // {
+    //     $tim = Tim::findOrFail($tim);
+    //     return view('tim.edit', compact('tim'));
+    // }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdatetimRequest $request, tim $tim)
-    {
-        // Validasi input data
-        $validate = $request->validate([
-            'logo_tim' => 'image|max:2048',
-            'nama_tim' => 'required|max:255',
-            // 'pos' => 'required|integer',
-            'poin' => 'required|integer',
-            'menang' => 'required|integer',
-            'seri' => 'required|integer',
-            'kalah' => 'required|integer',
-            'gol' => 'required|integer',
-            'kebobolan' => 'required|integer',
-        ]);
+    // /**
+    //  * Update the specified resource in storage.
+    //  */
+    // public function update(UpdatetimRequest $request, tim $tim)
+    // {
+    //     // Validasi input data
+    //     $validate = $request->validate([
+    //         'logo_tim' => 'image|max:2048',
+    //         'nama_tim' => 'required|max:255',
+    //         // 'pos' => 'required|integer',
+    //         'poin' => 'required|integer',
+    //         'menang' => 'required|integer',
+    //         'seri' => 'required|integer',
+    //         'kalah' => 'required|integer',
+    //         'gol' => 'required|integer',
+    //         'kebobolan' => 'required|integer',
+    //     ]);
 
-        $tim = Tim::findOrFail($tim);
+    //     $tim = Tim::findOrFail($tim);
 
-        // Mengunggah file logo tim jika ada
-        if ($request->hasFile('logo_tim')) {
-            // Menghapus file logo tim lama (opsional)
-            // Storage::delete($tim->logo_tim);
+    //     // Mengunggah file logo tim jika ada
+    //     if ($request->hasFile('logo_tim')) {
+    //         // Menghapus file logo tim lama (opsional)
+    //         // Storage::delete($tim->logo_tim);
 
-            // Mengunggah file logo tim baru
-            $logoPath = $request->file('logo_tim')->store('public/logos');
-            $tim->logo_tim = $logoPath;
-        }
+    //         // Mengunggah file logo tim baru
+    //         $logoPath = $request->file('logo_tim')->store('public/logos');
+    //         $tim->logo_tim = $logoPath;
+    //     }
 
-        // Memperbarui data tim
-        $tim->nama_tim = $request->input('nama_tim');
-        // $tim->pos = $request->input('pos');
-        $tim->poin = $request->input('poin');
-        $tim->menang = $request->input('menang');
-        $tim->seri = $request->input('seri');
-        $tim->kalah = $request->input('kalah');
-        $tim->gol = $request->input('gol');
-        $tim->kebobolan = $request->input('kebobolan');
+    //     // Memperbarui data tim
+    //     $tim->nama_tim = $request->input('nama_tim');
+    //     // $tim->pos = $request->input('pos');
+    //     $tim->poin = $request->input('poin');
+    //     $tim->menang = $request->input('menang');
+    //     $tim->seri = $request->input('seri');
+    //     $tim->kalah = $request->input('kalah');
+    //     $tim->gol = $request->input('gol');
+    //     $tim->kebobolan = $request->input('kebobolan');
         
-        // Menyimpan data yang diperbarui ke dalam database
-        $tim->save();
+    //     // Menyimpan data yang diperbarui ke dalam database
+    //     $tim->save();
         
-        // Memberikan pesan berhasil
-        return redirect('/tim')->with('success', 'Data tim berhasil diperbarui.');
+    //     // Memberikan pesan berhasil
+    //     return redirect('/tim')->with('success', 'Data tim berhasil diperbarui.');
+    // }
+
+    // /**
+    //  * Remove the specified resource from storage.
+    //  */
+    // public function destroy(tim $tim)
+    // {
+    //     $tim = Tim::findOrFail($tim);
+
+    //     //mengapus file logo tim (opsional)
+    //     //Storage::delete($tim->logo_tim);
+
+    //     //mengapus data tim dari database
+    //     $tim->delete();
+
+    //     // Memberikan pesan berhasil
+    //     return redirect('/tim')->with('success', 'Data tim berhasil dihapus.');
+    // }
+    public function showNameTimAdmin() {
+        $tims = Tim::orderBy('nama_tim', 'asc')->get();
+        return view('admin.standings.standings', ['tim' => $tims]);
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(tim $tim)
-    {
-        $tim = Tim::findOrFail($tim);
-
-        //mengapus file logo tim (opsional)
-        //Storage::delete($tim->logo_tim);
-
-        //mengapus data tim dari database
-        $tim->delete();
-
-        // Memberikan pesan berhasil
-        return redirect('/tim')->with('success', 'Data tim berhasil dihapus.');
+    function StandingForm(){
+        return view('admin.standings.form');
     }
     function StandingsInsert(Request $request){
         $logo_tim = $request->input('logo');
@@ -178,15 +181,16 @@ class TimController extends Controller
                                         'kalah'=>$kalah,
                                         'gol'=>$gol,
                                         'kebobolan'=>$kebobolan]);
-        if ($request->hasFile('image')) {
+        if ($request->hasFile('logo_tim')) {
             $validated['image'] = $request->file('image')->store('../assets/teamLogo/');
         }
-        return redirect('/admin/standings');
+        
+        return redirect('/admin/standings')->with('success', 'Data tim berhasil ditambahkan');
     }
     public function StandingsDelete($id){
         $tims = tim::find($id);
         $tims->delete();
-        return redirect('/admin/standings');
+        return redirect('/admin/standings')->with('success', 'Data tim berhasil dihapus.');;
     }
     public function StandingsEdit(tim $tims){
         return view('admin.standings.update', [
@@ -204,9 +208,10 @@ class TimController extends Controller
         $tims->kebobolan = $request->input('Kebobolan');
         $tims -> update();
 
-        // if ($request->hasFile('image')) {
-        //     $validated['image'] = $request->file('image')->store('../assets/teamLogo/');
-        // }
-        return redirect('/admin/standings');
+        if ($request->hasFile('logo_tim')) {
+            $logoPath = $request->file('logo_tim')->store('../assets/teamLogo/');
+            $tims->logo_tim = $logoPath;
+        }
+        return redirect('/admin/standings')->with('success', 'Data tim berhasil diperbarui.');;
     }
 }
