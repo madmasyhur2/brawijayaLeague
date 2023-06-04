@@ -212,6 +212,6 @@ class TimController extends Controller
             $logoPath = $request->file('logo_tim')->store('../assets/teamLogo/');
             $tims->logo_tim = $logoPath;
         }
-        return redirect('/admin/posts')->with('success', 'Data tim berhasil diperbarui.');;
+        return redirect('/admin/standings')->with('success', 'Data tim berhasil diperbarui.');;
     }
 }
