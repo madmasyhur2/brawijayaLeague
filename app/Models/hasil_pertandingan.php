@@ -17,8 +17,8 @@ class hasil_pertandingan extends Model
         'matchday'
     ];
 
-    public function tim()
+    public function pertandingan()
     {
-        return $this->belongsTo(Tim::class);
+        return $this->belongsTo(Pertandingan::class);
     }
 }

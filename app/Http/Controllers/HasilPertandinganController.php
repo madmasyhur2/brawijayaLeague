@@ -14,11 +14,10 @@ class HasilPertandinganController extends Controller
     /**
      * Display a listing of the resource.
      */
-    // public function index()
-    // {
-    //     $hasil_pertandingan = Hasil_Pertandingan::groupBy('matchday')->paginate(10);
-    //     return view('home', ['hasil_pertandingan' => $hasil_pertandingan]);
-    // }
+    public function index()
+    {
+        
+    }
     public function showFixturesHome()
     {
         $hasil_pertandingan = Hasil_Pertandingan::groupBy('matchday')->paginate(10);
