@@ -42,9 +42,9 @@ class tim extends Model
         return $this->hasMany(pertandingan::class);
     }
 
-    // public function hasil_pertandingan()
-    // {
-    //     return $this->belongsTo(hasil_pertandingan::class, 'tim_id', 'id');
-    // }
+    public function hasil_pertandingan()
+    {
+        return $this->hasMany(hasil_pertandingan::class);
+    }
 }
 

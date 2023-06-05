@@ -46,7 +46,7 @@
                     <div class="upcoming-boxslider">
                         <div class="upcoming-boxslider-content">
                             <div class="upcoming-boxslider-content-page" id="upcoming-match1">
-                                @foreach ($pertandingans as $ps)
+                                @foreach ($pertandingans as $ps) 
                                 <div class="upcomingmatch-box">
                                     <div class="upcomingmatch-box-content s12">
                                         <img src="../assets/landingpage/logalengkap.svg" alt="" class="upcomingmatch-box-logo">

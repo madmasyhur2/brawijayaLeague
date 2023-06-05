@@ -24,6 +24,8 @@ use App\Http\Controllers\PertandinganController;
 
 Route::get('/', [DashboardController::class, 'index']);
 Route::get('/standings', [TimController::class, 'index']);
+Route::get('/schedules', [PertandinganController::class, 'index']);
+
 Route::get('/admin/fixtures', [TimController::class, 'showFixturesAdmin']);
 Route::get('/admin/fixtures/form', [TimController::class, 'teamlist']);
 
