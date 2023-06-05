@@ -185,6 +185,10 @@ class TimController extends Controller
         $kalah = $request->input('Kalah');
         $gol = $request->input('gol');
         $kebobolan = $request->input('Kebobolan');
+        
+        if ($request->hasFile('logo')) {
+            $validated['logo_tim'] = $request->file('logo')->store('public/assets/teamLogo');
+        }
 
         $isInsertSuccress = tim::insert(['logo_tim'=>$logo_tim,
                                         'nama_tim'=>$nama_tim,
@@ -193,11 +197,11 @@ class TimController extends Controller
                                         'kalah'=>$kalah,
                                         'gol'=>$gol,
                                         'kebobolan'=>$kebobolan]);
-        if ($request->hasFile('logo_tim')) {
-            $validated['image'] = $request->file('image')->store('../assets/teamLogo/');
-        }
         
-        return redirect('/admin/standings')->with('success', 'Data tim berhasil ditambahkan');
+        if($isInsertSuccress){
+            return redirect('/admin/standings')->with('success', 'Data tim berhasil ditambahkan');
+        }
+        return redirect('/admin/standings')->with('gagal', 'Data tim gagal ditambahkan');
     }
     public function StandingsDelete($id){
         $tims = tim::find($id);
@@ -221,7 +225,7 @@ class TimController extends Controller
         $tims -> update();
 
         if ($request->hasFile('logo_tim')) {
-            $logoPath = $request->file('logo_tim')->store('../assets/teamLogo/');
+            $logoPath = $request->file('logo_tim')->store('storage/teamLogo/');
             $tims->logo_tim = $logoPath;
         }
         return redirect('/admin/standings')->with('success', 'Data tim berhasil diperbarui.');;
