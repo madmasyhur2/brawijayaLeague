@@ -46,14 +46,14 @@
                     <div class="upcoming-boxslider">
                         <div class="upcoming-boxslider-content">
                             <div class="upcoming-boxslider-content-page" id="upcoming-match1">
-                                @foreach ($pertandingans as $ps)
+                                @foreach ($pertandingans as $ps) 
                                 <div class="upcomingmatch-box">
                                     <div class="upcomingmatch-box-content s12">
                                         <img src="../assets/landingpage/logalengkap.svg" alt="" class="upcomingmatch-box-logo">
                                             <div class="upcomingmatch-box-match s32">
-                                                <img src="{{'../assets/teamLogo/logotim.svg'.$ps->logo_tim}}" alt="" class="upcomingmatch-box-match-logo">
+                                                <img src="{{'../assets/teamLogo/logotim.svg'.$ps->home_logo}}" alt="" class="upcomingmatch-box-match-logo">
                                                 <p>VS</p>
-                                                <img src="{{'../assets/teamLogo/logotim.svg'.$ps->logo_tim}}" alt="" class="upcomingmatch-box-match-logo">
+                                                <img src="{{'../assets/teamLogo/logotim.svg'.$ps->away_logo}}" alt="" class="upcomingmatch-box-match-logo">
                                             </div>
                                             <p class="upcomingmatch-box-desc">MATCHDAY {{$ps->matchday}} | {{$ps->tanggal}}</p>
                                         <p class="upcomingmatch-box-end">MATCH CENTER</p>
@@ -152,30 +152,26 @@
             </div>
             <div class="akafull">
                 <div class="imagebox">
-                    <img src="../assets/landingpage/fot1.png" alt="gambar" class="foto">
+                    <img src="{{ '../assets/news/'.$postFirst->gambar_berita }}" alt="gambar" class="foto">
                 </div>
-                <p class="judul s20">LOREM IPSUM DOLOR SIT AMET</p>
-                <p class="tanggal s14">20 Mei 2023</p>
+                <p class="judul-news s20">{{ Str::words($postFirst->judul, 13) }}</p>
+                <p class="tanggal s14">{{$postFirst->created_at->format('Y-m-d')}}</p>
             </div>
-            <div class="akabawah">
-                <div class="bag1">
-                    <div class="card">
-                        <div class="imagebox2">
-                            <img src="../assets/landingpage/fot2.jpg" alt="gambar" class="foto2">
+            <div class="akabawah grid grid-cols-2">
+                @php($i = 1)
+                @foreach($posts as $p)
+                    @if($i == 1)
+                        @php($i++)
+                    @else
+                        <div class="card">
+                            <div class="imagebox2">
+                                <img src="{{ '../assets/news/'.$p->gambar_berita }}" alt="gambar" class="foto2">
+                            </div>
+                            <p class="judul-news s16">{{Str::words($p->judul, 5)}}</p>
+                            <p class="tanggal s12">{{$p->created_at->format('Y-m-d')}}</p>
                         </div>
-                        <p class="judul s16">LOREM IPSUM DOLOR SIT AMET</p>
-                        <p class="tanggal s12">20 Mei 2023</p>
-                    </div>
-                    <div class="card">
-                        <div class="imagebox2">
-                            <img src="../assets/landingpage/fot2.jpg" alt="gambar" class="foto2">
-                        </div>
-                        <p class="judul s16">LOREM IPSUM DOLOR SIT AMET</p>
-                        <p class="tanggal s12">20 Mei 2023</p>
-                    </div>
-                </div>
-                <div class="bag1"><div class="card"></div><div class="card"></div></div>
-                <div class="bag1"><div class="card"></div><div class="card"></div></div>
+                    @endif
+                @endforeach
             </div>
         </div>
     </div>

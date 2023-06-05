@@ -25,9 +25,10 @@ use App\Http\Controllers\NewsController;
 
 Route::get('/', [DashboardController::class, 'index']);
 Route::get('/standings', [TimController::class, 'index']);
+Route::get('/schedules', [PertandinganController::class, 'index']);
 Route::get('/teams', [TimController::class, 'index']);
-Route::get('/news', [NewsController::class, 'index']);
-Route::get('/article', [NewsController::class, 'showDetail']);
+Route::get('/news', [PostController::class, 'index']);
+Route::get('/article', [PostController::class, 'showDetail']);
 
 Route::get('/admin/fixtures', [TimController::class, 'showFixturesAdmin']);
 Route::get('/admin/fixtures/form', [TimController::class, 'teamlist']);

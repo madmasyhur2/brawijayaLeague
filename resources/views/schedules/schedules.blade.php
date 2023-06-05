@@ -8,17 +8,17 @@
     <div class="boardvalue">
         <div class="boardvalue-date s14">
             <p>MATCHDAY {{ $ps->matchday }}</p>
-            <p>{{ $ps->tanggal }} - {{ $ps->jam }}</p>
+            <p>{{ $ps->tanggal }}</p>
         </div>
         <div class="boardvalue-tim s32">
             <div class="tim s20">
-                <p>{{ $ps->home_tim }}</p>
-                <img class="m-2" src="../assets/landingpage/logotim.svg" alt="">
+                <p>{{ $ps->home_name }}</p>
+                <img class="m-2" src="{{'../assets/landingpage/logotim.svg'.$ps->home_logo}}" alt="">
             </div>
             <p>VS</p>
             <div class="tim2 s20">
-                <img class="m-2" src="../assets/landingpage/logotim.svg" alt="">
-                <p>{{ $ps->away_tim }}</p>
+                <img class="m-2" src="{{'../assets/landingpage/logotim.svg'.$ps->away_logo}}" alt="">
+                <p>{{ $ps->away_name }}</p>
             </div>
         </div>
     </div>
