@@ -51,9 +51,9 @@
                                     <div class="upcomingmatch-box-content s12">
                                         <img src="../assets/landingpage/logalengkap.svg" alt="" class="upcomingmatch-box-logo">
                                             <div class="upcomingmatch-box-match s32">
-                                                <img src="{{'../assets/teamLogo/logotim.svg'.$ps->logo_tim}}" alt="" class="upcomingmatch-box-match-logo">
+                                                <img src="{{'../assets/teamLogo/logotim.svg'.$ps->home_logo}}" alt="" class="upcomingmatch-box-match-logo">
                                                 <p>VS</p>
-                                                <img src="{{'../assets/teamLogo/logotim.svg'.$ps->logo_tim}}" alt="" class="upcomingmatch-box-match-logo">
+                                                <img src="{{'../assets/teamLogo/logotim.svg'.$ps->away_logo}}" alt="" class="upcomingmatch-box-match-logo">
                                             </div>
                                             <p class="upcomingmatch-box-desc">MATCHDAY {{$ps->matchday}} | {{$ps->tanggal}}</p>
                                         <p class="upcomingmatch-box-end">MATCH CENTER</p>
