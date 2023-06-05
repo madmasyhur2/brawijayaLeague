@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HasilPertandinganController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PertandinganController;
+use App\Http\Controllers\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +25,6 @@ use App\Http\Controllers\PertandinganController;
 
 Route::get('/', [DashboardController::class, 'index']);
 Route::get('/standings', [TimController::class, 'index']);
-Route::get('/schedules', [PertandinganController::class, 'index']);
-
 Route::get('/admin/fixtures', [TimController::class, 'showFixturesAdmin']);
 Route::get('/admin/fixtures/form', [TimController::class, 'teamlist']);
 
@@ -53,7 +52,7 @@ Route::get('/admin/fixtures', [HasilPertandinganController::class, 'showFixtures
 Route::get('/admin/fixtures/form', [TimController::class, 'dropDownhasil', HasilPertandinganController::class, 'FixturesForm']);
 Route::post('/admin/fixtures/form/insert', [HasilPertandinganController::class, 'FixturesInsert']);
 Route::get('/admin/fixtures/delete/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesDelete']);
-Route::get('/admin/fixtures/update/{hasil_pertandingans:id}', [TimController::class, 'dropDownEdit', HasilPertandinganController::class, 'FixturesEdit']);
+Route::get('/admin/fixtures/update/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesEdit']);
 Route::post('/admin/fixtures/update/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesUpdate']);
 
 
@@ -69,9 +68,6 @@ Route::get('/statistic', function() {
 });Route::get('/videos', function() {
     return view('videos.videos');
 });
-// Route::get('/news', function() {
-//     return view('news.news');
-// });
 Route::get('/about', function() {
     return view('about.about');
 });
@@ -81,6 +77,3 @@ Route::get('/highlights', function() {
 Route::get('/gallery', function() {
     return view('gallery.gallery');
 });
-// Route::get('/admin', function() {
-//     return view('admin.admin');
-// });

@@ -15,10 +15,9 @@ class DashboardController extends Controller
         return view('home', [
             "tims" => Tim::orderByRaw("(menang * 3 + seri) DESC")->orderByRaw("(gol - kebobolan) DESC")->paginate(19),
             "posts" => Post::all(), 
-            "pertandingans" => DB::table('pertandingans')
-                                ->join('tims as home', 'pertandingans.home_id', '=', 'home.id')
-                                ->join('tims as away', 'pertandingans.away_id', '=', 'away.id')
-                                ->select('home.logo_tim as home_logo', 'home.nama_tim as home_name', 'away.logo_tim as away_logo', 'away.nama_tim as away_name', 'pertandingans.*')
+            "pertandingans" => DB::table('tims')
+                                ->join('pertandingans', 'tims.id', '=', 'pertandingans.home_id')
+                                ->select('tims.*', 'pertandingans.*')
                                 ->whereExists(function ($query) {
                                     $query->select(DB::raw(1))
                                         ->from('pertandingans')

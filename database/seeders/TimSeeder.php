@@ -14,8 +14,8 @@ class TimSeeder extends Seeder
     public function run(): void
     {
         Tim::create([
-            "logo_tim" => "logotim.svg",
-            "nama_tim" => "Chelsea",
+            "logo_tim" => "team1.svg",
+            "nama_tim" => "Pertanian",
             "menang"=> 10,
             "seri" => 10,
             "kalah" => 10,
@@ -24,8 +24,8 @@ class TimSeeder extends Seeder
         ]);
 
         Tim::create([
-            "logo_tim" => "logo_manchester_united.jpg",
-            "nama_tim" => "Man United",
+            "logo_tim" => "team2.svg",
+            "nama_tim" => "Peternakan",
             "menang"=> 30,
             "seri" => 0,
             "kalah" => 8,
@@ -34,8 +34,8 @@ class TimSeeder extends Seeder
         ]);
 
         Tim::create([
-            'logo_tim' => 'logo_manchester_city.jpg',
-            'nama_tim' => 'Man City',
+            'logo_tim' => 'team3.svg',
+            'nama_tim' => 'Teknik_1',
             'menang' => 25,
             'seri' => 5,
             'kalah' => 4,
@@ -44,8 +44,8 @@ class TimSeeder extends Seeder
         ]);
 
         Tim::create([
-            'logo_tim' => 'logo_arsenal.jpg',
-            'nama_tim' => 'Arsenal',
+            'logo_tim' => 'team4.svg',
+            'nama_tim' => 'Teknik_2',
             'menang' => 20,
             'seri' => 10,
             'kalah' => 4,
@@ -54,8 +54,8 @@ class TimSeeder extends Seeder
         ]);
 
         Tim::create([
-            'logo_tim' => 'logo_liverpool.jpg',
-            'nama_tim' => 'Liverpool',
+            'logo_tim' => 'team5.svg',
+            'nama_tim' => 'Kedokteran',
             'menang' => 18,
             'seri' => 14,
             'kalah' => 4,
@@ -64,8 +64,8 @@ class TimSeeder extends Seeder
         ]);
 
         Tim::create([
-            'logo_tim' => 'logo_acmilan.jpg',
-            'nama_tim' => 'AC Milan',
+            'logo_tim' => 'team6.svg',
+            'nama_tim' => 'FPIK',
             'menang' => 28,
             'seri' => 6,
             'kalah' => 4,
@@ -74,8 +74,8 @@ class TimSeeder extends Seeder
         ]);
 
         Tim::create([
-            'logo_tim' => 'logo_intermilan.jpg',
-            'nama_tim' => 'Inter Milan',
+            'logo_tim' => 'team7.svg',
+            'nama_tim' => 'Tek Pertanian',
             'menang' => 24,
             'seri' => 8,
             'kalah' => 6,
@@ -84,8 +84,8 @@ class TimSeeder extends Seeder
         ]);
 
         Tim::create([
-            'logo_tim' => 'logo_juventus.jpg',
-            'nama_tim' => 'Juventus',
+            'logo_tim' => 'team8.svg',
+            'nama_tim' => 'FKH',
             'menang' => 22,
             'seri' => 12,
             'kalah' => 4,
@@ -94,8 +94,8 @@ class TimSeeder extends Seeder
         ]);
 
         Tim::create([
-            'logo_tim' => 'logo_galatasaray.jpg',
-            'nama_tim' => 'Galatasaray',
+            'logo_tim' => 'team9.svg',
+            'nama_tim' => 'FILKOM_1',
             'menang' => 26,
             'seri' => 7,
             'kalah' => 5,
@@ -104,8 +104,8 @@ class TimSeeder extends Seeder
         ]);
 
         Tim::create([
-            "logo_tim" => "logo_chelsea.jpg",
-            "nama_tim" => "Chelsea",
+            "logo_tim" => "team10.svg",
+            "nama_tim" => "FILKOM_2",
             "menang"=> 10,
             "seri" => 10,
             "kalah" => 10,
@@ -114,8 +114,8 @@ class TimSeeder extends Seeder
         ]);
 
         Tim::create([
-            "logo_tim" => "logo_manchester_united.jpg",
-            "nama_tim" => "Man United",
+            "logo_tim" => "team11.svg",
+            "nama_tim" => "FKG",
             "menang"=> 30,
             "seri" => 0,
             "kalah" => 8,
@@ -124,8 +124,8 @@ class TimSeeder extends Seeder
         ]);
 
         Tim::create([
-            'logo_tim' => 'logo_manchester_city.jpg',
-            'nama_tim' => 'Man City',
+            'logo_tim' => 'team12.svg',
+            'nama_tim' => 'PSDKU Kediri',
             'menang' => 25,
             'seri' => 5,
             'kalah' => 4,
@@ -134,8 +134,8 @@ class TimSeeder extends Seeder
         ]);
 
         Tim::create([
-            'logo_tim' => 'logo_arsenal.jpg',
-            'nama_tim' => 'Arsenal',
+            'logo_tim' => 'team1.svg',
+            'nama_tim' => 'Hukum_1',
             'menang' => 20,
             'seri' => 10,
             'kalah' => 4,
@@ -144,8 +144,8 @@ class TimSeeder extends Seeder
         ]);
 
         Tim::create([
-            'logo_tim' => 'logo_liverpool.jpg',
-            'nama_tim' => 'Liverpool',
+            'logo_tim' => 'team2.svg',
+            'nama_tim' => 'Hukum_2',
             'menang' => 18,
             'seri' => 14,
             'kalah' => 4,
@@ -154,8 +154,8 @@ class TimSeeder extends Seeder
         ]);
 
         Tim::create([
-            'logo_tim' => 'logo_acmilan.jpg',
-            'nama_tim' => 'AC Milan',
+            'logo_tim' => 'team3.svg',
+            'nama_tim' => 'FEB_1',
             'menang' => 28,
             'seri' => 6,
             'kalah' => 4,
@@ -164,8 +164,8 @@ class TimSeeder extends Seeder
         ]);
 
         Tim::create([
-            'logo_tim' => 'logo_intermilan.jpg',
-            'nama_tim' => 'Inter Milan',
+            'logo_tim' => 'team4.svg',
+            'nama_tim' => 'FEB_2',
             'menang' => 24,
             'seri' => 8,
             'kalah' => 6,
@@ -174,8 +174,8 @@ class TimSeeder extends Seeder
         ]);
 
         Tim::create([
-            'logo_tim' => 'logo_juventus.jpg',
-            'nama_tim' => 'Juventus',
+            'logo_tim' => 'team5.svg',
+            'nama_tim' => 'FIA_1',
             'menang' => 22,
             'seri' => 12,
             'kalah' => 4,
@@ -184,8 +184,8 @@ class TimSeeder extends Seeder
         ]);
 
         Tim::create([
-            'logo_tim' => 'logo_galatasaray.jpg',
-            'nama_tim' => 'Galatasaray',
+            'logo_tim' => 'team6.svg',
+            'nama_tim' => 'FIA_2',
             'menang' => 26,
             'seri' => 7,
             'kalah' => 5,
@@ -194,8 +194,8 @@ class TimSeeder extends Seeder
         ]);
 
         Tim::create([
-            "logo_tim" => "logo_chelsea.jpg",
-            "nama_tim" => "Chelsea",
+            "logo_tim" => "team7.svg",
+            "nama_tim" => "FISIP",
             "menang"=> 10,
             "seri" => 10,
             "kalah" => 10,
@@ -204,8 +204,8 @@ class TimSeeder extends Seeder
         ]);
 
         Tim::create([
-            "logo_tim" => "logo_manchester_united.jpg",
-            "nama_tim" => "Man United",
+            "logo_tim" => "team8.svg",
+            "nama_tim" => "FIB",
             "menang"=> 30,
             "seri" => 0,
             "kalah" => 8,
