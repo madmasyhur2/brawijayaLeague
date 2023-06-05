@@ -3,7 +3,8 @@
 <div class="flex">
     @include('admin.sidebar.sidebar')
     <div class="m-8 ml-44">
-        <form class="w-full grid grid-cols-2 gap-2">
+        <form action="/admin/fixtures/form/insert" class="w-full grid grid-cols-2 gap-2" method="post" enctype="multipart/form-data">
+            @csrf
             <p>Nama Tim A</p>
             <select type="text" id="timA" name="timA" placeholder="Nama Tim A" required class="border rounded p-1 w-full">
                 <option selected>None</option>
