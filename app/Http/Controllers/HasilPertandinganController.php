@@ -105,8 +105,10 @@ class HasilPertandinganController extends Controller
     }
     public function FixturesEdit(hasil_pertandingan $hasil_pertandingan, Tim $tims){
         return view('admin.hasil.update', [
-            'hasil_pertandingan' => $hasil_pertandingan,
+            'hasil_pertandingan' => hasil_pertandingan::first(),
             'tim' => Tim::all(),
+            // dd($hasil_pertandingan)
+            dd(Tim::all())
         ]);
     }
 }

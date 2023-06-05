@@ -6,8 +6,9 @@
         <form action="/admin/fixtures/update/{{$hasil_pertandingan->id}}" class="w-full grid grid-cols-2 gap-2" method="post" enctype="multipart/form-data">
             @csrf
             <p>Nama Tim A</p>
+            <p>{{$hasil_pertandingan->nama_tim_a}}aaa</p>
             <select type="text" id="timA" name="timA" placeholder="Nama Tim A" required class="border rounded p-1 w-full">
-                <option selected>None</option>
+                <option selected>{{$hasil_pertandingan->nama_tim_a}}</option>
                 @foreach ($tim as $t)
                     <option>{{ $t->nama_tim}}</option>
                 @endforeach
