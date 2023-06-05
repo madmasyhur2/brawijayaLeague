@@ -37,10 +37,10 @@ class tim extends Model
         return($this->menang * 3 + $this->seri * 1 + $this->kalah * 0);
     }
 
-    // public function pertandingan()
-    // {
-    //     return $this->hasMany(pertandingan::class);
-    // }
+    public function pertandingan()
+    {
+        return $this->hasMany(pertandingan::class);
+    }
 
     // public function hasil_pertandingan()
     // {

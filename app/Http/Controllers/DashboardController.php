@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\tim;
 use App\Models\post;
@@ -15,8 +15,15 @@ class DashboardController extends Controller
         return view('home', [
             "tims" => Tim::orderByRaw("(menang * 3 + seri) DESC")->orderByRaw("(gol - kebobolan) DESC")->paginate(19),
             "posts" => Post::all(), 
-            "pertandingans" => Pertandingan::orderBy('matchday', 'ASC')->orderBy('jam','ASC')->paginate(5),
-            // "pertandingans" => Pertandingan::with('tim')->get(),
+            "pertandingans" => DB::table('tims')
+                                ->join('pertandingans', 'tims.id', '=', 'pertandingans.home_id')
+                                ->select('tims.*', 'pertandingans.*')
+                                ->whereExists(function ($query) {
+                                    $query->select(DB::raw(1))
+                                        ->from('pertandingans')
+                                        ->whereRaw('tims.id = pertandingans.home_id');
+                                })
+                                ->paginate(5),
             "hasil_pertandingans" => Hasil_Pertandingan::all(),
         ]);
     }
