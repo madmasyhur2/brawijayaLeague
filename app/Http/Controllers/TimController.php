@@ -188,12 +188,9 @@ class TimController extends Controller
         
         if ($request->hasFile('logo')) {
             $validated['logo_tim'] = $request->file('logo')->store('public/assets/teamLogo');
+            $imageLink = $request->file('logo')->hashName();
         }
-        $request->file('logo')->getClientOriginalName();
-        if ($request->hasFile('logo')) {
-            return $request->file('logo')->getClientOriginalName();
-        }
-        $isInsertSuccress = tim::insert(['logo_tim'=>$logo_tim,
+        $isInsertSuccress = tim::insert(['logo_tim'=>$imageLink,
                                         'nama_tim'=>$nama_tim,
                                         'menang'=>$menang,
                                         'seri'=>$seri,
