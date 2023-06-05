@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HasilPertandinganController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PertandinganController;
+use App\Http\Controllers\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,10 @@ use App\Http\Controllers\PertandinganController;
 
 Route::get('/', [DashboardController::class, 'index']);
 Route::get('/standings', [TimController::class, 'index']);
+Route::get('/teams', [TimController::class, 'index']);
+Route::get('/news', [NewsController::class, 'index']);
+Route::get('/article', [NewsController::class, 'showDetail']);
+
 Route::get('/admin/fixtures', [TimController::class, 'showFixturesAdmin']);
 Route::get('/admin/fixtures/form', [TimController::class, 'teamlist']);
 
@@ -67,9 +72,6 @@ Route::get('/statistic', function() {
 });Route::get('/videos', function() {
     return view('videos.videos');
 });
-// Route::get('/news', function() {
-//     return view('news.news');
-// });
 Route::get('/about', function() {
     return view('about.about');
 });
@@ -79,6 +81,3 @@ Route::get('/highlights', function() {
 Route::get('/gallery', function() {
     return view('gallery.gallery');
 });
-// Route::get('/admin', function() {
-//     return view('admin.admin');
-// });

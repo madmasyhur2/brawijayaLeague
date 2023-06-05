@@ -139,29 +139,11 @@
                         </div>
                     </div>
                 @endforeach
-                {{-- <div class="table-content"></div>
-                <div class="table-content"></div>
-                <div class="table-content"></div>
-                <div class="table-content"></div>
-                <div class="table-content"></div>
-                <div class="table-content"></div>
-                <div class="table-content"></div>
-                <div class="table-content"></div>
-                <div class="table-content"></div> --}}
-                {{-- <div class="table-content"></div>
-                <div class="table-content"></div>
-                <div class="table-content"></div>
-                <div class="table-content"></div>
-                <div class="table-content"></div>
-                <div class="table-content"></div>
-                <div class="table-content"></div>
-                <div class="table-content"></div>
-                <div class="table-content"></div> --}}
                 <a class="table-all-content" href="/standings">VIEW ALL TABLES</a>
             </div>
         </div>
         <div class="akanan">
-            <div class="akanama s48 fw700">
+            <div class="akanama s48">
                 <p>NEWS</p>
                 <div class="vial s20">
                     <p>VIEW ALL</p>
@@ -170,33 +152,31 @@
             </div>
             <div class="akafull">
                 <div class="imagebox">
-                    <img src="../assets/landingpage/" alt="gambar" class="foto">
+                    <img src="../assets/landingpage/fot1.png" alt="gambar" class="foto">
                 </div>
-                <p class="judul s20">INI BELUM DIKONSUM</p>
-                <p class="tanggal s14">ARIZ TOLONG YAA AKU GATAU PAKE IF ELSE NYA</p>
+                <p class="judul s20">LOREM IPSUM DOLOR SIT AMET</p>
+                <p class="tanggal s14">20 Mei 2023</p>
             </div>
-            @foreach ($posts as $p)
             <div class="akabawah">
                 <div class="bag1">
                     <div class="card">
-                        <div class="imagebox2">
-                            <img src={{"../assets/landingpage/".$p->gambar_berita}} alt="gambar" class="foto2">
-                        </div>
-                        <p class="judul s16">{{$p->judul}}</p>
-                        <p class="tanggal s12">{{$p->tgl_publikasi}} TES</p>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-                    {{-- <div class="card">
                         <div class="imagebox2">
                             <img src="../assets/landingpage/fot2.jpg" alt="gambar" class="foto2">
                         </div>
                         <p class="judul s16">LOREM IPSUM DOLOR SIT AMET</p>
                         <p class="tanggal s12">20 Mei 2023</p>
                     </div>
+                    <div class="card">
+                        <div class="imagebox2">
+                            <img src="../assets/landingpage/fot2.jpg" alt="gambar" class="foto2">
+                        </div>
+                        <p class="judul s16">LOREM IPSUM DOLOR SIT AMET</p>
+                        <p class="tanggal s12">20 Mei 2023</p>
+                    </div>
+                </div>
                 <div class="bag1"><div class="card"></div><div class="card"></div></div>
-                <div class="bag1"><div class="card"></div><div class="card"></div></div> --}}
+                <div class="bag1"><div class="card"></div><div class="card"></div></div>
+            </div>
         </div>
     </div>
     <div class="highlightngallery">
