@@ -152,7 +152,7 @@
             </div>
             <div class="akafull">
                 <div class="imagebox">
-                    <img src="../assets/landingpage/fot1.png" alt="gambar" class="foto">
+                    <img src="{{ '../assets/news/'.$postFirst->gambar_berita }}" alt="gambar" class="foto">
                 </div>
                 <p class="judul-news s20">{{ Str::words($postFirst->judul, 13) }}</p>
                 <p class="tanggal s14">{{$postFirst->created_at->format('Y-m-d')}}</p>
@@ -165,64 +165,13 @@
                     @else
                         <div class="card">
                             <div class="imagebox2">
-                                <img src="../assets/landingpage/fot2.jpg" alt="gambar" class="foto2">
+                                <img src="{{ '../assets/news/'.$p->gambar_berita }}" alt="gambar" class="foto2">
                             </div>
                             <p class="judul-news s16">{{Str::words($p->judul, 5)}}</p>
                             <p class="tanggal s12">{{$p->created_at->format('Y-m-d')}}</p>
                         </div>
                     @endif
                 @endforeach
-                {{-- <div class="card">
-                    <div class="imagebox2">
-                        <img src="../assets/landingpage/fot2.jpg" alt="gambar" class="foto2">
-                    </div>
-                    <p class="judul-news s16">LOREM IPSUM DOLOR SIT AMET</p>
-                    <p class="tanggal s12">20 Mei 2023</p>
-                </div>
-                <div class="card">
-                    <div class="imagebox2">
-                        <img src="../assets/landingpage/fot2.jpg" alt="gambar" class="foto2">
-                    </div>
-                    <p class="judul-news s16">LOREM IPSUM DOLOR SIT AMET</p>
-                    <p class="tanggal s12">20 Mei 2023</p>
-                </div>
-                <div class="card">
-                    <div class="imagebox2">
-                        <img src="../assets/landingpage/fot2.jpg" alt="gambar" class="foto2">
-                    </div>
-                    <p class="judul-news s16">LOREM IPSUM DOLOR SIT AMET</p>
-                    <p class="tanggal s12">20 Mei 2023</p>
-                </div>
-                <div class="card">
-                    <div class="imagebox2">
-                        <img src="../assets/landingpage/fot2.jpg" alt="gambar" class="foto2">
-                    </div>
-                    <p class="judul-news s16">LOREM IPSUM DOLOR SIT AMET</p>
-                    <p class="tanggal s12">20 Mei 2023</p>
-                </div>
-                <div class="card">
-                    <div class="imagebox2">
-                        <img src="../assets/landingpage/fot2.jpg" alt="gambar" class="foto2">
-                    </div>
-                    <p class="judul-news s16">LOREM IPSUM DOLOR SIT AMET</p>
-                    <p class="tanggal s12">20 Mei 2023</p>
-                </div>
-                <div class="card">
-                    <div class="imagebox2">
-                        <img src="../assets/landingpage/fot2.jpg" alt="gambar" class="foto2">
-                    </div>
-                    <p class="judul-news s16">LOREM IPSUM DOLOR SIT AMET</p>
-                    <p class="tanggal s12">20 Mei 2023</p>
-                </div> --}}
-                {{-- <div class="bag1">
-                    <div class="card">
-                        <div class="imagebox2">
-                            <img src="../assets/landingpage/fot2.jpg" alt="gambar" class="foto2">
-                        </div>
-                        <p class="judul-news s16">LOREM IPSUM DOLOR SIT AMET</p>
-                        <p class="tanggal s12">20 Mei 2023</p>
-                    </div>
-                </div> --}}
             </div>
         </div>
     </div>
