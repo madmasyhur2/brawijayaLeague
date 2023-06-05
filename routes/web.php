@@ -24,6 +24,7 @@ use App\Http\Controllers\PertandinganController;
 
 Route::get('/', [DashboardController::class, 'index']);
 Route::get('/standings', [TimController::class, 'index']);
+Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/admin/fixtures', [TimController::class, 'showFixturesAdmin']);
 Route::get('/admin/fixtures/form', [TimController::class, 'teamlist']);
 Route::get('/admin/standings', [TimController::class, 'showNameTimAdmin']);
@@ -42,14 +43,14 @@ Route::get('/admin/schedule', [PertandinganController::class, 'showScheduleAdmin
 Route::get('/admin/schedule/form', [TimController::class, 'dropDown', PertandinganController::class, 'ScheduleForm']);
 Route::post('/admin/schedule/form/insert', [PertandinganController::class, 'ScheduleInsert']);
 Route::get('/admin/schedule/delete/{posts:id}', [PertandinganController::class, 'ScheduleDelete']);
-Route::get('/admin/schedule/update/{posts:id}', [TimController::class, 'dropDown', PertandinganController::class, 'ScheduleEdit']);
+Route::get('/admin/schedule/update/{posts:id}', [PertandinganController::class, 'ScheduleEdit']);
 Route::post('/admin/schedule/update/{posts:id}', [PertandinganController::class, 'ScheduleUpdate']);
 Route::get('/admin/fixtures', [HasilPertandinganController::class, 'showFixturesAdmin']);
 Route::get('/admin/fixtures/form', [TimController::class, 'dropDownhasil', HasilPertandinganController::class, 'FixturesForm']);
 Route::post('/admin/fixtures/form/insert', [HasilPertandinganController::class, 'FixturesInsert']);
-Route::get('/admin/fixtures/delete/{posts:id}', [HasilPertandinganController::class, 'FixturesDelete']);
-Route::get('/admin/fixtures/update/{posts:id}', [HasilPertandinganController::class, 'FixturesEdit']);
-Route::post('/admin/fixtures/update/{posts:id}', [HasilPertandinganController::class, 'FixturesUpdate']);
+Route::get('/admin/fixtures/delete/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesDelete']);
+Route::get('/admin/fixtures/update/{hasil_pertandingans:id}', [TimController::class, 'dropDownEdit', HasilPertandinganController::class, 'FixturesEdit']);
+Route::post('/admin/fixtures/update/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesUpdate']);
 
 
 Route::get('/news', [PostController::class, 'index']);
@@ -78,6 +79,6 @@ Route::get('/highlights', function() {
 Route::get('/gallery', function() {
     return view('gallery.gallery');
 });
-Route::get('/admin', function() {
-    return view('admin.admin');
-});
+// Route::get('/admin', function() {
+//     return view('admin.admin');
+// });

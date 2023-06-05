@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('away_tim');
             $table->string('logo_away_tim')->nullable(true);
             $table->integer('matchday');
-            $table->string('tanggal');
+            $table->date('tanggal');
             $table->string('jam');
             $table->timestamps();
         });

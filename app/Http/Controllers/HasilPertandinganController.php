@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\hasil_pertandingan;
+use App\Models\Tim;
 use App\Http\Requests\Storehasil_pertandinganRequest;
 use App\Http\Requests\Updatehasil_pertandinganRequest;
 use Illuminate\Http\Request;
@@ -101,5 +102,11 @@ class HasilPertandinganController extends Controller
         $hasil_pertandingans = hasil_pertandingan::find($id);
         $hasil_pertandingans->delete();
         return redirect('/admin/fixtures')->with('success', 'Hasil Pertandingan berhasil dihapus.');;
+    }
+    public function FixturesEdit(hasil_pertandingan $hasil_pertandingan, Tim $tims){
+        return view('admin.hasil.update', [
+            'hasil_pertandingan' => $hasil_pertandingan,
+            'tim' => Tim::all(),
+        ]);
     }
 }
