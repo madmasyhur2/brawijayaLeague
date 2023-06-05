@@ -49,7 +49,7 @@ Route::get('/admin/fixtures', [HasilPertandinganController::class, 'showFixtures
 Route::get('/admin/fixtures/form', [TimController::class, 'dropDownhasil', HasilPertandinganController::class, 'FixturesForm']);
 Route::post('/admin/fixtures/form/insert', [HasilPertandinganController::class, 'FixturesInsert']);
 Route::get('/admin/fixtures/delete/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesDelete']);
-Route::get('/admin/fixtures/update/{hasil_pertandingans:id}', [TimController::class, 'dropDownEdit', HasilPertandinganController::class, 'FixturesEdit']);
+Route::get('/admin/fixtures/update/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesEdit']);
 Route::post('/admin/fixtures/update/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesUpdate']);
 
 
