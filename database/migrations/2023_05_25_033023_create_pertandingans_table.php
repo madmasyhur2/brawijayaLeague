@@ -15,13 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('home_id');
             $table->foreignId('away_id');
-            // $table->string('home_tim');
-            // $table->string('logo_home_tim')->nullable(true);
-            // $table->string('away_tim');
-            // $table->string('logo_away_tim')->nullable(true);
             $table->integer('matchday');
-            $table->string('tanggal');
-            $table->string('jam');
+            $table->date('tanggal');
             $table->timestamps();
         });
     }

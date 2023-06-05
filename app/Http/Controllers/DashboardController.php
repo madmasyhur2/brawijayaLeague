@@ -21,7 +21,9 @@ class DashboardController extends Controller
                                 ->whereExists(function ($query) {
                                     $query->select(DB::raw(1))
                                         ->from('pertandingans')
-                                        ->whereRaw('tims.id = pertandingans.home_id');
+                                        ->whereRaw('tims.id = pertandingans.home_id')
+                                        ->orderBy('matchday', 'ASC')
+                                        ->orderBy('tanggal', 'ASC');
                                 })
                                 ->paginate(5),
             "hasil_pertandingans" => Hasil_Pertandingan::all(),
