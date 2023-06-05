@@ -14,7 +14,7 @@ class TimController extends Controller
      */
     
     public function index() {
-        $tims = Tim::orderByRaw("(menang * 3 + seri) DESC")->orderByRaw("(gol - kebobolan) DESC")->paginate(19);
+        $tims = Tim::orderByRaw("(menang * 3 + seri) DESC")->orderByRaw("(gol - kebobolan) DESC")->get();
         return view('standings.standings', ['tim' => $tims]);
     }
 

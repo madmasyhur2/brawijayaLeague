@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('judul');
             $table->string('gambar_berita')->nullable();
-            $table->string('tgl_publikasi');
             $table->text('isi');
             $table->timestamps();
         });
