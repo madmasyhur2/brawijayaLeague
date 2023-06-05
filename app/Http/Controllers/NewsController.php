@@ -1,14 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\post;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
     public function index() {
-        // $tims = Tim::orderByRaw("(menang * 3 + seri) DESC")->orderByRaw("(gol - kebobolan) DESC")->get();
-        return view('news.news');
+        return view('news.news', ['post' => post::all()]);
     }
 
     public function showDetail(){
