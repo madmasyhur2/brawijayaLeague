@@ -21,7 +21,7 @@ return new class extends Migration
             // $table->string('logo_away_tim')->nullable(true);
             $table->integer('matchday');
             $table->string('tanggal');
-            // $table->string('jam');
+            $table->string('jam');
             $table->timestamps();
         });
     }

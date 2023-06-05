@@ -93,4 +93,10 @@ class PertandinganController extends Controller
         $pertandingans->delete();
         return redirect('/admin/schedule')->with('success', 'Jadwal berhasil dihapus.');;
     }
+    public function ScheduleEdit(pertandingan $pertandingan, tim $tims){
+        return view('admin.pertandingan.update', [
+            'pertandingan' => $pertandingan,
+            'tim' => Tim::all(),
+        ]);
+    }
 }

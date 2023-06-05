@@ -22,6 +22,18 @@ class TimController extends Controller
         $tims = Tim::all();
         return view('admin.pertandingan.form', ['tim' => $tims]);
     }
+    public function dropDownupdate() {
+        $tims = Tim::all();
+        return view('admin.pertandingan.update', ['tim' => $tims]);
+    }
+    public function dropDownhasil() {
+        $tims = Tim::all();
+        return view('admin.hasil.form', ['tim' => $tims]);
+    }
+    public function dropDownEdit() {
+        $tims = Tim::all();
+        return view('admin.hasil.update', ['tim' => $tims]);
+    }
     public function teamlist() {
         $tims = Tim::all();
         return view('admin.hasil.form', ['tim' => $tims]);
@@ -212,6 +224,6 @@ class TimController extends Controller
             $logoPath = $request->file('logo_tim')->store('../assets/teamLogo/');
             $tims->logo_tim = $logoPath;
         }
-        return redirect('/admin/posts')->with('success', 'Data tim berhasil diperbarui.');;
+        return redirect('/admin/standings')->with('success', 'Data tim berhasil diperbarui.');;
     }
 }
