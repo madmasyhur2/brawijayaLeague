@@ -91,24 +91,28 @@ class HasilPertandinganController extends Controller
         //
     }
     function showFixturesAdmin(){
-        $hasil_pertandingans = hasil_pertandingan::all();
-        return view('admin.hasil.hasil', ['hasil_pertandingan' => $hasil_pertandingans]);
-    }
-    function FixturesForm(){
-        return view('admin.hasil.form');
+        $hasil_pertandingans = hasil_pertandingan::groupBy('matchday');
+        return view('admin.hasil.hasil', [
+            "hasil_pertandingans" => DB::table('hasil_pertandingans')
+            ->join('pertandingans', 'hasil_pertandingans.pertandingans_id', '=', 'pertandingans.id')
+            ->join('tims as home', 'pertandingans.home_id', '=', 'home.id')
+            ->join('tims as away', 'pertandingans.away_id', '=', 'away.id')
+            ->select('home.logo_tim as home_logo', 'away.logo_tim as away_logo', 'home.nama_tim as home_name', 'away.nama_tim as away_name', 'pertandingans.*', 'hasil_pertandingans.*')
+            ->whereExists(function ($query) {
+                $query->select(DB::raw(1))
+                    ->from('hasil_pertandingans')
+                    ->whereColumn('pertandingans.id', 'hasil_pertandingans.pertandingans_id');
+            })->get()
+        ]);
     }
     function FixturesInsert(Request $request){
-        $nama_tim_a = $request->input('timA');
-        $skor_a = $request->input('skorA');
-        $nama_tim_b = $request->input('timB');
-        $skor_b = $request->input('skorB');
-        $matchday = $request->input('matchday');
+        $pertandingans_id = $request->input('pertandinganID');
+        $skor_home = $request->input('skorHome');
+        $skor_away = $request->input('skorAway');
 
-        $isInsertSuccress = hasil_pertandingan::insert(['nama_tim_a'=>$nama_tim_a,
-                                                        'skor_a'=>$skor_a,
-                                                        'nama_tim_b'=>$nama_tim_b,
-                                                        'skor_b'=>$skor_b,
-                                                        'matchday'=>$matchday]);
+        $isInsertSuccress = hasil_pertandingan::insert(['pertandingans_id'=>$pertandingans_id,
+                                                        'skor_home'=>$skor_home,
+                                                        'skor_away'=>$skor_away]);
         
         return redirect('/admin/fixtures')->with('success', 'Hasil Pertandingan berhasil ditambahkan');
     }
@@ -120,9 +124,25 @@ class HasilPertandinganController extends Controller
     public function FixturesEdit(hasil_pertandingan $hasil_pertandingan, Tim $tims){
         return view('admin.hasil.update', [
             'hasil_pertandingan' => hasil_pertandingan::first(),
-            'tim' => Tim::all(),
-            // dd($hasil_pertandingan)
-            dd(Tim::all())
+            "pertandingans" => DB::table('pertandingans')
+                        ->join  ('tims as home', 'pertandingans.home_id', '=', 'home.id')
+                        ->join('tims as away', 'pertandingans.away_id', '=', 'away.id')
+                        ->select('home.logo_tim as home_logo', 'home.nama_tim as home_name', 'away.logo_tim as away_logo', 'away.nama_tim as away_name', 'pertandingans.*')
+                        ->whereExists(function ($query) {
+                            $query->select(DB::raw(1))
+                                ->from('pertandingans')
+                                ->whereColumn('home.id', 'pertandingans.home_id');
+                        })
+                        ->get()
         ]);
+    }
+    public function FixturesUpdate(Request $request,$id){
+        $hasil_pertandingans = hasil_pertandingan::find($id);
+        $hasil_pertandingans->skor_home = $request->input('skorHome');
+        $hasil_pertandingans->skor_away = $request->input('skorAway');
+
+        $hasil_pertandingans->update();
+
+        return redirect('/admin/fixtures')->with('success', 'Hasil Pertandingan berhasil diperbarui.');;
     }
 }

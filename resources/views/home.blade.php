@@ -46,19 +46,43 @@
                     <div class="upcoming-boxslider">
                         <div class="upcoming-boxslider-content">
                             <div class="upcoming-boxslider-content-page" id="upcoming-match1">
-                                @foreach ($pertandingans as $ps) 
-                                <div class="upcomingmatch-box">
-                                    <div class="upcomingmatch-box-content s12">
-                                        <img src="../assets/landingpage/logalengkap.svg" alt="" class="upcomingmatch-box-logo">
-                                            <div class="upcomingmatch-box-match s32">
-                                                <img src="{{'../storage/teamLogo/'.$ps->home_logo}}" alt="" class="upcomingmatch-box-match-logo">
-                                                <p>VS</p>
-                                                <img src="{{'../storage/teamLogo/'.$ps->away_logo}}" alt="" class="upcomingmatch-box-match-logo">
+                                @php($i = 1)
+                                @foreach ($pertandingans as $ps)
+                                    @if($i < 6)
+                                        <div class="upcomingmatch-box">
+                                            <div class="upcomingmatch-box-content s12">
+                                                <img src="../assets/landingpage/logalengkap.svg" alt="" class="upcomingmatch-box-logo">
+                                                    <div class="upcomingmatch-box-match s32">
+                                                        <img src="{{'../storage/teamLogo/'.$ps->home_logo}}" alt="" class="upcomingmatch-box-match-logo">
+                                                        <p>VS</p>
+                                                        <img src="{{'../storage/teamLogo/'.$ps->away_logo}}" alt="" class="upcomingmatch-box-match-logo">
+                                                    </div>
+                                                    <p class="upcomingmatch-box-desc">MATCHDAY {{$ps->matchday}} | {{$ps->tanggal}}</p>
+                                                <p class="upcomingmatch-box-end">MATCH CENTER</p>
                                             </div>
-                                            <p class="upcomingmatch-box-desc">MATCHDAY {{$ps->matchday}} | {{$ps->tanggal}}</p>
-                                        <p class="upcomingmatch-box-end">MATCH CENTER</p>
-                                    </div>
-                                </div>
+                                        </div>
+                                    @endif
+                                    @php($i++)
+                                @endforeach
+                            </div>
+                            <div class="upcoming-boxslider-content-page" id="upcoming-match1">
+                                @php($i = 1)
+                                @foreach ($pertandingans as $ps)
+                                    @if($i > 5 && $i < 11)
+                                        <div class="upcomingmatch-box">
+                                            <div class="upcomingmatch-box-content s12">
+                                                <img src="../assets/landingpage/logalengkap.svg" alt="" class="upcomingmatch-box-logo">
+                                                    <div class="upcomingmatch-box-match s32">
+                                                        <img src="{{'../storage/teamLogo/'.$ps->home_logo}}" alt="" class="upcomingmatch-box-match-logo">
+                                                        <p>VS</p>
+                                                        <img src="{{'../storage/teamLogo/'.$ps->away_logo}}" alt="" class="upcomingmatch-box-match-logo">
+                                                    </div>
+                                                    <p class="upcomingmatch-box-desc">MATCHDAY {{$ps->matchday}} | {{$ps->tanggal}}</p>
+                                                <p class="upcomingmatch-box-end">MATCH CENTER</p>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    @php($i++)
                                 @endforeach
                             </div>
                         </div>
@@ -151,9 +175,7 @@
             <div class="akabawah grid grid-cols-2">
                 @php($i = 1)
                 @foreach($posts as $p)
-                    @if($i == 1)
-                        @php($i++)
-                    @else
+                    @if($i != 1)
                         <div class="card">
                             <div class="imagebox2">
                                 <img src="{{ '../storage/news/'.$p->gambar_berita }}" alt="gambar" class="foto2">
@@ -162,6 +184,7 @@
                             <p class="tanggal s12">{{$p->created_at->format('Y-m-d')}}</p>
                         </div>
                     @endif
+                    @php($i++)
                 @endforeach
             </div>
         </div>

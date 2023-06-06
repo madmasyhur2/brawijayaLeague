@@ -88,8 +88,24 @@ class PertandinganController extends Controller
                                         ->from('pertandingans')
                                         ->whereColumn('home.id', 'pertandingans.home_id');
                                 })
-                                ->get()
+                                ->get(),
         ]);
+    }
+    public function dropDownhasil() {
+        $pertandingans = pertandingan::all();
+        return view('admin.hasil.form', [
+        "pertandingans" => DB::table('pertandingans')
+                        ->join('tims as home', 'pertandingans.home_id', '=', 'home.id')
+                        ->join('tims as away', 'pertandingans.away_id', '=', 'away.id')
+                        ->select('home.logo_tim as home_logo', 'home.nama_tim as home_name', 'away.logo_tim as away_logo', 'away.nama_tim as away_name', 'pertandingans.*')
+                        ->whereExists(function ($query) {
+                            $query->select(DB::raw(1))
+                                ->from('pertandingans')
+                                ->whereColumn('home.id', 'pertandingans.home_id');
+                        })
+                        ->get()
+    ]);
+        
     }
     function ScheduleForm(){
         return view('admin.pertandingan.form');
@@ -100,8 +116,10 @@ class PertandinganController extends Controller
         $matchday = $request->input('matchday');
         $tanggal = $request->input('date');
 
-        $isInsertSuccress = pertandingan::insert(['home_tim'=>$home_tim,
-                                        'away_tim'=>$away_tim,
+        $home_id = DB::table('tims')->select('id')->where('nama_tim', $home_tim)->first()->id;
+        $away_id = DB::table('tims')->select('id')->where('nama_tim', $away_tim)->first()->id;
+        $isInsertSuccress = pertandingan::insert(['home_id'=>$home_id,
+                                        'away_id'=>$away_id,
                                         'matchday'=>$matchday,
                                         'tanggal'=>$tanggal]);
         
@@ -112,10 +130,35 @@ class PertandinganController extends Controller
         $pertandingans->delete();
         return redirect('/admin/schedule')->with('success', 'Jadwal berhasil dihapus.');;
     }
-    public function ScheduleEdit(pertandingan $pertandingan, tim $tims){
+    public function ScheduleEdit($id, tim $tims){
         return view('admin.pertandingan.update', [
+            $pertandingan = pertandingan::find($id),
             'pertandingan' => $pertandingan,
             'tim' => Tim::all(),
+            "pertandingans" => DB::table('pertandingans')
+                                ->join('tims as home', 'pertandingans.home_id', '=', 'home.id')
+                                ->join('tims as away', 'pertandingans.away_id', '=', 'away.id')
+                                ->select('home.nama_tim as home_name', 'away.nama_tim as away_name', 'pertandingans.*')
+                                ->whereExists(function ($query) {
+                                    $query->select(DB::raw(1))
+                                        ->from('pertandingans')
+                                        ->whereColumn('home.id', 'pertandingans.home_id');
+                                })
+                                ->get()
         ]);
+    }
+    public function ScheduleUpdate(Request $request,$id){
+        $pertandingans = pertandingan::find($id);
+        $home_tim = $request->input('timA');
+        $away_tim = $request->input('timB');
+        $pertandingans->matchday = $request->input('matchday');
+        $pertandingans->tanggal = $request->input('date');
+
+        $pertandingans->home_id = DB::table('tims')->select('id')->where('nama_tim', $home_tim)->first()->id;
+        $pertandingans->away_id = DB::table('tims')->select('id')->where('nama_tim', $away_tim)->first()->id;
+
+        $pertandingans->update();
+
+        return redirect('/admin/schedule')->with('success', 'Berita berhasil diperbarui.');;
     }
 }

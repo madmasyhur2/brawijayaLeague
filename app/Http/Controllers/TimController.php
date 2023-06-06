@@ -31,10 +31,6 @@ class TimController extends Controller
         $tims = Tim::all();
         return view('admin.pertandingan.update', ['tim' => $tims]);
     }
-    public function dropDownhasil() {
-        $tims = Tim::all();
-        return view('admin.hasil.form', ['tim' => $tims]);
-    }
     public function dropDownEdit() {
         $tims = Tim::all();
         return view('admin.hasil.update', ['tim' => $tims]);
@@ -223,19 +219,12 @@ class TimController extends Controller
     }
     public function StandingsUpdate(Request $request,$id){
         $tims = tim::find($id);
-        $tims->logo_tim = $request->input('logo');
         $tims->nama_tim = $request->input('nama');
         $tims->menang = $request->input('menang');
         $tims->seri = $request->input('seri');
         $tims->kalah = $request->input('Kalah');
         $tims->gol = $request->input('gol');
         $tims->kebobolan = $request->input('Kebobolan');
-
-        // if ($request->hasFile('logo')) {
-        //     $validated['logo_tim'] = $request->file('logo')->store('public/assets/teamLogo');
-        //     $imageLink = $request->file('logo')->hashName();
-        // }
-        // $imageLink = $tims->logo_tim;
 
         $tims -> update();
         return redirect('/admin/standings')->with('success', 'Data tim berhasil diperbarui.');;
