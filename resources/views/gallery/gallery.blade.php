@@ -5,18 +5,11 @@
 </div>
 
 <div class="content m-20 ml-[10%] grid grid-cols-3">
+    @foreach ($hasil_pertandingan as $hp)
     <div class="border rounded-md border-[#E5E5E5] items-center m-1" style="background-color: #00529C">
-        <img class="w-max" src="../assets/landingpage/gal-1.png">
+        <img class="w-max" src="{{'../storage/highlight/'.$hp->gambar}}">
     </div>
-    
-
-    {{-- @foreach ($highlights as $highlight)
-    <div class="border rounded-md border-[#E5E5E5] items-center m-1" style="background-color: #00529C">
-        <img class="w-max" src="{{ asset('storage/' . $pertandingan->image) }}">
-    </div>
-    @endforeach --}}
-
+    @endforeach
 </div>
-
 
 @include('footer.footer')

@@ -12,6 +12,7 @@ class hasil_pertandingan extends Model
     protected $table = 'hasil_pertandingans';
 
     protected $fillable = [
+        'gambar',
         'skor_home',
         'skor_away',
         'matchday'

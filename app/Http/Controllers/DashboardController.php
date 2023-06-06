@@ -34,7 +34,7 @@ class DashboardController extends Controller
                                         $query->select(DB::raw(1))
                                             ->from('hasil_pertandingans')
                                             ->whereColumn('pertandingans.id', 'hasil_pertandingans.pertandingans_id');
-                                    })->get(),
-        ]);
+                                    })->paginate(4),
+        ]); 
     }
 }

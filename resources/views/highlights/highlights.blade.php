@@ -5,37 +5,21 @@
 </div>
 
 <div class="content m-20 ml-[10%] grid grid-cols-4">
+    @foreach ($hasilPertandingan as $hp)
     <div class="border rounded-md border-[#E5E5E5] items-center m-1 font-['Roboto'] font-bold" style="background-color: #00529C">
-        <img class="w-max" src="../assets/landingpage/gal-1.png">
+        <img class="w-max" src="{{'../storage/highlight/'.$hp->gambar}}">
         <div class="flex m-4 mt-2 mb-0 justify-between text-xl">
-            <h2 class="text-Neutral-white m-0">Liver</h2>
-            <h2 class="text-[#F79940]">2</h2>
+            <h2 class="text-Neutral-white m-0">{{$hp->home_name}}</h2>
+            <h2 class="text-[#F79940]">{{$hp->skor_home}}</h2>
         </div>
         <div class="flex m-4 mt-0 mb-0 justify-between text-xl">
-            <h2 class="text-Neutral-white">Liver</h2>
-            <h2 class="text-[#F79940]">2</h2>
+            <h2 class="text-Neutral-white">{{$hp->away_name}}</h2>
+            <h2 class="text-[#F79940]">{{$hp->skor_away}}</h2>
         </div>
-        <p class="text-Neutral-white font-medium text-sm text-right m-2">MATCHDAY 3</p>
+        <p class="text-Neutral-white font-medium text-sm text-right m-2">MATCHDAY {{$hp->matchday}}</p>
         <div class="linedown" style="background-color: #006DCB; height: 5px; border-radius: 0 0 6px 6px"></div>
     </div>
-    
-
-    {{-- @foreach ($highlights as $highlight)
-    <div class="border rounded-md border-[#E5E5E5] items-center m-1 font-['Roboto'] font-bold" style="background-color: #00529C">
-        <img class="w-max" src="{{ asset('storage/' . $pertandingan->image) }}">
-        <div class="flex m-4 mt-2 mb-0 justify-between text-xl">
-            <h2 class="text-Neutral-white m-0">{{ $pertandingan->tim1 }}</h2>
-            <h2 class="text-[#F79940]">{{ $pertandingan->skor1 }}</h2>
-        </div>
-        <div class="flex m-4 mt-0 mb-0 justify-between text-xl">
-            <h2 class="text-Neutral-white">{{ $pertandingan->tim2 }}</h2>
-            <h2 class="text-[#F79940]">{{ $pertandingan->skor2 }}</h2>
-        </div>
-        <p class="text-Neutral-white font-medium text-sm text-right m-2">MATCHDAY {{ $pertandingan->day }}</p>
-        <div class="linedown" style="background-color: #006DCB; height: 5px; border-radius: 0 0 6px 6px"></div>
-    </div>
-    @endforeach --}}
-
+    @endforeach
 </div>
 
 
