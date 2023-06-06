@@ -14,9 +14,9 @@
                 <p>{{$p->away_name}}</p>
             @endforeach --}}
             <p>Skor Tim Home</p>
-            <input type="number" id="skorA" name="skorA" placeholder="Skor Tim A" class="border rounded p-1 w-full">
+            <input value="{{$hasil_pertandingan->skor_home}}" type="number" id="skorA" name="skorA" placeholder="Skor Tim A" class="border rounded p-1 w-full">
             <p>Skor Tim Away</p>
-            <input value="{{ $hasil_pertandingan->skorB}}"  type="number" id="skorB" name="skorB" placeholder="Skor Tim B" class="border rounded p-1 w-full">
+            <input value="{{$hasil_pertandingan->skor_away}}"  type="number" id="skorB" name="skorB" placeholder="Skor Tim B" class="border rounded p-1 w-full">
             <input type="submit" value="Submit" class="border p-1 px-3 rounded-lg font-semibold bg-Secondary-1 cursor-pointer z-10>
         </form>
     </div>

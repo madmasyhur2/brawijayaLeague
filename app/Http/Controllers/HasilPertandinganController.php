@@ -121,9 +121,10 @@ class HasilPertandinganController extends Controller
         $hasil_pertandingans->delete();
         return redirect('/admin/fixtures')->with('success', 'Hasil Pertandingan berhasil dihapus.');;
     }
-    public function FixturesEdit(hasil_pertandingan $hasil_pertandingan, Tim $tims){
+    public function FixturesEdit($id, Tim $tims){
         return view('admin.hasil.update', [
-            'hasil_pertandingan' => hasil_pertandingan::first(),
+            $hasil_pertandingan = hasil_pertandingan::find($id),
+            'hasil_pertandingan' => $hasil_pertandingan,
             "pertandingans" => DB::table('pertandingans')
                         ->join  ('tims as home', 'pertandingans.home_id', '=', 'home.id')
                         ->join('tims as away', 'pertandingans.away_id', '=', 'away.id')
