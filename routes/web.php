@@ -56,7 +56,7 @@ Route::get('/admin/schedule/delete/{posts:id}', [PertandinganController::class, 
 Route::get('/admin/schedule/update/{posts:id}', [PertandinganController::class, 'ScheduleEdit']);
 Route::post('/admin/schedule/update/{posts:id}', [PertandinganController::class, 'ScheduleUpdate']);
 Route::get('/admin/fixtures', [HasilPertandinganController::class, 'showFixturesAdmin']);
-Route::get('/admin/fixtures/form', [TimController::class, 'dropDownhasil']);
+Route::get('/admin/fixtures/form', [PertandinganController::class, 'dropDownhasil']);
 Route::post('/admin/fixtures/form/insert', [HasilPertandinganController::class, 'FixturesInsert']);
 Route::get('/admin/fixtures/delete/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesDelete']);
 Route::get('/admin/fixtures/update/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesEdit']);
