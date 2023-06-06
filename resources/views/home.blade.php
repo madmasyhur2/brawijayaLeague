@@ -46,19 +46,43 @@
                     <div class="upcoming-boxslider">
                         <div class="upcoming-boxslider-content">
                             <div class="upcoming-boxslider-content-page" id="upcoming-match1">
-                                @foreach ($pertandingans as $ps) 
-                                <div class="upcomingmatch-box">
-                                    <div class="upcomingmatch-box-content s12">
-                                        <img src="../assets/landingpage/logalengkap.svg" alt="" class="upcomingmatch-box-logo">
-                                            <div class="upcomingmatch-box-match s32">
-                                                <img src="{{'../storage/teamLogo/'.$ps->home_logo}}" alt="" class="upcomingmatch-box-match-logo">
-                                                <p>VS</p>
-                                                <img src="{{'../storage/teamLogo/'.$ps->away_logo}}" alt="" class="upcomingmatch-box-match-logo">
+                                @php($i = 1)
+                                @foreach ($pertandingans as $ps)
+                                    @if($i < 6)
+                                        <div class="upcomingmatch-box">
+                                            <div class="upcomingmatch-box-content s12">
+                                                <img src="../assets/landingpage/logalengkap.svg" alt="" class="upcomingmatch-box-logo">
+                                                    <div class="upcomingmatch-box-match s32">
+                                                        <img src="{{'../storage/teamLogo/'.$ps->home_logo}}" alt="" class="upcomingmatch-box-match-logo">
+                                                        <p>VS</p>
+                                                        <img src="{{'../storage/teamLogo/'.$ps->away_logo}}" alt="" class="upcomingmatch-box-match-logo">
+                                                    </div>
+                                                    <p class="upcomingmatch-box-desc">MATCHDAY {{$ps->matchday}} | {{$ps->tanggal}}</p>
+                                                <p class="upcomingmatch-box-end">MATCH CENTER</p>
                                             </div>
-                                            <p class="upcomingmatch-box-desc">MATCHDAY {{$ps->matchday}} | {{$ps->tanggal}}</p>
-                                        <p class="upcomingmatch-box-end">MATCH CENTER</p>
-                                    </div>
-                                </div>
+                                        </div>
+                                    @endif
+                                    @php($i++)
+                                @endforeach
+                            </div>
+                            <div class="upcoming-boxslider-content-page" id="upcoming-match1">
+                                @php($i = 1)
+                                @foreach ($pertandingans as $ps)
+                                    @if($i > 5 && $i < 11)
+                                        <div class="upcomingmatch-box">
+                                            <div class="upcomingmatch-box-content s12">
+                                                <img src="../assets/landingpage/logalengkap.svg" alt="" class="upcomingmatch-box-logo">
+                                                    <div class="upcomingmatch-box-match s32">
+                                                        <img src="{{'../storage/teamLogo/'.$ps->home_logo}}" alt="" class="upcomingmatch-box-match-logo">
+                                                        <p>VS</p>
+                                                        <img src="{{'../storage/teamLogo/'.$ps->away_logo}}" alt="" class="upcomingmatch-box-match-logo">
+                                                    </div>
+                                                    <p class="upcomingmatch-box-desc">MATCHDAY {{$ps->matchday}} | {{$ps->tanggal}}</p>
+                                                <p class="upcomingmatch-box-end">MATCH CENTER</p>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    @php($i++)
                                 @endforeach
                             </div>
                         </div>
@@ -79,21 +103,21 @@
                         {{-- <img src="../assets/landingpage/panahmaju.svg" alt=""> --}}
                     </div>
                 </div>
-                @foreach ( $hasil_pertandingans as $hp)
-                <div class="fixtures-content">
-                    <div class="fixtures-content-grid">
-                        <div class="timmatch jc-end">
-                            <p>{{$hp->home_name}}</p>
-                            <img src="{{'../storage/teamLogo/'.$hp->home_logo}}" alt="" class="timmatch-logo">
+                @foreach ($hasil_pertandingans as $hp)
+                    <div class="fixtures-content">
+                        <div class="fixtures-content-grid">
+                            <div class="timmatch jc-end">
+                                <p>{{$hp->home_name}}</p>
+                                <img src="{{'../storage/teamLogo/'.$hp->home_logo}}" alt="" class="timmatch-logo">
+                            </div>
+                            <div class="fixtures-score">{{$hp->skor_home}}-{{$hp->skor_away}}</div>
+                            <div class="timmatch">
+                                <img src="{{'../storage/teamLogo/'.$hp->away_logo}}" alt="" class="timmatch-logo">
+                                <p>{{$hp->away_name}}</p>
+                            </div>
                         </div>
-                        <div class="fixtures-score">{{$hp->skor_home}}-{{$hp->skor_away}}</div>
-                        <div class="timmatch">
-                            <img src="{{'../storage/teamLogo/'.$hp->away_logo}}" alt="" class="timmatch-logo">
-                            <p>{{$hp->away_name}}</p>
-                        </div>
+                        <div class="fixtures-all-content">VIEW ALL FIXTURES</div>
                     </div>
-                    <div class="fixtures-all-content">VIEW ALL FIXTURES</div>
-                </div>
                 @endforeach
             </div>
             <div class="table">
@@ -153,9 +177,7 @@
             <div class="akabawah grid grid-cols-2">
                 @php($i = 1)
                 @foreach($posts as $p)
-                    @if($i == 1)
-                        @php($i++)
-                    @else
+                    @if($i != 1)
                         <div class="card">
                             <div class="imagebox2">
                                 <img src="{{ '../storage/news/'.$p->gambar_berita }}" alt="gambar" class="foto2">
@@ -164,6 +186,7 @@
                             <p class="tanggal s12">{{$p->created_at->format('Y-m-d')}}</p>
                         </div>
                     @endif
+                    @php($i++)
                 @endforeach
             </div>
         </div>
@@ -178,23 +201,22 @@
                 </div>
             </div>
             <div class="highlightcontent">
+                @foreach ($hasil_pertandingans as $hp)
                 <div class="highlightcontent-card">
                     <div class="bluebox">
-                        <img src="../assets/landingpage/highlight1.png" alt="">
+                        <img src="{{'../storage/highlight/'.$hp->gambar}}" alt="">
                         <div class="highlightcontent-skor">
-                            <p>AL-NASSR</p>
-                            <p class="sec1">2</p>
+                            <p>{{$hp->home_name}}</p>
+                            <p class="sec1">{{$hp->skor_home}}</p>
                         </div>
                         <div class="highlightcontent-skor">
-                            <p>AL-HILAL</p>
-                            <p class="sec1">1</p>
+                            <p>{{$hp->away_name}}</p>
+                            <p class="sec1">{{$hp->skor_away}}</p>
                         </div>
-                        <p class="highlightcontent-end s14 fw500">MATCHDAY</p>
+                        <p class="highlightcontent-end s14 fw500">MATCHDAY {{$hp->matchday}}</p>
                     </div>
                 </div>
-                <div class="highlightcontent-card"><div class="bluebox"></div></div>
-                <div class="highlightcontent-card"><div class="bluebox"></div></div>
-                <div class="highlightcontent-card"><div class="bluebox"></div></div>
+                @endforeach
             </div>
         </div>
         <div class="gallery s20">
@@ -209,18 +231,12 @@
                 <div class="wrapper">
                     <i id="left" class="fa-solid fa-angle-left"></i>
                     <div class="carousel">
-                      <img src="../assets/landingpage/gal-1.png" alt="img" draggable="false">
-                      <img src="../assets/landingpage/gal-2.png" alt="img" draggable="false">
-                      <img src="../assets/landingpage/gal-3.png" alt="img" draggable="false">
-                      <img src="../assets/landingpage/gal-1.png" alt="img" draggable="false">
-                      <img src="../assets/landingpage/gal-2.png" alt="img" draggable="false">
-                      <img src="../assets/landingpage/gal-3.png" alt="img" draggable="false">
-                      <img src="../assets/landingpage/gal-1.png" alt="img" draggable="false">
-                      <img src="../assets/landingpage/gal-2.png" alt="img" draggable="false">
-                      <img src="../assets/landingpage//gal-3.png" alt="img" draggable="false">
+                        @foreach ($hasil_pertandingans as $hp)
+                        <img src="{{'../storage/highlight/'.$hp->gambar}}" alt="img" draggable="false">
+                        @endforeach
                     </div>
                     <i id="right" class="fa-solid fa-angle-right"></i>
-                  </div>
+                </div>
             </div>
         </div>
     </div>

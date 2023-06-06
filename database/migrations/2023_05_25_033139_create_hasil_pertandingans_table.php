@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('hasil_pertandingans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pertandingans_id');
+            $table->string('gambar')->nullable();
             $table->integer('skor_home')->nullable();
             $table->integer('skor_away')->nullable();
             // $table->integer('matchday');

@@ -29,6 +29,8 @@ Route::get('/schedules', [PertandinganController::class, 'index']);
 Route::get('/teams', [TimController::class, 'indexteams']);
 Route::get('/news', [PostController::class, 'index']);
 Route::get('/article', [PostController::class, 'showDetail']);
+Route::get('/highlights', [HasilPertandinganController::class, 'index']);
+Route::get('/gallery', [HasilPertandinganController::class, 'showGambar']);
 
 Route::get('/admin/fixtures', [TimController::class, 'showFixturesAdmin']);
 Route::get('/admin/fixtures/form', [TimController::class, 'teamlist']);
@@ -59,41 +61,24 @@ Route::post('/admin/fixtures/form/insert', [HasilPertandinganController::class, 
 Route::get('/admin/fixtures/delete/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesDelete']);
 Route::get('/admin/fixtures/update/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesEdit']);
 Route::post('/admin/fixtures/update/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesUpdate']);
-Route::get('storage/{filename}', function ($filename){
-    $path = storage_path('storage/teamLogo' . $filename);
+// Route::get('storage/{filename}', function ($filename){
+//     $path = storage_path('storage/teamLogo' . $filename);
 
-    if (!File::exists($path)) {
-        abort(404);
-    }
+//     if (!File::exists($path)) {
+//         abort(404);
+//     }
 
-    $file = File::get($path);
-    $type = File::mimeType($path);
+//     $file = File::get($path);
+//     $type = File::mimeType($path);
 
-    $response = Response::make($file, 200);
-    $response->header("Content-Type", $type);
+//     $response = Response::make($file, 200);
+//     $response->header("Content-Type", $type);
 
-    return $response;
-});
+//     return $response;
+// });
 
 
 
 Route::get('/login', function() {
     return view('login.login');
-});
-Route::get('/players', function() {
-    return view('players.players');
-});
-Route::get('/statistic', function() {
-    return view('statistic.statistic');
-});Route::get('/videos', function() {
-    return view('videos.videos');
-});
-Route::get('/about', function() {
-    return view('about.about');
-});
-Route::get('/highlights', function() {
-    return view('highlights.highlights');
-});
-Route::get('/gallery', function() {
-    return view('gallery.gallery');
 });

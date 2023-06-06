@@ -1,13 +1,15 @@
 import './bootstrap';
 
-let indexupcoming = 0;
+let indexupcoming = 1;
 
-function scrollWin(x, y) {
-    window.scrollBy(x, y);
-}
+// function scrollWin(x, y) {
+//     window.scrollBy(x, y);
+// }
 
 document.getElementById("viewNews").addEventListener("click", goNews);
 document.getElementById("viewStanding").addEventListener("click", goStanding);
+document.getElementById("upcomingback").addEventListener("click", upcomingback);
+document.getElementById("upcomingnext").addEventListener("click", upcomingnext);
 
 function goNews() {
     window.location.href = "/news";
@@ -16,22 +18,32 @@ function goStanding() {
     window.location.href = "/standings";
 }
 
-function changeupcoming(button){
-    console.log('berhasil klik');
-    if(button==0){
-        if(indexupcoming==1) window.location.href = "#upcoming-match1";
-        if(indexupcoming==2) window.location.href = "#upcoming-match2";
-        if(indexupcoming==3) window.location.href = "#upcoming-match3";
-        if(indexupcoming!=0) indexupcoming--;
-    }else if(button==9){
-        if(indexupcoming==0) window.location.href = "#upcoming-match2";
-        if(indexupcoming==1) window.location.href = "#upcoming-match3";
-        if(indexupcoming==2) window.location.href = "#upcoming-match4";
-        if(indexupcoming!=3) indexupcoming++;
-    }
-
-    setTimeout(() => { scrollWin(0,-1) }, 1000);
+function upcomingback() {
+    if(indexupcoming != 1) indexupcoming--;
+    window.location.href = "?page=" + indexupcoming;
 }
+
+function upcomingnext() {
+    if(indexupcoming != 4) indexupcoming++;
+    window.location.href = "?page=" + indexupcoming;
+}
+
+// function changeupcoming(button){
+//     console.log('berhasil klik');
+//     if(button==0){
+//         if(indexupcoming==1) window.location.href = "#upcoming-match1";
+//         if(indexupcoming==2) window.location.href = "#upcoming-match2";
+//         if(indexupcoming==3) window.location.href = "#upcoming-match3";
+//         if(indexupcoming!=0) indexupcoming--;
+//     }else if(button==9){
+//         if(indexupcoming==0) window.location.href = "#upcoming-match2";
+//         if(indexupcoming==1) window.location.href = "#upcoming-match3";
+//         if(indexupcoming==2) window.location.href = "#upcoming-match4";
+//         if(indexupcoming!=3) indexupcoming++;
+//     }
+
+//     setTimeout(() => { scrollWin(0,-1) }, 1000);
+// }
 
 const carousel = document.querySelector(".carousel"),
 firstImg = carousel.querySelectorAll("img")[0],
