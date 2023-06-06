@@ -7,7 +7,8 @@
     </div>
     <div class="login-right">
         <div class="login-right-content">
-            <form>
+            <form action="{{ route('login') }}" method="post">
+                @csrf
                 <h1>WELCOME !</h1>
                 <p>EMAIL</p>
                 <input type="email" name="email" id="email" placeholder="Input your email" required>

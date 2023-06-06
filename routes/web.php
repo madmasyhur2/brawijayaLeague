@@ -31,36 +31,49 @@ Route::get('/news', [PostController::class, 'index']);
 Route::get('/article', [PostController::class, 'showDetail']);
 Route::get('/highlights', [HasilPertandinganController::class, 'index']);
 Route::get('/gallery', [HasilPertandinganController::class, 'showGambar']);
+// Route::get('/admin', [HasilPertandinganController::class, 'showGambar']);
 
-Route::get('/admin/fixtures', [TimController::class, 'showFixturesAdmin']);
-Route::get('/admin/fixtures/form', [TimController::class, 'teamlist']);
+Route::prefix('admin')->group(function() {
+    Route::get('/', [AdminController::class, 'index'])->name('admin');
+    Route::post('/', [AdminController::class, 'login'])->name('login');
+    Route::middleware(['auth'])->group(function() {
+        Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    
+        Route::get('/fixtures', [TimController::class, 'showFixturesAdmin']);
+        Route::get('/fixtures/form', [TimController::class, 'teamlist']);
+    
+        Route::get('/standings', [TimController::class, 'showNameTimAdmin']);
+        Route::get('/standings/form', [TimController::class, 'StandingForm']);
+        Route::post('/standings/form/insert', [TimController::class, 'StandingsInsert']);
+        Route::get('/standings/delete/{tims:id}', [TimController::class, 'StandingsDelete']);
+        Route::get('/standings/update/{tims:id}', [TimController::class, 'StandingsEdit']);
+        Route::post('/standings/update/{tims:id}', [TimController::class, 'StandingsUpdate']);
+    
+        Route::get('/news', [PostController::class, 'showNewsAdmin']);
+        Route::get('/news/form', [PostController::class, 'NewsForm']);
+        Route::post('/news/form/insert', [PostController::class, 'NewsInsert']);
+        Route::get('/news/delete/{posts:id}', [PostController::class, 'NewsDelete']);
+        Route::get('/news/update/{posts:id}', [PostController::class, 'NewsEdit']);
+        Route::post('/news/update/{posts:id}', [PostController::class, 'NewsUpdate']);
+    
+        Route::get('/schedule', [PertandinganController::class, 'showScheduleAdmin']);
+        Route::get('/schedule/form', [TimController::class, 'dropDown']);
+        Route::post('/schedule/form/insert', [PertandinganController::class, 'ScheduleInsert']);
+        Route::get('/schedule/delete/{posts:id}', [PertandinganController::class, 'ScheduleDelete']);
+        Route::get('/schedule/update/{posts:id}', [PertandinganController::class, 'ScheduleEdit']);
+        Route::post('/schedule/update/{posts:id}', [PertandinganController::class, 'ScheduleUpdate']);
+        Route::get('/fixtures', [HasilPertandinganController::class, 'showFixturesAdmin']);
+        Route::get('/fixtures/form', [TimController::class, 'dropDownhasil']);
+        Route::post('/fixtures/form/insert', [HasilPertandinganController::class, 'FixturesInsert']);
+        Route::get('/fixtures/delete/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesDelete']);
+        Route::get('/fixtures/update/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesEdit']);
+        Route::post('/fixtures/update/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesUpdate']);
+    });
+});
 
-Route::get('/admin/standings', [TimController::class, 'showNameTimAdmin']);
-Route::get('/admin/standings/form', [TimController::class, 'StandingForm']);
-Route::post('/admin/standings/form/insert', [TimController::class, 'StandingsInsert']);
-Route::get('/admin/standings/delete/{tims:id}', [TimController::class, 'StandingsDelete']);
-Route::get('/admin/standings/update/{tims:id}', [TimController::class, 'StandingsEdit']);
-Route::post('/admin/standings/update/{tims:id}', [TimController::class, 'StandingsUpdate']);
 
-Route::get('/admin/news', [PostController::class, 'showNewsAdmin']);
-Route::get('/admin/news/form', [PostController::class, 'NewsForm']);
-Route::post('/admin/news/form/insert', [PostController::class, 'NewsInsert']);
-Route::get('/admin/news/delete/{posts:id}', [PostController::class, 'NewsDelete']);
-Route::get('/admin/news/update/{posts:id}', [PostController::class, 'NewsEdit']);
-Route::post('/admin/news/update/{posts:id}', [PostController::class, 'NewsUpdate']);
 
-Route::get('/admin/schedule', [PertandinganController::class, 'showScheduleAdmin']);
-Route::get('/admin/schedule/form', [TimController::class, 'dropDown']);
-Route::post('/admin/schedule/form/insert', [PertandinganController::class, 'ScheduleInsert']);
-Route::get('/admin/schedule/delete/{posts:id}', [PertandinganController::class, 'ScheduleDelete']);
-Route::get('/admin/schedule/update/{posts:id}', [PertandinganController::class, 'ScheduleEdit']);
-Route::post('/admin/schedule/update/{posts:id}', [PertandinganController::class, 'ScheduleUpdate']);
-Route::get('/admin/fixtures', [HasilPertandinganController::class, 'showFixturesAdmin']);
-Route::get('/admin/fixtures/form', [TimController::class, 'dropDownhasil']);
-Route::post('/admin/fixtures/form/insert', [HasilPertandinganController::class, 'FixturesInsert']);
-Route::get('/admin/fixtures/delete/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesDelete']);
-Route::get('/admin/fixtures/update/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesEdit']);
-Route::post('/admin/fixtures/update/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesUpdate']);
+
 // Route::get('storage/{filename}', function ($filename){
 //     $path = storage_path('storage/teamLogo' . $filename);
 
@@ -79,6 +92,9 @@ Route::post('/admin/fixtures/update/{hasil_pertandingans:id}', [HasilPertandinga
 
 
 
-Route::get('/login', function() {
-    return view('login.login');
-});
+// Route::get('/login', function() {
+//     return view('login.login');
+// });
+// Route::get('/admin', function() {
+//     return view('admin.admin');
+// });
