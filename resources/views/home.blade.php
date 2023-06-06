@@ -98,27 +98,25 @@
                 <div class="fixtures-title">
                     <p class="fixtures-knob">FIXTURES</p>
                     <div class="fixtures-knob-content">
-                        {{-- <img src="../assets/landingpage/panahmundur.svg" alt=""> --}}
-                        <p>MATCHDAY 2</p>
-                        {{-- <img src="../assets/landingpage/panahmaju.svg" alt=""> --}}
+                        <p>RESULT</p>
                     </div>
                 </div>
-                @foreach ($hasil_pertandingans as $hp)
-                    <div class="fixtures-content">
-                        <div class="fixtures-content-grid">
-                            <div class="timmatch jc-end">
-                                <p>{{$hp->home_name}}</p>
-                                <img src="{{'../storage/teamLogo/'.$hp->home_logo}}" alt="" class="timmatch-logo">
-                            </div>
-                            <div class="fixtures-score">{{$hp->skor_home}}-{{$hp->skor_away}}</div>
-                            <div class="timmatch">
-                                <img src="{{'../storage/teamLogo/'.$hp->away_logo}}" alt="" class="timmatch-logo">
-                                <p>{{$hp->away_name}}</p>
-                            </div>
+                <div class="fixtures-content">
+                    @foreach ($hasil_pertandingan as $hn)
+                    <div class="fixtures-content-grid">
+                        <div class="timmatch jc-end">
+                            <p>{{$hn->home_name}}</p>
+                            <img src="{{'../storage/teamLogo/'.$hn->home_logo}}" alt="" class="timmatch-logo">
                         </div>
-                        <div class="fixtures-all-content">VIEW ALL FIXTURES</div>
+                        <div class="fixtures-score">{{$hn->skor_home}}-{{$hn->skor_away}}</div>
+                        <div class="timmatch">
+                            <img src="{{'../storage/teamLogo/'.$hn->away_logo}}" alt="" class="timmatch-logo">
+                            <p>{{$hn->away_name}}</p>
+                        </div>
                     </div>
-                @endforeach
+                    @endforeach
+                        <div class="fixtures-all-content rounded-[0_0_10px_10px]">VIEW ALL FIXTURES</div>
+                    </div>
             </div>
             <div class="table">
                 <div class="table-title s18">TABLE</div>
