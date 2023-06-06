@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('gambar')->nullable();
             $table->integer('skor_home')->nullable();
             $table->integer('skor_away')->nullable();
-            // $table->integer('matchday');
             $table->timestamps();
         });
     }
