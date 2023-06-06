@@ -12,7 +12,7 @@
 
     @foreach ($tim as $t)
     <div class="box border rounded-md border-[#E5E5E5] flex p-4 items-center m-1">
-        <img class="h-16" src="{{'../assets/teamLogo/'.$t->logo_tim}}">
+        <img class="h-16" src="{{'../storage/teamLogo/'.$t->logo_tim}}">
         <h2 class=" text-xl font-['Roboto'] font-medium ml-4">{{ $t->nama_tim }}</h2>
     </div>
     @endforeach
