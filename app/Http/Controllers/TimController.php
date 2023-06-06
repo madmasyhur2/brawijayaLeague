@@ -6,6 +6,7 @@ use App\Models\tim;
 use App\Http\Requests\StoretimRequest;
 use App\Http\Requests\UpdatetimRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TimController extends Controller
 {
@@ -14,13 +15,25 @@ class TimController extends Controller
      */
     
     public function index() {
-        $tims = Tim::orderByRaw("(menang * 3 + seri) DESC")->orderByRaw("(gol - kebobolan) DESC")->paginate(19);
+        $tims = Tim::orderByRaw("(menang * 3 + seri) DESC")->orderByRaw("(gol - kebobolan) DESC")->get();
         return view('standings.standings', ['tim' => $tims]);
     }
 
     public function dropDown() {
         $tims = Tim::all();
         return view('admin.pertandingan.form', ['tim' => $tims]);
+    }
+    public function dropDownupdate() {
+        $tims = Tim::all();
+        return view('admin.pertandingan.update', ['tim' => $tims]);
+    }
+    public function dropDownhasil() {
+        $tims = Tim::all();
+        return view('admin.hasil.form', ['tim' => $tims]);
+    }
+    public function dropDownEdit() {
+        $tims = Tim::all();
+        return view('admin.hasil.update', ['tim' => $tims]);
     }
     public function teamlist() {
         $tims = Tim::all();
@@ -173,22 +186,29 @@ class TimController extends Controller
         $kalah = $request->input('Kalah');
         $gol = $request->input('gol');
         $kebobolan = $request->input('Kebobolan');
-
-        $isInsertSuccress = tim::insert(['logo_tim'=>$logo_tim,
+        
+        if ($request->hasFile('logo')) {
+            $validated['logo_tim'] = $request->file('logo')->store('public/assets/teamLogo');
+            $imageLink = $request->file('logo')->hashName();
+        }
+        $isInsertSuccress = tim::insert(['logo_tim'=>$imageLink,
                                         'nama_tim'=>$nama_tim,
                                         'menang'=>$menang,
                                         'seri'=>$seri,
                                         'kalah'=>$kalah,
                                         'gol'=>$gol,
                                         'kebobolan'=>$kebobolan]);
-        if ($request->hasFile('logo_tim')) {
-            $validated['image'] = $request->file('image')->store('../assets/teamLogo/');
-        }
         
-        return redirect('/admin/standings')->with('success', 'Data tim berhasil ditambahkan');
+        if($isInsertSuccress){
+            return redirect('/admin/standings')->with('success', 'Data tim berhasil ditambahkan');
+        }
+        return redirect('/admin/standings')->with('gagal', 'Data tim gagal ditambahkan');
     }
     public function StandingsDelete($id){
         $tims = tim::find($id);
+        if ($tims->logo_tim) {
+            Storage::delete('public/assets/teamLogo/'.$tims->logo_tim);
+        }
         $tims->delete();
         return redirect('/admin/standings')->with('success', 'Data tim berhasil dihapus.');;
     }
@@ -199,19 +219,21 @@ class TimController extends Controller
     }
     public function StandingsUpdate(Request $request,$id){
         $tims = tim::find($id);
-        // $tims->logo_tim = $request->input('logo');
+        $tims->logo_tim = $request->input('logo');
         $tims->nama_tim = $request->input('nama');
         $tims->menang = $request->input('menang');
         $tims->seri = $request->input('seri');
         $tims->kalah = $request->input('Kalah');
         $tims->gol = $request->input('gol');
         $tims->kebobolan = $request->input('Kebobolan');
-        $tims -> update();
 
-        if ($request->hasFile('logo_tim')) {
-            $logoPath = $request->file('logo_tim')->store('../assets/teamLogo/');
-            $tims->logo_tim = $logoPath;
-        }
-        return redirect('/admin/posts')->with('success', 'Data tim berhasil diperbarui.');;
+        // if ($request->hasFile('logo')) {
+        //     $validated['logo_tim'] = $request->file('logo')->store('public/assets/teamLogo');
+        //     $imageLink = $request->file('logo')->hashName();
+        // }
+        // $imageLink = $tims->logo_tim;
+
+        $tims -> update();
+        return redirect('/admin/standings')->with('success', 'Data tim berhasil diperbarui.');;
     }
 }

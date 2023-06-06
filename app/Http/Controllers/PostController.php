@@ -16,10 +16,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('news.news', [
-            "posts" => Post::all(),
-        ]);
+            return view('news.news', ['post' => post::all()]);
+    }
 
+    public function showDetail(){
+        return view('news.article');
     }
 
     /**
@@ -155,21 +156,28 @@ class PostController extends Controller
     function NewsInsert(Request $request){
         $judul = $request->input('judul');
         $gambar_berita = $request->input('gambar');
-        $tgl_publikasi = $request->input('judul');
         $isi = $request->input('isi');
+        $created_at = date("Y-m-d");
+        $updated_at = date("Y-m-d");
+
+        if ($request->hasFile('gambar')) {
+            $validated['gambar_berita'] = $request->file('gambar')->store('public/assets/news');
+            $imageLink = $request->file('gambar')->hashName();
+        }
 
         $isInsertSuccress = post::insert(['judul'=>$judul,
-                                        'gambar_berita'=>$gambar_berita,
-                                        'tgl_publikasi'=>$tgl_publikasi,
-                                        'isi'=>$isi]);
-        if ($request->hasFile('gambar_berita')) {
-            $validated['image'] = $request->file('image')->store('../assets/news/');
-        }
+                                        'gambar_berita'=>$imageLink,
+                                        'isi'=>$isi,
+                                        'created_at'=>$created_at,
+                                        'updated_at'=>$updated_at]);
         
         return redirect('/admin/news')->with('success', 'Berita berhasil ditambahkan');
     }
     public function NewsDelete($id){
         $posts = post::find($id);
+        if ($posts->gambar_berita) {
+            Storage::delete('public/assets/news/'.$posts->gambar_berita);
+        }
         $posts->delete();
         return redirect('/admin/news')->with('success', 'Berita berhasil dihapus.');;
     }

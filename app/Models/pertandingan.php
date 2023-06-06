@@ -12,18 +12,15 @@ class pertandingan extends Model
     protected $table = 'pertandingans';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'home_tim',
-        'logo_home_tim',
-        'away_tim',
-        'logo_away_tim',
+        'home_id',
+        'away_id',
         'matchday',
         'tanggal',
-        'jam',
     ];
 
 
     public function tim()
     {
-        return $this->hasMany(Tim::class);
+        return $this->belongsTo(Tim::class);
     }
 }

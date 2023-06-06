@@ -3,10 +3,11 @@
 <div class="flex">
     @include('admin.sidebar.sidebar')
     <div class="m-8 ml-44">
+        <img src="{{'/storage/teamLogo/'.$tims->logo_tim}}" class="w-28 mx-auto my-5">
         <form action="/admin/standings/update/{{$tims->id}}" class="w-full grid grid-cols-2 gap-2" method="post" enctype="multipart/form-data">
             @csrf
             {{-- <p>Logo Tim</p>
-            <input value="{{'../assets/teamLogo/'.$tims->logo_tim}}" type="file" id="logo" name="logo" accept="image/*" max="2097152" required class="border rounded p-1 w-full"> --}}
+            <input value="{{'../assets/teamLogo/'.$tims->logo_tim}}" type="file" id="logo" name="logo" accept="image/*" max="2097152" class="border rounded p-1 w-full"> --}}
             <p>Nama Tim</p>
             <input value="{{$tims->nama_tim}}" type="text" id="nama" name="nama" placeholder="Nama Tim" required class="border rounded p-1 w-full">
             <p>Menang</p>

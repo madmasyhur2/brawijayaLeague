@@ -7,7 +7,7 @@ use App\Http\Requests\StorepertandinganRequest;
 use App\Http\Requests\UpdatepertandinganRequest;
 use App\Models\tim;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 class PertandinganController extends Controller
 {
@@ -16,8 +16,18 @@ class PertandinganController extends Controller
      */
     public function index()
     {
-        $pertandingan = Pertandingan::all();
-        return view('pertandingan.index', compact('pertandingan'));
+        return view('schedules.schedules', [
+            "pertandingans" => DB::table('pertandingans')
+                                ->join('tims as home', 'pertandingans.home_id', '=', 'home.id')
+                                ->join('tims as away', 'pertandingans.away_id', '=', 'away.id')
+                                ->select('home.logo_tim as home_logo', 'home.nama_tim as home_name', 'away.logo_tim as away_logo', 'away.nama_tim as away_name', 'pertandingans.*')
+                                ->whereExists(function ($query) {
+                                    $query->select(DB::raw(1))
+                                        ->from('pertandingans')
+                                        ->whereColumn('home.id', 'pertandingans.home_id');
+                                })
+                                ->get()
+        ]);
     }
 
     /**
@@ -91,5 +101,11 @@ class PertandinganController extends Controller
         $pertandingans = pertandingan::find($id);
         $pertandingans->delete();
         return redirect('/admin/schedule')->with('success', 'Jadwal berhasil dihapus.');;
+    }
+    public function ScheduleEdit(pertandingan $pertandingan, tim $tims){
+        return view('admin.pertandingan.update', [
+            'pertandingan' => $pertandingan,
+            'tim' => Tim::all(),
+        ]);
     }
 }

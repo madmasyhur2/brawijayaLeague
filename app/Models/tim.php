@@ -39,12 +39,12 @@ class tim extends Model
 
     public function pertandingan()
     {
-        return $this->hasMany(pertandingan::class, 'tim_id', 'id');
+        return $this->hasMany(pertandingan::class);
     }
 
     public function hasil_pertandingan()
     {
-        return $this->belongsTo(hasil_pertandingan::class, 'tim_id', 'id');
+        return $this->hasMany(hasil_pertandingan::class);
     }
 }
 

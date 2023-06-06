@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HasilPertandinganController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PertandinganController;
+use App\Http\Controllers\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,38 +25,60 @@ use App\Http\Controllers\PertandinganController;
 
 Route::get('/', [DashboardController::class, 'index']);
 Route::get('/standings', [TimController::class, 'index']);
-
+Route::get('/schedules', [PertandinganController::class, 'index']);
+Route::get('/teams', [PostController::class, 'index']);
+Route::get('/news', [PostController::class, 'index']);
+Route::get('/article', [PostController::class, 'showDetail']);
 
 Route::get('/admin/fixtures', [TimController::class, 'showFixturesAdmin']);
 Route::get('/admin/fixtures/form', [TimController::class, 'teamlist']);
+
 Route::get('/admin/standings', [TimController::class, 'showNameTimAdmin']);
 Route::get('/admin/standings/form', [TimController::class, 'StandingForm']);
 Route::post('/admin/standings/form/insert', [TimController::class, 'StandingsInsert']);
 Route::get('/admin/standings/delete/{tims:id}', [TimController::class, 'StandingsDelete']);
 Route::get('/admin/standings/update/{tims:id}', [TimController::class, 'StandingsEdit']);
 Route::post('/admin/standings/update/{tims:id}', [TimController::class, 'StandingsUpdate']);
+
 Route::get('/admin/news', [PostController::class, 'showNewsAdmin']);
 Route::get('/admin/news/form', [PostController::class, 'NewsForm']);
 Route::post('/admin/news/form/insert', [PostController::class, 'NewsInsert']);
 Route::get('/admin/news/delete/{posts:id}', [PostController::class, 'NewsDelete']);
 Route::get('/admin/news/update/{posts:id}', [PostController::class, 'NewsEdit']);
 Route::post('/admin/news/update/{posts:id}', [PostController::class, 'NewsUpdate']);
+
 Route::get('/admin/schedule', [PertandinganController::class, 'showScheduleAdmin']);
-Route::get('/admin/schedule/form', [TimController::class, 'dropDown',   PertandinganController::class, 'ScheduleForm']);
+Route::get('/admin/schedule/form', [TimController::class, 'dropDown', PertandinganController::class, 'ScheduleForm']);
 Route::post('/admin/schedule/form/insert', [PertandinganController::class, 'ScheduleInsert']);
 Route::get('/admin/schedule/delete/{posts:id}', [PertandinganController::class, 'ScheduleDelete']);
 Route::get('/admin/schedule/update/{posts:id}', [PertandinganController::class, 'ScheduleEdit']);
 Route::post('/admin/schedule/update/{posts:id}', [PertandinganController::class, 'ScheduleUpdate']);
+Route::get('/admin/fixtures', [HasilPertandinganController::class, 'showFixturesAdmin']);
+Route::get('/admin/fixtures/form', [TimController::class, 'dropDownhasil', HasilPertandinganController::class, 'FixturesForm']);
+Route::post('/admin/fixtures/form/insert', [HasilPertandinganController::class, 'FixturesInsert']);
+Route::get('/admin/fixtures/delete/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesDelete']);
+Route::get('/admin/fixtures/update/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesEdit']);
+Route::post('/admin/fixtures/update/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesUpdate']);
+Route::get('storage/{filename}', function ($filename){
+    $path = storage_path('storage/teamLogo' . $filename);
+
+    if (!File::exists($path)) {
+        abort(404);
+    }
+
+    $file = File::get($path);
+    $type = File::mimeType($path);
+
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+
+    return $response;
+});
 
 
-Route::get('/news', [PostController::class, 'index']);
-Route::get('/teams', [TimController::class, 'showNameTim']);
 
 Route::get('/login', function() {
     return view('login.login');
-});
-Route::get('/schedules', function() {
-    return view('schedules.schedules');
 });
 Route::get('/players', function() {
     return view('players.players');
@@ -65,9 +88,6 @@ Route::get('/statistic', function() {
 });Route::get('/videos', function() {
     return view('videos.videos');
 });
-// Route::get('/news', function() {
-//     return view('news.news');
-// });
 Route::get('/about', function() {
     return view('about.about');
 });
@@ -76,13 +96,4 @@ Route::get('/highlights', function() {
 });
 Route::get('/gallery', function() {
     return view('gallery.gallery');
-});
-Route::get('/admin', function() {
-    return view('admin.admin');
-});
-Route::get('/admin/fixtures/edit', function() {
-    return view('hasil.form.edit');
-});
-Route::get('/admin/schedule/edit', function() {
-    return view('pertandingan.form.edit');
 });

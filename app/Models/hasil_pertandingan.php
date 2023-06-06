@@ -12,17 +12,13 @@ class hasil_pertandingan extends Model
     protected $table = 'hasil_pertandingans';
 
     protected $fillable = [
-        'logo_tim_a',
-        'nama_tim_a',
-        'skor_a',
-        'logo_tim_b',
-        'nama_tim_b',
-        'skor_b',
+        'skor_home',
+        'skor_away',
         'matchday'
     ];
 
-    public function tim()
+    public function pertandingan()
     {
-        return $this->belongsTo(Tim::class,'pertandingan_id', 'id');
+        return $this->belongsTo(Pertandingan::class);
     }
 }
