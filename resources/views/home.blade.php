@@ -42,7 +42,7 @@
                     <a href="#slide4"></a>
                 </div>
                 <div class="upcomingmatch">
-                    <div class="upcomingmatch-button" onclick="changeupcoming(0)" id="upcomingback"><img src="../assets/landingpage/panahmundur.svg" alt="" class="upcomingmatch-button-icon"></div>
+                    <div class="upcomingmatch-button" id="upcomingback"><img src="../assets/landingpage/panahmundur.svg" alt="" class="upcomingmatch-button-icon"></div>
                     <div class="upcoming-boxslider">
                         <div class="upcoming-boxslider-content">
                             <div class="upcoming-boxslider-content-page" id="upcoming-match1">
@@ -63,7 +63,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="upcomingmatch-button" onclick="changeupcoming(9)" id="upcomingnext"><img src="../assets/landingpage/panahmaju.svg" alt="" class="mcicon"></div>
+                    <div class="upcomingmatch-button" id="upcomingnext"><img src="../assets/landingpage/panahmaju.svg" alt="" class="mcicon"></div>
                 </div>
             </div>
         </div>
@@ -74,9 +74,9 @@
                 <div class="fixtures-title">
                     <p class="fixtures-knob">FIXTURES</p>
                     <div class="fixtures-knob-content">
-                        <img src="../assets/landingpage/panahmundur.svg" alt="">
+                        {{-- <img src="../assets/landingpage/panahmundur.svg" alt=""> --}}
                         <p>MATCHDAY 2</p>
-                        <img src="../assets/landingpage/panahmaju.svg" alt="">
+                        {{-- <img src="../assets/landingpage/panahmaju.svg" alt=""> --}}
                     </div>
                 </div>
                 @foreach ($hasil_pertandingans as $hp)
@@ -132,13 +132,13 @@
                         </div>
                     </div>
                 @endforeach
-                <a class="table-all-content" href="/standings">VIEW ALL TABLES</a>
+                <a class="table-all-content" id="viewStanding">VIEW ALL TABLES</a>
             </div>
         </div>
         <div class="akanan">
-            <div class="akanama s48">
+            <div class="akanama s48 fw700" id="viewNews">
                 <p>NEWS</p>
-                <div class="vial s20">
+                <div class="vial s20" id="viewNews">
                     <p>VIEW ALL</p>
                     <img src="../assets/landingpage/vial.svg" alt="">
                 </div>
