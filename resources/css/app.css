@@ -257,15 +257,15 @@ footer{
 }
 
 #slide1{
-    background-image: url(../../public/assets/landingpage/baner1.png);
+    background-image: url(../../public/storage/news/gambar2.jpg);
 }
 
 #slide2{
-    background-image: url(../../public/assets/landingpage/baner2.png);
+    background-image: url(../../public/storage/news/gambar3.jpg);
 }
 
 #slide3{
-    background-image: url(../../public/assets/landingpage/baner1.png);
+    background-image: url(../../public/storage/news/gambar4.jpg);
 }
 
 #slide4{
@@ -461,7 +461,7 @@ footer{
     height: 50%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0 10px;
     color: var(--secondary-1)
 }
@@ -1019,8 +1019,10 @@ footer{
     gap: 20px;
 }
 
+
 .tim{
     display: flex;
+    width: 43%;
     align-items: center;
     justify-content: end;
     color: #000;
@@ -1029,6 +1031,7 @@ footer{
 
 .tim2{
     display: flex;
+    width: 43%;
     align-items: center;
     justify-content: start;
     color: #000;

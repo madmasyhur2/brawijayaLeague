@@ -6,6 +6,16 @@ function scrollWin(x, y) {
     window.scrollBy(x, y);
 }
 
+document.getElementById("viewNews").addEventListener("click", goNews);
+document.getElementById("viewStanding").addEventListener("click", goStanding);
+
+function goNews() {
+    window.location.href = "/news";
+}
+function goStanding() {
+    window.location.href = "/standings";
+}
+
 function changeupcoming(button){
     console.log('berhasil klik');
     if(button==0){
