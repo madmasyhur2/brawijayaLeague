@@ -7,7 +7,6 @@ use App\Models\Tim;
 use App\Http\Requests\Storehasil_pertandinganRequest;
 use App\Http\Requests\Updatehasil_pertandinganRequest;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 
 class HasilPertandinganController extends Controller
@@ -116,11 +115,11 @@ class HasilPertandinganController extends Controller
         $home_id = DB::table('tims')->select('id')->where('nama_tim', $nama_tim_home)->first()->id;
         $away_id = DB::table('tims')->select('id')->where('nama_tim', $nama_tim_away)->first()->id;
 
-        $isInsertSuccress = hasil_pertandingan::insert(['nama_tim_a'=>$nama_tim_a,
-                                                        'skor_a'=>$skor_a,
-                                                        'nama_tim_b'=>$nama_tim_b,
-                                                        'skor_b'=>$skor_b,
-                                                        'matchday'=>$matchday]);
+        // $isInsertSuccress = hasil_pertandingan::insert(['nama_tim_a'=>$nama_tim_a,
+        //                                                 'skor_a'=>$skor_a,
+        //                                                 'nama_tim_b'=>$nama_tim_b,
+        //                                                 'skor_b'=>$skor_b,
+        //                                                 'matchday'=>$matchday]);
         
         return redirect('/admin/fixtures')->with('success', 'Hasil Pertandingan berhasil ditambahkan');
     }
