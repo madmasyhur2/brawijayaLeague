@@ -18,6 +18,10 @@ class TimController extends Controller
         $tims = Tim::orderByRaw("(menang * 3 + seri) DESC")->orderByRaw("(gol - kebobolan) DESC")->get();
         return view('standings.standings', ['tim' => $tims]);
     }
+    public function indexteams() {
+        $tims = Tim::orderByRaw("(menang * 3 + seri) DESC")->orderByRaw("(gol - kebobolan) DESC")->get();
+        return view('teams.teams', ['tim' => $tims]);
+    }
 
     public function dropDown() {
         $tims = Tim::all();
@@ -207,7 +211,7 @@ class TimController extends Controller
     public function StandingsDelete($id){
         $tims = tim::find($id);
         if ($tims->logo_tim) {
-            Storage::delete($tims->logo_tim);
+            Storage::delete('public/assets/teamLogo/'.$tims->logo_tim);
         }
         $tims->delete();
         return redirect('/admin/standings')->with('success', 'Data tim berhasil dihapus.');;

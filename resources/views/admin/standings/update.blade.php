@@ -3,7 +3,7 @@
 <div class="flex">
     @include('admin.sidebar.sidebar')
     <div class="m-8 ml-44">
-        <img src="{{'/storage/teamLogo/'.$tims->logo_tim}}" class="w-28 mx-auto">
+        <img src="{{'/storage/teamLogo/'.$tims->logo_tim}}" class="w-28 mx-auto my-5">
         <form action="/admin/standings/update/{{$tims->id}}" class="w-full grid grid-cols-2 gap-2" method="post" enctype="multipart/form-data">
             @csrf
             {{-- <p>Logo Tim</p>
