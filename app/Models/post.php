@@ -14,10 +14,6 @@ class post extends Model
         'gambar_berita',
         'isi',
     ];
-
-    protected $guarded = [
-        'tgl_publikasi',
-    ];
     
     protected $table = 'posts';
 }

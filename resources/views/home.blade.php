@@ -170,7 +170,7 @@
                     <img src="{{ '../storage/news/'.$postFirst->gambar_berita }}" alt="gambar" class="foto">
                 </div>
                 <p class="judul-news s20">{{ Str::words($postFirst->judul, 13) }}</p>
-                <p class="tanggal s14">{{$postFirst->created_at->format('Y-m-d')}}</p>
+                <p class="tanggal s14">{{$postFirst->created_at->format('d M Y')}}</p>
             </div>
             <div class="akabawah grid grid-cols-2">
                 @php($i = 1)
@@ -181,7 +181,7 @@
                                 <img src="{{ '../storage/news/'.$p->gambar_berita }}" alt="gambar" class="foto2">
                             </div>
                             <p class="judul-news s16">{{Str::words($p->judul, 5)}}</p>
-                            <p class="tanggal s12">{{$p->created_at->format('Y-m-d')}}</p>
+                            <p class="tanggal s12">{{$p->created_at->format('d M Y')}}</p>
                         </div>
                     @endif
                     @php($i++)

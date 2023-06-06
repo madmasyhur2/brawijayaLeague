@@ -28,7 +28,7 @@ Route::get('/standings', [TimController::class, 'index']);
 Route::get('/schedules', [PertandinganController::class, 'index']);
 Route::get('/teams', [TimController::class, 'indexteams']);
 Route::get('/news', [PostController::class, 'index']);
-Route::get('/article', [PostController::class, 'showDetail']);
+Route::get('/news/{post:id}', [PostController::class, 'showDetail']);
 Route::get('/highlights', [HasilPertandinganController::class, 'index']);
 Route::get('/gallery', [HasilPertandinganController::class, 'showGambar']);
 // Route::get('/admin', [HasilPertandinganController::class, 'showGambar']);

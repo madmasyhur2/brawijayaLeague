@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\post;
 use App\Http\Requests\StorepostRequest;
 use App\Http\Requests\UpdatepostRequest;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
@@ -16,11 +15,13 @@ class PostController extends Controller
      */
     public function index()
     {
-            return view('news.news', ['post' => post::all()]);
+        return view('news.news', ['post' => post::all()]);
     }
 
-    public function showDetail(){
-        return view('news.article');
+    public function showDetail($id){
+        return view('news.article', [
+            'post' => post::find($id)]
+        );
     }
 
     /**
@@ -46,15 +47,10 @@ class PostController extends Controller
         // Mengambil input gambar
         $gambar_beritaPath = $request->file('gambar_berita')->store('public/newsImage');
 
-        // Mengambil tanggal publikasi saat ini
-        $dt = Carbon::now();
-        $tgl_publikasi = $dt->toFormattedDateString();
-
         // Buat objek Post baru
         $post = new Post;
         $post->judul = $request->judul;
         $post->gambar_berita = $gambar_beritaPath;
-        $post->tgl_publikasi = $tgl_publikasi;
         $post->isi = $request->isi;
 
         // Simpan objek Post
@@ -118,9 +114,6 @@ class PostController extends Controller
             // Mengupdate path gambar
             $post->gambar_berita = $gambar_berita_path;
         }
-
-        // Mengupdate tanggal publikasi saat ini
-        $post->tgl_publikasi = Carbon::now();
 
         // Simpan perubahan pada post
         $post->save();
