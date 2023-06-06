@@ -12,10 +12,10 @@
                 <th class="p-3 bg-[#006DCB]">Tanggal</th>
                 <th class="p-3 bg-[#006DCB] rounded-[0_6px_0_0]">Operation</th>
             </tr>
-            @foreach ($pertandingan  as $h)
+            @foreach ($pertandingans as $h)
             <tr class="border border-[#E5E5E5]">
                 <td class="p-1 text-center font-bold text-l">{{ $h->home_name}}</td>
-                <td class="p-1 text-center font-bold text-l">{{ $h->away_tim}}</td>
+                <td class="p-1 text-center font-bold text-l">{{ $h->away_name}}</td>
                 <td class="p-1 text-center font-bold text-l">{{ $h->matchday}}</td>
                 <td class="p-1 text-center font-bold text-l">{{ $h->tanggal}}</td>
                 <td class="p-1 text-center font-bold text-l flex gap-1">
