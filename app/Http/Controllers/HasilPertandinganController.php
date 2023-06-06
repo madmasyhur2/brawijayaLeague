@@ -7,6 +7,7 @@ use App\Models\Tim;
 use App\Http\Requests\Storehasil_pertandinganRequest;
 use App\Http\Requests\Updatehasil_pertandinganRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class HasilPertandinganController extends Controller
@@ -76,18 +77,29 @@ class HasilPertandinganController extends Controller
         //
     }
     function showFixturesAdmin(){
-        $hasil_pertandingans = hasil_pertandingan::all();
-        return view('admin.hasil.hasil', ['hasil_pertandingan' => $hasil_pertandingans]);
-    }
-    function FixturesForm(){
-        return view('admin.hasil.form');
+        $hasil_pertandingans = hasil_pertandingan::groupBy('matchday');
+        return view('admin.hasil.hasil', [
+            "hasil_pertandingans" => DB::table('hasil_pertandingans')
+            ->join('pertandingans', 'hasil_pertandingans.pertandingans_id', '=', 'pertandingans.id')
+            ->join('tims as home', 'pertandingans.home_id', '=', 'home.id')
+            ->join('tims as away', 'pertandingans.away_id', '=', 'away.id')
+            ->select('home.logo_tim as home_logo', 'away.logo_tim as away_logo', 'home.nama_tim as home_name', 'away.nama_tim as away_name', 'pertandingans.*', 'hasil_pertandingans.*')
+            ->whereExists(function ($query) {
+                $query->select(DB::raw(1))
+                    ->from('hasil_pertandingans')
+                    ->whereColumn('pertandingans.id', 'hasil_pertandingans.pertandingans_id');
+            })->get()
+        ]);
     }
     function FixturesInsert(Request $request){
-        $nama_tim_a = $request->input('timA');
-        $skor_a = $request->input('skorA');
-        $nama_tim_b = $request->input('timB');
-        $skor_b = $request->input('skorB');
+        $nama_tim_home = $request->input('timA');
+        $skor_home = $request->input('skorA');
+        $nama_tim_away = $request->input('timB');
+        $skor_away = $request->input('skorB');
         $matchday = $request->input('matchday');
+
+        $home_id = DB::table('tims')->select('id')->where('nama_tim', $nama_tim_home)->first()->id;
+        $away_id = DB::table('tims')->select('id')->where('nama_tim', $nama_tim_away)->first()->id;
 
         $isInsertSuccress = hasil_pertandingan::insert(['nama_tim_a'=>$nama_tim_a,
                                                         'skor_a'=>$skor_a,

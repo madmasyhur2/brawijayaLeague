@@ -13,12 +13,12 @@
                 <th class="p-3 bg-[#006DCB]">Matchday</th>
                 <th class="p-3 bg-[#006DCB] rounded-[0_6px_0_0]">Operation</th>
             </tr>
-            @foreach ($hasil_pertandingan  as $h)
+            @foreach ($hasil_pertandingans  as $h)
             <tr class="border border-[#E5E5E5]">
-                <td class="p-1 text-center font-bold text-l">{{ $h->nama_tim_a}}</td>
-                <td class="p-1 text-center font-bold text-l">{{ $h->skor_a}}</td>
-                <td class="p-1 text-center font-bold text-l">{{ $h->nama_tim_a}}</td>
-                <td class="p-1 text-center font-bold text-l">{{ $h->skor_b}}</td>
+                <td class="p-1 text-center font-bold text-l">{{ $h->home_name}}</td>
+                <td class="p-1 text-center font-bold text-l">{{ $h->skor_home}}</td>
+                <td class="p-1 text-center font-bold text-l">{{ $h->away_name}}</td>
+                <td class="p-1 text-center font-bold text-l">{{ $h->skor_away}}</td>
                 <td class="p-1 text-center font-bold text-l">{{ $h->matchday}}</td>
                 <td class="p-1 text-center font-bold text-l flex gap-1">
                     <a href="{{url('/admin/fixtures/update/'.$h->id)}}" class="border p-1 rounded-lg font-normal bg-Secondary-1">Update</a>
