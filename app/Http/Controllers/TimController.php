@@ -207,7 +207,7 @@ class TimController extends Controller
     public function StandingsDelete($id){
         $tims = tim::find($id);
         if ($tims->logo_tim) {
-            Storage::delete($tims->logo_tim);
+            Storage::delete('public/assets/teamLogo/'.$tims->logo_tim);
         }
         $tims->delete();
         return redirect('/admin/standings')->with('success', 'Data tim berhasil dihapus.');;
