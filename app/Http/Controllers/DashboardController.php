@@ -14,20 +14,27 @@ class DashboardController extends Controller
     {
         return view('home', [
             "tims" => Tim::orderByRaw("(menang * 3 + seri) DESC")->orderByRaw("(gol - kebobolan) DESC")->paginate(19),
-            "posts" => Post::paginate(7),
             "postFirst" => Post::first(),
-            "pertandingans" => DB::table('tims')
-                                ->join('pertandingans', 'tims.id', '=', 'pertandingans.home_id')
-                                ->select('tims.*', 'pertandingans.*')
+            "posts" => Post::all(), 
+            "pertandingans" => DB::table('pertandingans')
+                                ->join('tims as home', 'pertandingans.home_id', '=', 'home.id')
+                                ->join('tims as away', 'pertandingans.away_id', '=', 'away.id')
+                                ->select('home.logo_tim as home_logo', 'away.logo_tim as away_logo', 'pertandingans.*')
                                 ->whereExists(function ($query) {
                                     $query->select(DB::raw(1))
                                         ->from('pertandingans')
-                                        ->whereRaw('tims.id = pertandingans.home_id')
-                                        ->orderBy('matchday', 'ASC')
-                                        ->orderBy('tanggal', 'ASC');
-                                })
-                                ->paginate(5),
-            "hasil_pertandingans" => Hasil_Pertandingan::all(),
+                                        ->whereColumn('home.id', 'pertandingans.home_id');
+                                })->paginate(5),
+            "hasil_pertandingans" => DB::table('hasil_pertandingans')
+                                    ->join('pertandingans', 'hasil_pertandingans.pertandingans_id', '=', 'pertandingans.id')
+                                    ->join('tims as home', 'pertandingans.home_id', '=', 'home.id')
+                                    ->join('tims as away', 'pertandingans.away_id', '=', 'away.id')
+                                    ->select('home.logo_tim as home_logo', 'away.logo_tim as away_logo', 'home.nama_tim as home_name', 'away.nama_tim as away_name', 'pertandingans.*', 'hasil_pertandingans.*')
+                                    ->whereExists(function ($query) {
+                                        $query->select(DB::raw(1))
+                                            ->from('hasil_pertandingans')
+                                            ->whereColumn('pertandingans.id', 'hasil_pertandingans.pertandingans_id');
+                                    })->get(),
         ]);
     }
 }

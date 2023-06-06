@@ -16,10 +16,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('news.news', [
-            "posts" => Post::all(),
-        ]);
+            return view('news.news', ['post' => post::all()]);
+    }
 
+    public function showDetail(){
+        return view('news.article');
     }
 
     /**

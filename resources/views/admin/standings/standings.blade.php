@@ -24,6 +24,7 @@
                 <td class="w-[6%] p-1 text-center font-bold text-l">{{ $i++ }}</td>
                 <td class="w-1/3 p-1 font-bold text-l flex gap-3 items-center">
                     <img class="m-0.5 h-9" src="{{'../assets/teamLogo/'.$t->logo_tim}}">
+                    <img class="m-0.5 h-9" src="{{'../storage/teamLogo/'.$t->logo_tim}}">
                     <p class="">{{ $t->nama_tim }}</p>
                 </td>
                 <td class="w-[6%] p-1 text-center font-bold text-l">{{ $t->getPoin() }}</td>

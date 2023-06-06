@@ -14,7 +14,7 @@
             </tr>
             @foreach ($pertandingan  as $h)
             <tr class="border border-[#E5E5E5]">
-                <td class="p-1 text-center font-bold text-l">{{ $h->home_tim}}</td>
+                <td class="p-1 text-center font-bold text-l">{{ $h->home_name}}</td>
                 <td class="p-1 text-center font-bold text-l">{{ $h->away_tim}}</td>
                 <td class="p-1 text-center font-bold text-l">{{ $h->matchday}}</td>
                 <td class="p-1 text-center font-bold text-l">{{ $h->tanggal}}</td>

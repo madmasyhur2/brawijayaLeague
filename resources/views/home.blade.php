@@ -46,14 +46,14 @@
                     <div class="upcoming-boxslider">
                         <div class="upcoming-boxslider-content">
                             <div class="upcoming-boxslider-content-page" id="upcoming-match1">
-                                @foreach ($pertandingans as $ps)
+                                @foreach ($pertandingans as $ps) 
                                 <div class="upcomingmatch-box">
                                     <div class="upcomingmatch-box-content s12">
                                         <img src="../assets/landingpage/logalengkap.svg" alt="" class="upcomingmatch-box-logo">
                                             <div class="upcomingmatch-box-match s32">
-                                                <img src="{{'../assets/teamLogo/logotim.svg'.$ps->logo_tim}}" alt="" class="upcomingmatch-box-match-logo">
+                                                <img src="{{'../assets/teamLogo/logotim.svg'.$ps->home_logo}}" alt="" class="upcomingmatch-box-match-logo">
                                                 <p>VS</p>
-                                                <img src="{{'../assets/teamLogo/logotim.svg'.$ps->logo_tim}}" alt="" class="upcomingmatch-box-match-logo">
+                                                <img src="{{'../assets/teamLogo/logotim.svg'.$ps->away_logo}}" alt="" class="upcomingmatch-box-match-logo">
                                             </div>
                                             <p class="upcomingmatch-box-desc">MATCHDAY {{$ps->matchday}} | {{$ps->tanggal}}</p>
                                         <p class="upcomingmatch-box-end">MATCH CENTER</p>
@@ -79,29 +79,22 @@
                         <img src="../assets/landingpage/panahmaju.svg" alt="">
                     </div>
                 </div>
+                @foreach ( $hasil_pertandingans as $hp)
                 <div class="fixtures-content">
                     <div class="fixtures-content-grid">
                         <div class="timmatch jc-end">
-                            <p>TOTTENHAM</p>
-                            <img src="../assets/teamLogo/logotim.svg" alt="" class="timmatch-logo">
+                            <p>{{$hp->home_name}}</p>
+                            <img src="{{'../assets/teamLogo/logotim.svg'.$hp->home_logo}}" alt="" class="timmatch-logo">
                         </div>
-                        <div class="fixtures-score">1-2</div>
+                        <div class="fixtures-score">{{$hp->skor_home}}-{{$hp->skor_away}}</div>
                         <div class="timmatch">
-                            <img src="../assets/teamLogo/logotim.svg" alt="" class="timmatch-logo">
-                            <p>LIVERPOOL</p>
+                            <img src="{{'../assets/teamLogo/logotim.svg'.$hp->away_logo}}" alt="" class="timmatch-logo">
+                            <p>{{$hp->away_name}}</p>
                         </div>
                     </div>
-                    <div class="fixtures-content-grid"></div>
-                    <div class="fixtures-content-grid"></div>
-                    <div class="fixtures-content-grid"></div>
-                    <div class="fixtures-content-grid"></div>
-                    <div class="fixtures-content-grid"></div>
-                    <div class="fixtures-content-grid"></div>
-                    <div class="fixtures-content-grid"></div>
-                    <div class="fixtures-content-grid"></div>
-                    <div class="fixtures-content-grid"></div>
                     <div class="fixtures-all-content">VIEW ALL FIXTURES</div>
                 </div>
+                @endforeach
             </div>
             <div class="table">
                 <div class="table-title s18">TABLE</div>
