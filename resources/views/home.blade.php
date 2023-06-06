@@ -9,8 +9,8 @@
                     <div class="banner-boxslider-content-title s52" id="slide1">
                         <p>GALATASARAY 0-1 CHELSEA</p>
                         <div class="banner-boxslider-content-all s20">
-                            <p>GO TO THE ARTICLE</p>
-                            <img src="../assets/landingpage/panahbunder.svg" alt="">
+                            <p class="hidden">GO TO THE ARTICLE</p>
+                            <img class="hidden" src="../assets/landingpage/panahbunder.svg" alt="">
                         </div>
                     </div>
                     <div class="banner-boxslider-content-title s52" id="slide2">
@@ -115,7 +115,7 @@
                         </div>
                     </div>
                     @endforeach
-                        <div class="fixtures-all-content rounded-[0_0_10px_10px]">VIEW ALL FIXTURES</div>
+                        <a href="/highlights" class="fixtures-all-content rounded-[0_0_10px_10px]">VIEW ALL FIXTURES</a>
                     </div>
             </div>
             <div class="table">
@@ -154,16 +154,16 @@
                         </div>
                     </div>
                 @endforeach
-                <a class="table-all-content" id="viewStanding">VIEW ALL TABLES</a>
+                <a href="/standings" class="table-all-content" id="viewStanding">VIEW ALL TABLES</a>
             </div>
         </div>
         <div class="akanan">
             <div class="akanama s48 fw700" id="viewNews">
                 <p>NEWS</p>
-                <div class="vial s20" id="viewNews">
+                <a href="/news" class="vial s20" id="viewNews">
                     <p>VIEW ALL</p>
                     <img src="../assets/landingpage/vial.svg" alt="">
-                </div>
+                </a>
             </div>
             <div class="akafull">
                 <div class="imagebox">
@@ -221,7 +221,7 @@
             <div class="highlightnav">
                 <p class="mont s40">PHOTO GALLERY</p>
                 <div class="highlightnav-right">
-                    <p>VIEW ALL</p>
+                    <a href="/gallery">VIEW ALL</a>
                     <img src="../assets/landingpage/panahmajubuletbiru.svg" alt="">
                 </div>
             </div>
