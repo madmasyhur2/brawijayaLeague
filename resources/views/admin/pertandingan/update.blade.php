@@ -5,7 +5,7 @@
     <div class="m-8 ml-44">
         <form action="/admin/schedule/update/{{$pertandingan->id}}" class="w-full grid grid-cols-2 gap-2" method="post" enctype="multipart/form-data">
             @csrf
-            <p>Nama Tim Home</p>
+            {{-- <p>Nama Tim Home</p>
             <select type="text" id="timA" name="timA" placeholder="Nama Tim A" required class="border rounded p-1 w-full">
                 @foreach($pertandingans as $p)
                 <option selected>{{$p->home_name}}</option>
@@ -22,7 +22,7 @@
                 @foreach ($tim as $t)
                     <option>{{ $t->nama_tim}}</option>
                 @endforeach
-            </select>
+            </select> --}}
             <p>Matchday</p>
             <input value="{{ $pertandingan->matchday}}" type="number" id="matchday" name="matchday" placeholder="Matchday" required class="border rounded p-1 w-full">
             <p>Date</p>

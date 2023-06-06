@@ -74,6 +74,18 @@ Route::prefix('admin')->group(function() {
 
 
 
+// Route::get('/admin/schedule', [PertandinganController::class, 'showScheduleAdmin']);
+// Route::get('/admin/schedule/form', [TimController::class, 'dropDown']);
+// Route::post('/admin/schedule/form/insert', [PertandinganController::class, 'ScheduleInsert']);
+// Route::get('/admin/schedule/delete/{posts:id}', [PertandinganController::class, 'ScheduleDelete']);
+// Route::get('/admin/schedule/update/{posts:id}', [PertandinganController::class, 'ScheduleEdit']);
+// Route::post('/admin/schedule/update/{posts:id}', [PertandinganController::class, 'ScheduleUpdate']);
+// Route::get('/admin/fixtures', [HasilPertandinganController::class, 'showFixturesAdmin']);
+// Route::get('/admin/fixtures/form', [PertandinganController::class, 'dropDownhasil']);
+// Route::post('/admin/fixtures/form/insert', [HasilPertandinganController::class, 'FixturesInsert']);
+// Route::get('/admin/fixtures/delete/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesDelete']);
+// Route::get('/admin/fixtures/update/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesEdit']);
+// Route::post('/admin/fixtures/update/{hasil_pertandingans:id}', [HasilPertandinganController::class, 'FixturesUpdate']);
 // Route::get('storage/{filename}', function ($filename){
 //     $path = storage_path('storage/teamLogo' . $filename);
 

@@ -31,10 +31,6 @@ class TimController extends Controller
         $tims = Tim::all();
         return view('admin.pertandingan.update', ['tim' => $tims]);
     }
-    public function dropDownhasil() {
-        $tims = Tim::all();
-        return view('admin.hasil.form', ['tim' => $tims]);
-    }
     public function dropDownEdit() {
         $tims = Tim::all();
         return view('admin.hasil.update', ['tim' => $tims]);

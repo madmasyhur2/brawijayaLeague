@@ -106,20 +106,13 @@ class HasilPertandinganController extends Controller
         ]);
     }
     function FixturesInsert(Request $request){
-        $nama_tim_home = $request->input('timA');
-        $skor_home = $request->input('skorA');
-        $nama_tim_away = $request->input('timB');
-        $skor_away = $request->input('skorB');
-        $matchday = $request->input('matchday');
+        $pertandingans_id = $request->input('pertandinganID');
+        $skor_home = $request->input('skorHome');
+        $skor_away = $request->input('skorAway');
 
-        $home_id = DB::table('tims')->select('id')->where('nama_tim', $nama_tim_home)->first()->id;
-        $away_id = DB::table('tims')->select('id')->where('nama_tim', $nama_tim_away)->first()->id;
-
-        // $isInsertSuccress = hasil_pertandingan::insert(['nama_tim_a'=>$nama_tim_a,
-        //                                                 'skor_a'=>$skor_a,
-        //                                                 'nama_tim_b'=>$nama_tim_b,
-        //                                                 'skor_b'=>$skor_b,
-        //                                                 'matchday'=>$matchday]);
+        $isInsertSuccress = hasil_pertandingan::insert(['pertandingans_id'=>$pertandingans_id,
+                                                        'skor_home'=>$skor_home,
+                                                        'skor_away'=>$skor_away]);
         
         return redirect('/admin/fixtures')->with('success', 'Hasil Pertandingan berhasil ditambahkan');
     }
@@ -128,12 +121,19 @@ class HasilPertandinganController extends Controller
         $hasil_pertandingans->delete();
         return redirect('/admin/fixtures')->with('success', 'Hasil Pertandingan berhasil dihapus.');;
     }
-    public function FixturesEdit(hasil_pertandingan $hasil_pertandingan, Tim $tims){
+    public function FixturesEdit($id){
         return view('admin.hasil.update', [
-            'hasil_pertandingan' => hasil_pertandingan::first(),
-            'tim' => Tim::all(),
-            // dd($hasil_pertandingan)
-            dd(Tim::all())
+            $hasil_pertandingans = hasil_pertandingan::find($id),
+            'hasil_pertandingan' => $hasil_pertandingans
         ]);
+    }
+    public function FixturesUpdate(Request $request,$id){
+        $hasil_pertandingans = hasil_pertandingan::find($id);
+        $hasil_pertandingans->skor_home = $request->input('skorHome');
+        $hasil_pertandingans->skor_away = $request->input('skorAway');
+
+        $hasil_pertandingans->update();
+
+        return redirect('/admin/fixtures')->with('success', 'Hasil Pertandingan berhasil diperbarui.');;
     }
 }
