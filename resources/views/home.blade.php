@@ -79,21 +79,21 @@
                         <img src="../assets/landingpage/panahmaju.svg" alt="">
                     </div>
                 </div>
-                @foreach ( $hasil_pertandingans as $hp)
-                <div class="fixtures-content">
-                    <div class="fixtures-content-grid">
-                        <div class="timmatch jc-end">
-                            <p>{{$hp->home_name}}</p>
-                            <img src="{{'../storage/teamLogo/'.$hp->home_logo}}" alt="" class="timmatch-logo">
+                @foreach ($hasil_pertandingans as $hp)
+                    <div class="fixtures-content">
+                        <div class="fixtures-content-grid">
+                            <div class="timmatch jc-end">
+                                <p>{{$hp->home_name}}</p>
+                                <img src="{{'../storage/teamLogo/'.$hp->home_logo}}" alt="" class="timmatch-logo">
+                            </div>
+                            <div class="fixtures-score">{{$hp->skor_home}}-{{$hp->skor_away}}</div>
+                            <div class="timmatch">
+                                <img src="{{'../storage/teamLogo/'.$hp->away_logo}}" alt="" class="timmatch-logo">
+                                <p>{{$hp->away_name}}</p>
+                            </div>
                         </div>
-                        <div class="fixtures-score">{{$hp->skor_home}}-{{$hp->skor_away}}</div>
-                        <div class="timmatch">
-                            <img src="{{'../storage/teamLogo/'.$hp->away_logo}}" alt="" class="timmatch-logo">
-                            <p>{{$hp->away_name}}</p>
-                        </div>
+                        <div class="fixtures-all-content">VIEW ALL FIXTURES</div>
                     </div>
-                    <div class="fixtures-all-content">VIEW ALL FIXTURES</div>
-                </div>
                 @endforeach
             </div>
             <div class="table">
@@ -178,23 +178,22 @@
                 </div>
             </div>
             <div class="highlightcontent">
+                @foreach ($hasil_pertandingans as $hp)
                 <div class="highlightcontent-card">
                     <div class="bluebox">
-                        <img src="../assets/landingpage/highlight1.png" alt="">
+                        <img src="{{'../storage/highlight/'.$hp->gambar}}" alt="">
                         <div class="highlightcontent-skor">
-                            <p>AL-NASSR</p>
-                            <p class="sec1">2</p>
+                            <p>{{$hp->home_name}}</p>
+                            <p class="sec1">{{$hp->skor_home}}</p>
                         </div>
                         <div class="highlightcontent-skor">
-                            <p>AL-HILAL</p>
-                            <p class="sec1">1</p>
+                            <p>{{$hp->away_name}}</p>
+                            <p class="sec1">{{$hp->skor_away}}</p>
                         </div>
-                        <p class="highlightcontent-end s14 fw500">MATCHDAY</p>
+                        <p class="highlightcontent-end s14 fw500">MATCHDAY {{$hp->matchday}}</p>
                     </div>
                 </div>
-                <div class="highlightcontent-card"><div class="bluebox"></div></div>
-                <div class="highlightcontent-card"><div class="bluebox"></div></div>
-                <div class="highlightcontent-card"><div class="bluebox"></div></div>
+                @endforeach
             </div>
         </div>
         <div class="gallery s20">
@@ -209,18 +208,12 @@
                 <div class="wrapper">
                     <i id="left" class="fa-solid fa-angle-left"></i>
                     <div class="carousel">
-                      <img src="../assets/landingpage/gal-1.png" alt="img" draggable="false">
-                      <img src="../assets/landingpage/gal-2.png" alt="img" draggable="false">
-                      <img src="../assets/landingpage/gal-3.png" alt="img" draggable="false">
-                      <img src="../assets/landingpage/gal-1.png" alt="img" draggable="false">
-                      <img src="../assets/landingpage/gal-2.png" alt="img" draggable="false">
-                      <img src="../assets/landingpage/gal-3.png" alt="img" draggable="false">
-                      <img src="../assets/landingpage/gal-1.png" alt="img" draggable="false">
-                      <img src="../assets/landingpage/gal-2.png" alt="img" draggable="false">
-                      <img src="../assets/landingpage//gal-3.png" alt="img" draggable="false">
+                        @foreach ($hasil_pertandingans as $hp)
+                        <img src="{{'../storage/highlight/'.$hp->gambar}}" alt="img" draggable="false">
+                        @endforeach
                     </div>
                     <i id="right" class="fa-solid fa-angle-right"></i>
-                  </div>
+                </div>
             </div>
         </div>
     </div>

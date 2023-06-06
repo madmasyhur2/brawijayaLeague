@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use App\Models\hasil_pertandingan;
 use App\Models\Tim;
 use App\Http\Requests\Storehasil_pertandinganRequest;
@@ -16,7 +16,17 @@ class HasilPertandinganController extends Controller
      */
     public function index()
     {
-        
+        $hasil_pertandingan = DB::table('hasil_pertandingans')
+                                ->join('pertandingans', 'hasil_pertandingans.pertandingans_id', '=', 'pertandingans.id')
+                                ->join('tims as home', 'pertandingans.home_id', '=', 'home.id')
+                                ->join('tims as away', 'pertandingans.away_id', '=', 'away.id')
+                                ->select('home.logo_tim as home_logo', 'away.logo_tim as away_logo', 'home.nama_tim as home_name', 'away.nama_tim as away_name', 'pertandingans.*', 'hasil_pertandingans.*')
+                                ->whereExists(function ($query) {
+                                    $query->select(DB::raw(1))
+                                        ->from('hasil_pertandingans')
+                                        ->whereColumn('pertandingans.id', 'hasil_pertandingans.pertandingans_id');
+                                })->get();
+        return view('highlights.highlights', ['hasilPertandingan' => $hasil_pertandingan]);
     }
     public function showFixturesHome()
     {
@@ -26,6 +36,11 @@ class HasilPertandinganController extends Controller
     public function showScheduleAdmin() {
         $hasil_pertandingan = Hasil_Pertandingan::groupBy('matchday');
         return view('admin.pertandingan.pertandingan', ['hasil_pertandingan' => $hasil_pertandingan]);
+    }
+
+    public function showGambar() {
+        $hasil_pertandingan = Hasil_Pertandingan::all();
+        return view('gallery.gallery', ['hasil_pertandingan' => $hasil_pertandingan]);
     }
 
     /**
