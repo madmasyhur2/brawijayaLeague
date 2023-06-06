@@ -18,6 +18,10 @@ class TimController extends Controller
         $tims = Tim::orderByRaw("(menang * 3 + seri) DESC")->orderByRaw("(gol - kebobolan) DESC")->get();
         return view('standings.standings', ['tim' => $tims]);
     }
+    public function indexteams() {
+        $tims = Tim::orderByRaw("(menang * 3 + seri) DESC")->orderByRaw("(gol - kebobolan) DESC")->get();
+        return view('teams.teams', ['tim' => $tims]);
+    }
 
     public function dropDown() {
         $tims = Tim::all();
