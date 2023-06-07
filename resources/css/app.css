@@ -90,6 +90,7 @@ a{
 
 .hallOfFame{
     margin: 0 5%;
+    margin-top: 40px;
 }
 .hallOfFame h1{
     font-family: 'Montserrat';
@@ -97,6 +98,7 @@ a{
     font-size: 48px;
     text-align: center;
     color: #0A3E70;
+    margin-bottom: 40px;
 }
 .fame-person{
     column-count: 3;
@@ -114,20 +116,22 @@ a{
     font-family: 'Roboto';
     margin: 0 auto;
     text-align: center;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 24px;
     color: #FFFFFF;
     background: #00529C;
+    padding: 3px 0;
 }
 .fame-person-box p{
     font-family: 'Roboto';
     margin: 0 auto;
     text-align: center;
-    font-weight: 300;
-    font-size: 24px;
+    font-weight: 500;
+    font-size: 18px;
     text-align: center;
     color: #FFFFFF;
     background: #006DCB;
+    padding: 2px 0;
 }
 
 footer{
