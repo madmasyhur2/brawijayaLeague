@@ -985,7 +985,8 @@ footer{
 /* Schedules */
 .board{
     width: 100%;
-    padding: 100px;
+    padding: 10%;
+    padding-top: 50px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

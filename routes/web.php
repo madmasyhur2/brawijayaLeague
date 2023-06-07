@@ -38,6 +38,7 @@ Route::prefix('admin')->group(function() {
     Route::post('/', [AdminController::class, 'login'])->name('login');
     Route::middleware(['auth'])->group(function() {
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+        Route::get('/logout', [AdminController::class, 'logout']);
     
         Route::get('/fixtures', [TimController::class, 'showFixturesAdmin']);
         Route::get('/fixtures/form', [TimController::class, 'teamlist']);
