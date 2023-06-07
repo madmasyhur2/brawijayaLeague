@@ -46,6 +46,16 @@ class DashboardController extends Controller
                                             ->from('hasil_pertandingans')
                                             ->whereColumn('pertandingans.id', 'hasil_pertandingans.pertandingans_id');
                                     })->paginate(4),
+            "gallery" => DB::table('hasil_pertandingans')
+                                    ->join('pertandingans', 'hasil_pertandingans.pertandingans_id', '=', 'pertandingans.id')
+                                    ->join('tims as home', 'pertandingans.home_id', '=', 'home.id')
+                                    ->join('tims as away', 'pertandingans.away_id', '=', 'away.id')
+                                    ->select('home.logo_tim as home_logo', 'away.logo_tim as away_logo', 'home.nama_tim as home_name', 'away.nama_tim as away_name', 'pertandingans.*', 'hasil_pertandingans.*')
+                                    ->whereExists(function ($query) {
+                                        $query->select(DB::raw(1))
+                                            ->from('hasil_pertandingans')
+                                            ->whereColumn('pertandingans.id', 'hasil_pertandingans.pertandingans_id');
+                                    })->paginate(12),
         ]); 
     }
     public function indexabout(){

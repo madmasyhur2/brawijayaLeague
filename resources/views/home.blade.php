@@ -203,7 +203,7 @@
             <div class="highlightnav">
                 <p class="mont s40">PHOTO GALLERY</p>
                 <div class="highlightnav-right">
-                    <a href="/highlights">
+                    <a href="/gallery">
                         <p>VIEW ALL</p>
                         <img src="../assets/landingpage/panahmajubuletbiru.svg" alt="">
                     </a>
@@ -213,7 +213,7 @@
                 <div class="wrapper">
                     <i id="left" class="fa-solid fa-angle-left"></i>
                     <div class="carousel">
-                        @foreach ($hasil_pertandingans as $hp)
+                        @foreach ($gallery as $hp)
                         <img src="{{'../storage/highlight/'.$hp->gambar}}" alt="img" draggable="false">
                         @endforeach
                     </div>
