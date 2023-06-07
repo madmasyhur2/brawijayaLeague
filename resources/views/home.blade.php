@@ -7,7 +7,7 @@
             <div class="banner-boxslider">
                 <div class="banner-boxslider-content">
                     <div class="banner-boxslider-content-title s52" id="slide1">
-                        <p>GALATASARAY 0-1 CHELSEA</p>
+                        <p>PERTANIAN 0-4 PETERNAKAN</p>
                         <div class="banner-boxslider-content-all s20">
                             <p class="hidden">GO TO THE ARTICLE</p>
                             <img class="hidden" src="../assets/landingpage/panahbunder.svg" alt="">
@@ -174,8 +174,10 @@
             <div class="highlightnav">
                 <p class="mont s40">HIGHLIGHTS</p>
                 <div class="highlightnav-right">
-                    <a href="/highlights">VIEW ALL</a>
-                    <img src="../assets/landingpage/panahmajubuletbiru.svg" alt="">
+                    <a href="/highlights">
+                        <p>VIEW ALL</p>
+                        <img src="../assets/landingpage/panahmajubuletbiru.svg" alt="">
+                    </a>
                 </div>
             </div>
             <div class="highlightcontent">
@@ -201,8 +203,10 @@
             <div class="highlightnav">
                 <p class="mont s40">PHOTO GALLERY</p>
                 <div class="highlightnav-right">
-                    <a href="/gallery">VIEW ALL</a>
-                    <img src="../assets/landingpage/panahmajubuletbiru.svg" alt="">
+                    <a href="/highlights">
+                        <p>VIEW ALL</p>
+                        <img src="../assets/landingpage/panahmajubuletbiru.svg" alt="">
+                    </a>
                 </div>
             </div>
             <div class="gallerycontent">
