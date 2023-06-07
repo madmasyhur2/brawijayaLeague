@@ -3,6 +3,13 @@
 <div class="main-tittle bg-[url(/public/assets/tittle-bg.svg)] h-[20vh] bg-no-repeat bg-cover">
     <h1 class="pt-[30px] pl-[10%] text-[#FAFAFA] font-bold text-5xl font-['Montserrat']">SCHEDULES</h1>
 </div>
+<div class="pl-[10%] mt-9 flex items-center">
+    <input type="text" placeholder="Search" class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+    <button class="ml-2 px-4 py-2 text-Neutral-white rounded-md border bg-Text-color font-bold hover:bg-Secondary-1">
+        Search
+    </button>
+</div>
+
 <div class="board">
     @foreach ($pertandingans as $ps)
     <div class="boardvalue">
