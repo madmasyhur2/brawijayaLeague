@@ -14,23 +14,8 @@ class PertandinganController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('schedules.schedules', [
-            "pertandingans" => DB::table('pertandingans')
-                                ->join('tims as home', 'pertandingans.home_id', '=', 'home.id')
-                                ->join('tims as away', 'pertandingans.away_id', '=', 'away.id')
-                                ->select('home.logo_tim as home_logo', 'home.nama_tim as home_name', 'away.logo_tim as away_logo', 'away.nama_tim as away_name', 'pertandingans.*')
-                                ->whereExists(function ($query) {
-                                    $query->select(DB::raw(1))
-                                        ->from('pertandingans')
-                                        ->whereColumn('home.id', 'pertandingans.home_id');
-                                })
-                                ->get()
-        ]);
-    }
-
-    public function search(Request $request){
         $name = $request->input('category');
         $names = explode(" ", $name);
         if($names[0] == "matchday")
@@ -47,6 +32,7 @@ class PertandinganController extends Controller
                                     ->where(function($query) use ($names) {
                                         $query->where('matchday', '=', $names[1]);
                                     })
+                                    ->orderBy('matchday','ASC')
                                     ->get()
             ]);
         else 
@@ -64,6 +50,7 @@ class PertandinganController extends Controller
                                         $query->where('home.nama_tim', 'like', '%' . $name . '%')
                                         ->orWhere('away.nama_tim', 'like', '%' . $name . '%');
                                     })
+                                    ->orderBy('matchday','ASC')
                                     ->get()
             ]);
     }

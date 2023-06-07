@@ -27,13 +27,11 @@ Route::get('/', [DashboardController::class, 'index']);
 Route::get('/about', [DashboardController::class, 'indexabout']);
 Route::get('/standings', [TimController::class, 'index']);
 Route::get('/schedules', [PertandinganController::class, 'index']);
-Route::get('/schedules', [PertandinganController::class, 'search'])->name('search');
 Route::get('/teams', [TimController::class, 'indexteams']);
 Route::get('/news', [PostController::class, 'index']);
 Route::get('/news/{post:id}', [PostController::class, 'showDetail']);
 Route::get('/highlights', [HasilPertandinganController::class, 'index']);
 Route::get('/gallery', [HasilPertandinganController::class, 'showGambar']);
-// Route::get('/admin', [HasilPertandinganController::class, 'showGambar']);
 
 Route::prefix('admin')->group(function() {
     Route::get('/', [AdminController::class, 'index'])->name('admin');
