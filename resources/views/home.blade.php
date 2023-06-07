@@ -7,7 +7,7 @@
             <div class="banner-boxslider">
                 <div class="banner-boxslider-content">
                     <div class="banner-boxslider-content-title s52" id="slide1">
-                        <p>GALATASARAY 0-1 CHELSEA</p>
+                        <p>PERTANIAN 0-4 PETERNAKAN</p>
                         <div class="banner-boxslider-content-all s20">
                             <p class="hidden">GO TO THE ARTICLE</p>
                             <img class="hidden" src="../assets/landingpage/panahbunder.svg" alt="">
