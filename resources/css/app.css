@@ -420,7 +420,7 @@ footer{
 
 /* INI BAGIAN NEWS ANS TABLES*/
 .neswntable{
-    height: 1500px;
+    /* height: 1500px; */
     display: flex;
     justify-content: space-between;
     padding: 0 100px;
@@ -761,15 +761,20 @@ footer{
 }
 
 .highlightnav-right{
-    display: flex;
     width: 20%;
+}
+
+.highlightnav-right a {
+    display: flex;
+    width: 100%;
+    height: 100%;
     justify-content: end;
     align-items: center;
     gap: 5%;
     cursor: pointer;
 }
 
-.highlightnav-right img{
+.highlightnav-right p img{
     width: 12%;
 }
 

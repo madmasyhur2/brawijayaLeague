@@ -174,8 +174,10 @@
             <div class="highlightnav">
                 <p class="mont s40">HIGHLIGHTS</p>
                 <div class="highlightnav-right">
-                    <a href="/highlights">VIEW ALL</a>
-                    <img src="../assets/landingpage/panahmajubuletbiru.svg" alt="">
+                    <a href="/highlights">
+                        <p>VIEW ALL</p>
+                        <img src="../assets/landingpage/panahmajubuletbiru.svg" alt="">
+                    </a>
                 </div>
             </div>
             <div class="highlightcontent">
@@ -201,8 +203,10 @@
             <div class="highlightnav">
                 <p class="mont s40">PHOTO GALLERY</p>
                 <div class="highlightnav-right">
-                    <a href="/gallery">VIEW ALL</a>
-                    <img src="../assets/landingpage/panahmajubuletbiru.svg" alt="">
+                    <a href="/highlights">
+                        <p>VIEW ALL</p>
+                        <img src="../assets/landingpage/panahmajubuletbiru.svg" alt="">
+                    </a>
                 </div>
             </div>
             <div class="gallerycontent">
