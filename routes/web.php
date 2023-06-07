@@ -24,6 +24,7 @@ use App\Http\Controllers\NewsController;
 // bikin controller sesuai halaman
 
 Route::get('/', [DashboardController::class, 'index']);
+Route::get('/about', [DashboardController::class, 'indexabout']);
 Route::get('/standings', [TimController::class, 'index']);
 Route::get('/schedules', [PertandinganController::class, 'index']);
 Route::get('/teams', [TimController::class, 'indexteams']);

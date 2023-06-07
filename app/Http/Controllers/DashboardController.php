@@ -48,4 +48,7 @@ class DashboardController extends Controller
                                     })->paginate(4),
         ]); 
     }
+    public function indexabout(){
+        return view('about.about');
+    }
 }
