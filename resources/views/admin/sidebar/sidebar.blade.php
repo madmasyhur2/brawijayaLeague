@@ -5,5 +5,5 @@
     <a href="/admin/standings">Standings</a>
     <a href="/admin/schedule">Schedule</a>
     <a href="/admin/news">News</a>
-    <a href="" class="rounded-3xl p-1 px-4 text-center bg-Secondary-1 border-[2px] border-black">Log Out</a>
+    <a href="/admin/logout">Log Out</a>
 </div>
