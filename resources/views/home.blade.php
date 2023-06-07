@@ -46,9 +46,7 @@
                     <div class="upcoming-boxslider">
                         <div class="upcoming-boxslider-content">
                             <div class="upcoming-boxslider-content-page" id="upcoming-match1">
-                                @php($i = 1)
                                 @foreach ($pertandingans as $ps)
-                                    @if($i < 6)
                                         <div class="upcomingmatch-box">
                                             <div class="upcomingmatch-box-content s12">
                                                 <img src="../assets/landingpage/logalengkap.svg" alt="" class="upcomingmatch-box-logo">
@@ -61,28 +59,6 @@
                                                 <p class="upcomingmatch-box-end">MATCH CENTER</p>
                                             </div>
                                         </div>
-                                    @endif
-                                    @php($i++)
-                                @endforeach
-                            </div>
-                            <div class="upcoming-boxslider-content-page" id="upcoming-match1">
-                                @php($i = 1)
-                                @foreach ($pertandingans as $ps)
-                                    @if($i > 5 && $i < 11)
-                                        <div class="upcomingmatch-box">
-                                            <div class="upcomingmatch-box-content s12">
-                                                <img src="../assets/landingpage/logalengkap.svg" alt="" class="upcomingmatch-box-logo">
-                                                    <div class="upcomingmatch-box-match s32">
-                                                        <img src="{{'../storage/teamLogo/'.$ps->home_logo}}" alt="" class="upcomingmatch-box-match-logo">
-                                                        <p>VS</p>
-                                                        <img src="{{'../storage/teamLogo/'.$ps->away_logo}}" alt="" class="upcomingmatch-box-match-logo">
-                                                    </div>
-                                                    <p class="upcomingmatch-box-desc">MATCHDAY {{$ps->matchday}} | {{$ps->tanggal}}</p>
-                                                <p class="upcomingmatch-box-end">MATCH CENTER</p>
-                                            </div>
-                                        </div>
-                                    @endif
-                                    @php($i++)
                                 @endforeach
                             </div>
                         </div>
@@ -166,23 +142,27 @@
                 </a>
             </div>
             <div class="akafull">
-                <div class="imagebox">
-                    <img src="{{ '../storage/news/'.$postFirst->gambar_berita }}" alt="gambar" class="foto">
-                </div>
-                <p class="judul-news s20">{{ Str::words($postFirst->judul, 13) }}</p>
-                <p class="tanggal s14">{{$postFirst->created_at->format('d M Y')}}</p>
+                <a href="/news/{{ $postFirst->id }}">
+                    <div class="imagebox">
+                        <img src="{{ '../storage/news/'.$postFirst->gambar_berita }}" alt="gambar" class="foto">
+                    </div>
+                    <p class="judul-news s20">{{ Str::words($postFirst->judul, 13) }}</p>
+                    <p class="tanggal s14">{{$postFirst->created_at->format('d M Y')}}</p>
+                </a>
             </div>
             <div class="akabawah grid grid-cols-2">
                 @php($i = 1)
                 @foreach($posts as $p)
                     @if($i != 1)
-                        <div class="card">
-                            <div class="imagebox2">
-                                <img src="{{ '../storage/news/'.$p->gambar_berita }}" alt="gambar" class="foto2">
+                        <a href="/news/{{ $p->id }}">
+                            <div class="card">
+                                <div class="imagebox2">
+                                    <img src="{{ '../storage/news/'.$p->gambar_berita }}" alt="gambar" class="foto2">
+                                </div>
+                                <p class="judul-news s16">{{Str::words($p->judul, 5)}}</p>
+                                <p class="tanggal s12">{{$p->created_at->format('d M Y')}}</p>
                             </div>
-                            <p class="judul-news s16">{{Str::words($p->judul, 5)}}</p>
-                            <p class="tanggal s12">{{$p->created_at->format('d M Y')}}</p>
-                        </div>
+                        </a>
                     @endif
                     @php($i++)
                 @endforeach
