@@ -227,19 +227,19 @@
     <h1>HALL OF FAME</h1>
     <div class="fame-person">
         <div class="fame-person-box" id="fame-person1">
-            <img src="https://img.lovepik.com/element/40186/6572.png_860.png">
+            <img class="h-[350px]"  src="https://i.ibb.co/tYgdWLr/hanif.png">
             <h2>COACH OF THE MONTH</h2>
-            <p>PEP BOTAK GUARDIOLA</p>
+            <p>DARMAWAN</p>
         </div>
         <div class="fame-person-box"  id="fame-person2">
-            <img src="https://img.lovepik.com/element/40186/6572.png_860.png">
-            <h2>COACH OF THE MONTH</h2>
-            <p>PEP BOTAK GUARDIOLA</p>
+            <img class="h-[350px]"  src="https://i.ibb.co/HDJjszQ/mamad.png">
+            <h2>TOP SCORER</h2>
+            <p>MUHAMMAD</p>
         </div>
         <div class="fame-person-box"  id="fame-person3">
-            <img src="https://img.lovepik.com/element/40186/6572.png_860.png">
-            <h2>COACH OF THE MONTH</h2>
-            <p>PEP BOTAK GUARDIOLA</p>
+            <img class="h-[350px]" src="https://i.ibb.co/d0VWSzs/ariz.png">
+            <h2>TOP ASSIST</h2>
+            <p>MAULANA</p>
         </div>
     </div>
 </div>
