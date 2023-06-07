@@ -24,7 +24,7 @@ class AdminController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect('/admin/dashboard');
         }
-        // return redirect('/admin')->with('error', 'Oppes! You have entered invalid credentials');
+        return redirect('/admin')->with('error', 'Oppes! You have entered invalid credentials');
     }
 
     public function logout(){
