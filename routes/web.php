@@ -26,6 +26,7 @@ use App\Http\Controllers\NewsController;
 Route::get('/', [DashboardController::class, 'index']);
 Route::get('/standings', [TimController::class, 'index']);
 Route::get('/schedules', [PertandinganController::class, 'index']);
+Route::get('/schedules', [PertandinganController::class, 'search'])->name('search');
 Route::get('/teams', [TimController::class, 'indexteams']);
 Route::get('/news', [PostController::class, 'index']);
 Route::get('/news/{post:id}', [PostController::class, 'showDetail']);

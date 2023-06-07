@@ -16,6 +16,7 @@ class PertandinganController extends Controller
      */
     public function index()
     {
+        $name = 'er';
         return view('schedules.schedules', [
             "pertandingans" => DB::table('pertandingans')
                                 ->join('tims as home', 'pertandingans.home_id', '=', 'home.id')
@@ -25,6 +26,26 @@ class PertandinganController extends Controller
                                     $query->select(DB::raw(1))
                                         ->from('pertandingans')
                                         ->whereColumn('home.id', 'pertandingans.home_id');
+                                })
+                                ->get()
+        ]);
+    }
+
+    public function search(Request $request){
+        $name = $request->input('category');
+        return view('schedules.schedules', [
+            "pertandingans" => DB::table('pertandingans')
+                                ->join('tims as home', 'pertandingans.home_id', '=', 'home.id')
+                                ->join('tims as away', 'pertandingans.away_id', '=', 'away.id')
+                                ->select('home.logo_tim as home_logo', 'home.nama_tim as home_name', 'away.logo_tim as away_logo', 'away.nama_tim as away_name', 'pertandingans.*')
+                                ->whereExists(function ($query) {
+                                    $query->select(DB::raw(1))
+                                        ->from('pertandingans')
+                                        ->whereColumn('home.id', 'pertandingans.home_id');
+                                })
+                                ->where(function($query) use ($name) {
+                                    $query->where('home.nama_tim', 'like', '%' . $name . '%')
+                                    ->orWhere('away.nama_tim', 'like', '%' . $name . '%');
                                 })
                                 ->get()
         ]);

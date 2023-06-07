@@ -14,21 +14,21 @@
                         </div>
                     </div>
                     <div class="banner-boxslider-content-title s52" id="slide2">
-                        <p>INI SLIDE KEDUA YAA</p>
+                        <p>Teknik_1 2-2 Teknik_2</p>
                         <div class="banner-boxslider-content-all s20">
                             <p>GO TO THE ARTICLE</p>
                             <img src="../assets/landingpage/panahbunder.svg" alt="">
                         </div>
                     </div>
                     <div class="banner-boxslider-content-title s52" id="slide3">
-                        <p>KALO INI KETIGAA</p>
+                        <p>Kedokteran 3-1 FPIK</p>
                         <div class="banner-boxslider-content-all s20">
                             <p>GO TO THE ARTICLE</p>
                             <img src="../assets/landingpage/panahbunder.svg" alt="">
                         </div>
                     </div>
                     <div class="banner-boxslider-content-title s52" id="slide4">
-                        <p>NAHH INI BARU KEEMPAT</p>
+                        <p>Tek Pertanian 0-0 FKH</p>
                         <div class="banner-boxslider-content-all s20">
                             <p>GO TO THE ARTICLE</p>
                             <img src="../assets/landingpage/panahbunder.svg" alt="">
