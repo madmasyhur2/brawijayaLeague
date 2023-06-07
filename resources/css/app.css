@@ -1085,7 +1085,6 @@ footer{
     font-size: 32px;
     font-weight: 700;
     color: #0077B6;
-    margin-bottom: -10px;
 }
 
 .judul {
@@ -1107,9 +1106,7 @@ footer{
     font-family: "DM Sans";
     font-size: 15px;
     font-weight: 400;
-    color: 565656;
-    margin-right: 230px;
-    cursor: pointer;
+    color: #565656;
 }
 
 .ab-nama {
@@ -1124,7 +1121,6 @@ footer{
     height: 60vh;
     border: none;
     border-radius: 20px;
-    margin-bottom: 20px;
 }
 
 .isi {
